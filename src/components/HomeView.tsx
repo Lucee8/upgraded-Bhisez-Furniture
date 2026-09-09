@@ -23,7 +23,8 @@ import {
   Clock,
   Check,
   Layers,
-  Award
+  Award,
+  Play
 } from 'lucide-react';
 
 interface HomeViewProps {
@@ -165,7 +166,20 @@ export default function HomeView({
   const [bestsellerFilter, setBestsellerFilter] = useState<'all' | 'beds' | 'wooden-sofas' | 'wooden-mandirs' | 'dining-tables'>('all');
 
   // Shop The Look Hotspot State
-  const [activeHotspot, setActiveHotspot] = useState<number | null>(1);
+  const [activeHotspotId, setActiveHotspotId] = useState<string | null>(null);
+
+  // Inspiration Carousel Ref & Scroll Handler
+  const inspirationCarouselRef = useRef<HTMLDivElement>(null);
+  const [activeVideoModal, setActiveVideoModal] = useState<any | null>(null);
+  const handleScrollInspiration = (direction: 'left' | 'right') => {
+    if (!inspirationCarouselRef.current) return;
+    const container = inspirationCarouselRef.current;
+    const scrollAmount = container.clientWidth * 0.75;
+    container.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth'
+    });
+  };
 
   // Auto-advance hero slides every 6.5s
   useEffect(() => {
@@ -209,7 +223,7 @@ export default function HomeView({
     
     // First try items with badge 'new' or high diversity
     for (const p of products) {
-      if (!seenCat.has(p.category)) {
+      if (p?.category && !seenCat.has(p.category)) {
         selected.push(p);
         seenCat.add(p.category);
       }
@@ -229,9 +243,9 @@ export default function HomeView({
 
   // Deal Zone Bundles (Section G)
   const dealBundles = useMemo(() => {
-    const bedItem = products.find(p => p.category === 'beds') || products[0];
-    const sofaItem = products.find(p => p.category === 'wooden-sofas') || products[1];
-    const mandirItem = products.find(p => p.category === 'wooden-mandirs') || products[2];
+    const bedItem = products.find(p => p?.category === 'beds') || products[0];
+    const sofaItem = products.find(p => p?.category === 'wooden-sofas') || products[1];
+    const mandirItem = products.find(p => p?.category === 'wooden-mandirs') || products[2];
 
     return [
       {
@@ -273,43 +287,261 @@ export default function HomeView({
     ];
   }, [products]);
 
-  // Shop The Look Living Room Hotspots (Section H)
-  const lookHotspots = useMemo(() => {
-    const sofa = products.find(p => p.category === 'wooden-sofas') || products[0];
-    const table = products.find(p => p.category === 'teapoys-coffee-tables') || products[1];
-    const swing = products.find(p => p.category === 'wooden-swings') || products[2];
+  // ── SHOP THE LOOK (Section H) ──
+  // 5 Authentic Staged Scenes with verified product hotspots
+  const shopTheLookScenes = useMemo(() => {
+    const sofa = products.find(p => p?.category === 'wooden-sofas') || products[0];
+    const teapoy = products.find(p => p?.category === 'teapoys-coffee-tables') || products[1];
+    const bed = products.find(p => p?.category === 'beds') || products[2];
+    const dining = products.find(p => p?.category === 'dining-tables') || products[3];
+    const mandir = products.find(p => p?.category === 'wooden-mandirs') || products[4];
+    const swing = products.find(p => p?.category === 'wooden-swings') || products[5];
 
     return [
       {
-        id: 1,
-        x: 36, // percent from left
-        y: 62, // percent from top
+        id: 'scene-living',
+        title: 'Konkan Royal Drawing Room',
+        subtitle: 'Kiln-Seasoned Teakwood Sofa & Hand-Carved Teapoy',
+        roomTag: 'Living Room Ensemble',
+        img: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1600&q=85',
+        hotspots: [
+          {
+            id: 'hs-sofa',
+            x: 38,
+            y: 64,
+            product: sofa,
+            label: 'Solid Teak Sofa Set'
+          },
+          {
+            id: 'hs-teapoy',
+            x: 64,
+            y: 76,
+            product: teapoy,
+            label: 'Hand-Carved Coffee Table'
+          }
+        ]
+      },
+      {
+        id: 'scene-bedroom',
+        title: 'Master Bedroom Teak Suite',
+        subtitle: 'Solid Wood Hydraulic Storage Bed',
+        roomTag: 'Bedroom Sanctuary',
+        img: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1200&q=80',
+        hotspots: [
+          {
+            id: 'hs-bed',
+            x: 52,
+            y: 62,
+            product: bed,
+            label: 'Hydraulic Storage Bed'
+          }
+        ]
+      },
+      {
+        id: 'scene-dining',
+        title: 'Banquet Dining Space',
+        subtitle: '6-Seater Solid Timber Dining Table & Ergonomic Chairs',
+        roomTag: 'Dining Collection',
+        img: 'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=1200&q=80',
+        hotspots: [
+          {
+            id: 'hs-dining',
+            x: 50,
+            y: 65,
+            product: dining,
+            label: 'Solid Teak Dining Table'
+          }
+        ]
+      },
+      {
+        id: 'scene-mandir',
+        title: 'Sacred Sagwan Mandir Sanctum',
+        subtitle: 'Intricately Carved Divine Home Temple with Brass Accents',
+        roomTag: 'Sacred Timber',
+        img: 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=1200&q=80',
+        hotspots: [
+          {
+            id: 'hs-mandir',
+            x: 50,
+            y: 48,
+            product: mandir,
+            label: 'Carved Sagwan Mandir'
+          }
+        ]
+      },
+      {
+        id: 'scene-veranda',
+        title: 'Sindhudurg Veranda Leisure',
+        subtitle: 'Royal Traditional Carved Teak Zopala Swing',
+        roomTag: 'Veranda & Swing',
+        img: 'https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=1200&q=80',
+        hotspots: [
+          {
+            id: 'hs-swing',
+            x: 48,
+            y: 54,
+            product: swing,
+            label: 'Traditional Teak Zopala'
+          }
+        ]
+      }
+    ];
+  }, [products]);
+
+  // ── BHISEZ INSPIRATION FEED ──
+  // 10 Real Bhisez product showcases with verified products and routes
+  const inspirationFeed = useMemo(() => {
+    const bed = products.find(p => p?.category === 'beds') || products[0];
+    const mandir = products.find(p => p?.category === 'wooden-mandirs') || products[1];
+    const sofa = products.find(p => p?.category === 'wooden-sofas') || products[2];
+    const dining = products.find(p => p?.category === 'dining-tables') || products[3];
+    const swing = products.find(p => p?.category === 'wooden-swings') || products[4];
+    const chair = products.find(p => p?.category === 'wooden-chairs') || products[5];
+    const dressing = products.find(p => p?.category === 'dressing-table') || products[6];
+    const door = products.find(p => p?.category === 'door-frames') || products[7];
+    const teapoy = products.find(p => p?.category === 'teapoys-coffee-tables') || products[8];
+    const wardrobe = products.find(p => p?.category === 'wardrobes') || products[9];
+
+    return [
+      {
+        id: 'insp-bed',
+        title: bed?.name || 'Solid Wood Master Bed',
+        category: 'Bedroom Sanctuary',
+        tag: 'Bedroom Sanctuary',
+        categorySlug: 'beds',
+        productId: bed?.id || 'beds-1',
+        product: bed,
+        price: bed?.price || 48000,
+        orig: bed?.orig,
+        img: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&q=80',
+        isVideo: false
+      },
+      {
+        id: 'insp-mandir',
+        title: mandir?.name || 'Sagwan Carved Temple',
+        category: 'Sacred Timber',
+        tag: 'Sacred Timber',
+        categorySlug: 'wooden-mandirs',
+        productId: mandir?.id || 'mandir-1',
+        product: mandir,
+        price: mandir?.price || 42000,
+        orig: mandir?.orig,
+        img: 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=800&q=80',
+        isVideo: false
+      },
+      {
+        id: 'insp-sofa',
+        title: sofa?.name || 'Handcrafted Teak Sofa Set',
+        category: 'Living Room',
+        tag: 'Living Room',
+        categorySlug: 'wooden-sofas',
+        productId: sofa?.id || 'sofa-1',
         product: sofa,
-        label: 'Solid Teak Sofa Set'
+        price: sofa?.price || 56000,
+        orig: sofa?.orig,
+        img: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80',
+        isVideo: false
       },
       {
-        id: 2,
-        x: 62,
-        y: 74,
-        product: table,
-        label: 'Hand-Carved Coffee Table'
+        id: 'insp-dining',
+        title: dining?.name || 'Solid Wood Dining Suite',
+        category: 'Dining Spaces',
+        tag: 'Dining Spaces',
+        categorySlug: 'dining-tables',
+        productId: dining?.id || 'dining-1',
+        product: dining,
+        price: dining?.price || 64000,
+        orig: dining?.orig,
+        img: 'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=800&q=80',
+        isVideo: false
       },
       {
-        id: 3,
-        x: 78,
-        y: 38,
+        id: 'insp-swing',
+        title: swing?.name || 'Traditional Teak Zopala',
+        category: 'Veranda Living',
+        tag: 'Veranda Living',
+        categorySlug: 'wooden-swings',
+        productId: swing?.id || 'swing-1',
         product: swing,
-        label: 'Traditional Teak Swing'
+        price: swing?.price || 38000,
+        orig: swing?.orig,
+        img: 'https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=800&q=80',
+        isVideo: false
+      },
+      {
+        id: 'insp-chair',
+        title: chair?.name || 'Ergonomic Wood Chair',
+        category: 'Study & Work',
+        tag: 'Study & Work',
+        categorySlug: 'wooden-chairs',
+        productId: chair?.id || 'chair-1',
+        product: chair,
+        price: chair?.price || 12000,
+        orig: chair?.orig,
+        img: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?w=800&q=80',
+        isVideo: false
+      },
+      {
+        id: 'insp-dressing',
+        title: dressing?.name || 'Royal Teak Dressing Unit',
+        category: 'Dressing & Vanity',
+        tag: 'Dressing & Vanity',
+        categorySlug: 'dressing-table',
+        productId: dressing?.id || 'dressing-1',
+        product: dressing,
+        price: dressing?.price || 28000,
+        orig: dressing?.orig,
+        img: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80',
+        isVideo: false
+      },
+      {
+        id: 'insp-door',
+        title: door?.name || 'Grand Teakwood Entrance Door',
+        category: 'Entrance Portals',
+        tag: 'Entrance Portals',
+        categorySlug: 'door-frames',
+        productId: door?.id || 'door-1',
+        product: door,
+        price: door?.price || 35000,
+        orig: door?.orig,
+        img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&q=80',
+        isVideo: false
+      },
+      {
+        id: 'insp-teapoy',
+        title: teapoy?.name || 'Handcrafted Teak Teapoy Table',
+        category: 'Living Accents',
+        tag: 'Living Accents',
+        categorySlug: 'teapoys-coffee-tables',
+        productId: teapoy?.id || 'teapoy-1',
+        product: teapoy,
+        price: teapoy?.price || 14500,
+        orig: teapoy?.orig,
+        img: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=800&q=80',
+        isVideo: false
+      },
+      {
+        id: 'insp-wardrobe',
+        title: wardrobe?.name || 'Solid Sagwan 3-Door Wardrobe',
+        category: 'Bedroom Storage',
+        tag: 'Bedroom Storage',
+        categorySlug: 'wardrobes',
+        productId: wardrobe?.id || 'wardrobe-1',
+        product: wardrobe,
+        price: wardrobe?.price || 52000,
+        orig: wardrobe?.orig,
+        img: 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800&q=80',
+        isVideo: false
       }
     ];
   }, [products]);
 
   // Featured Collection Pieces (Section I)
   const featuredCollectionPieces = useMemo(() => {
-    const centerpiece = products.find(p => p.category === 'wooden-mandirs') || products[0];
-    const companion1 = products.find(p => p.category === 'beds') || products[1];
-    const companion2 = products.find(p => p.category === 'wooden-sofas') || products[2];
-    const companion3 = products.find(p => p.category === 'dining-tables') || products[3];
+    const centerpiece = products.find(p => p?.category === 'wooden-mandirs') || products[0];
+    const companion1 = products.find(p => p?.category === 'beds') || products[1];
+    const companion2 = products.find(p => p?.category === 'wooden-sofas') || products[2];
+    const companion3 = products.find(p => p?.category === 'dining-tables') || products[3];
     return { centerpiece, companion1, companion2, companion3 };
   }, [products]);
 
@@ -317,7 +549,7 @@ export default function HomeView({
   const bestsellerProducts = useMemo(() => {
     const list = products.filter((p) => {
       if (bestsellerFilter === 'all') return true;
-      return p.category === bestsellerFilter;
+      return p?.category === bestsellerFilter;
     });
     return list.slice(0, 8);
   }, [products, bestsellerFilter]);
@@ -708,7 +940,7 @@ export default function HomeView({
 
                   <div className="p-3.5 sm:p-4">
                     <span className="text-[10px] font-bold text-[#B08A57] uppercase tracking-wider block mb-1">
-                      {product.category.replace('-', ' ')}
+                      {(product?.category || '').replace(/-/g, ' ')}
                     </span>
                     <h3 className="font-serif font-bold text-xs sm:text-sm text-[#211A16] group-hover:text-[#B08A57] transition-colors line-clamp-2 leading-snug">
                       {product.name}
@@ -745,6 +977,169 @@ export default function HomeView({
         </div>
 
       </section>
+
+
+      {/* ── SECTION F2: FURNITURE INSPIRATION FEED ── */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-14 sm:my-20">
+        
+        {/* Section Header with Desktop Navigation Controls */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 sm:mb-8">
+          <div>
+            <span className="text-[11px] font-bold uppercase tracking-widest text-[#B08A57] block mb-1">
+              Curated Living Ideas
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#211A16]">
+              Furniture Inspiration
+            </h2>
+            <p className="text-xs sm:text-sm text-[#756B62] mt-1">
+              Discover furniture, spaces and ideas for your home.
+            </p>
+          </div>
+
+          {/* Desktop Arrow Navigation */}
+          <div className="hidden sm:flex items-center gap-2 shrink-0">
+            <button
+              type="button"
+              onClick={() => handleScrollInspiration('left')}
+              className="w-11 h-11 rounded-full border border-[#DED6CC] bg-white text-[#211A16] hover:bg-[#F7F4EE] hover:border-[#B08A57] flex items-center justify-center transition-all cursor-pointer shadow-2xs"
+              aria-label="Previous inspiration items"
+            >
+              <ChevronLeft size={18} />
+            </button>
+            <button
+              type="button"
+              onClick={() => handleScrollInspiration('right')}
+              className="w-11 h-11 rounded-full border border-[#DED6CC] bg-white text-[#211A16] hover:bg-[#F7F4EE] hover:border-[#B08A57] flex items-center justify-center transition-all cursor-pointer shadow-2xs"
+              aria-label="Next inspiration items"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
+        </div>
+
+        {/* Horizontal Inspiration Cards Carousel (approx 5-6 cards visible on desktop, 1.5-2 on mobile) */}
+        <div 
+          ref={inspirationCarouselRef}
+          className="flex gap-3.5 sm:gap-4 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory py-2 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
+        >
+          {inspirationFeed.map((item) => {
+            const prod = item.product;
+            const targetId = prod?.id || item.productId;
+            const displayName = prod?.name || item.title;
+            const displayPrice = prod?.price || item.price || 0;
+            const origPrice = prod?.orig || item.orig;
+            const categoryLabel = (prod?.category || item.categorySlug || item.category || '').replace(/-/g, ' ');
+
+            return (
+              <div
+                key={item.id}
+                onClick={() => {
+                  if (item.isVideo && item.videoUrl) {
+                    setActiveVideoModal(item);
+                  } else if (targetId) {
+                    onSelectProduct(targetId);
+                  }
+                }}
+                className="group w-[190px] sm:w-[210px] md:w-[220px] lg:w-[228px] shrink-0 snap-start relative rounded-xl sm:rounded-2xl overflow-hidden border border-[#DED6CC] bg-[#2B1D17] cursor-pointer shadow-xs transition-all duration-300 hover:shadow-xl hover:border-[#B08A57]"
+              >
+                {/* Tall portrait container with 9:15 (~0.60) proportion */}
+                <div className="relative aspect-[9/15] w-full overflow-hidden bg-stone-900">
+                  <img
+                    src={item.img}
+                    alt={displayName}
+                    className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+                    referrerPolicy="no-referrer"
+                    loading="lazy"
+                  />
+
+                  {/* Dark subtle bottom gradient for readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#2B1D17]/95 via-[#2B1D17]/35 to-transparent pointer-events-none" />
+
+                  {/* Play button ONLY when asset is actual video */}
+                  {item.isVideo && item.videoUrl && (
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div className="w-12 h-12 rounded-full bg-[#2B1D17]/85 text-white flex items-center justify-center shadow-lg border border-white/20 group-hover:scale-110 group-hover:bg-[#B08A57] group-hover:text-[#2B1D17] transition-all duration-200">
+                        <Play size={20} className="fill-current ml-0.5" />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Bottom Content Area */}
+                  <div className="absolute bottom-0 inset-x-0 p-3.5 sm:p-4 pointer-events-auto">
+                    {categoryLabel && (
+                      <span className="text-[9.5px] font-bold uppercase tracking-wider text-[#B08A57] mb-1 block truncate">
+                        {categoryLabel}
+                      </span>
+                    )}
+
+                    <h3 className="font-serif text-xs sm:text-sm font-bold text-white group-hover:text-[#B08A57] transition-colors line-clamp-2 leading-snug">
+                      {displayName}
+                    </h3>
+
+                    <div className="flex items-baseline gap-2 mt-1.5">
+                      <span className="text-xs sm:text-sm font-bold text-white font-mono">
+                        ₹{displayPrice.toLocaleString('en-IN')}
+                      </span>
+                      {origPrice && (
+                        <span className="text-[10px] sm:text-xs text-white/50 line-through font-mono">
+                          ₹{origPrice.toLocaleString('en-IN')}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Mobile Swipe Guidance Note */}
+        <div className="flex sm:hidden items-center justify-between mt-3 text-xs text-[#756B62]">
+          <span className="text-[11px]">
+            ← Swipe to explore inspiration feed →
+          </span>
+          <span className="text-[11px] font-bold text-[#B08A57]">
+            Tap card to inspect piece
+          </span>
+        </div>
+
+      </section>
+
+      {/* Video Modal (Only active if an actual video is selected) */}
+      <AnimatePresence>
+        {activeVideoModal && (
+          <div 
+            className="fixed inset-0 z-50 bg-black/85 backdrop-blur-xs flex items-center justify-center p-4"
+            onClick={() => setActiveVideoModal(null)}
+          >
+            <div 
+              className="relative w-full max-w-lg bg-[#2B1D17] rounded-2xl overflow-hidden border border-[#DED6CC]/30 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setActiveVideoModal(null)}
+                className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black transition-colors cursor-pointer"
+                aria-label="Close video"
+              >
+                <X size={18} />
+              </button>
+              {activeVideoModal.videoUrl ? (
+                <video 
+                  src={activeVideoModal.videoUrl} 
+                  poster={activeVideoModal.img}
+                  controls 
+                  autoPlay 
+                  className="w-full aspect-[9/16] max-h-[70vh] object-cover"
+                />
+              ) : (
+                <div className="p-8 text-center text-white">
+                  <p className="font-serif text-lg font-bold">{activeVideoModal.title}</p>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+      </AnimatePresence>
 
 
       {/* ── SECTION G: DEAL ZONE / WORKSHOP VALUE OFFERS ── */}
@@ -845,148 +1240,562 @@ export default function HomeView({
       </section>
 
 
-      {/* ── SECTION H: SHOP THE LOOK / LIVING SPACES (INTERACTIVE SHOPPABLE ROOM) ── */}
+      {/* ── SECTION H: SHOP THE LOOK (EDITORIAL IMAGE MOSAIC WITH PRODUCT HOTSPOTS) ── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-14 sm:my-20">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-          <span className="text-[11px] font-bold uppercase tracking-widest text-[#B08A57] block mb-1">
-            Curated Living Environments
-          </span>
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#211A16]">
-            Shop The Look: The Heritage Konkan Drawing Room
-          </h2>
-          <p className="text-xs sm:text-sm text-[#756B62] mt-1.5">
-            Click on the interactive markers to explore the handcrafted solid teakwood pieces styled in this room.
-          </p>
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
+          <div>
+            <span className="text-[11px] font-bold uppercase tracking-widest text-[#B08A57] block mb-1">
+              Curated Living Environments
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#211A16]">
+              Shop The Look
+            </h2>
+            <p className="text-xs sm:text-sm text-[#756B62] mt-1">
+              Explore authentic handcrafted solid timber ensembles styled in real living spaces.
+            </p>
+          </div>
+          <div className="hidden sm:flex items-center gap-2 text-xs text-[#756B62]">
+            <span className="inline-block w-2 h-2 rounded-full bg-[#B08A57]" />
+            <span>Click any circular marker to inspect handcrafted pieces</span>
+          </div>
         </div>
 
-        {/* Interactive Staged Room Container */}
-        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#DED6CC] bg-[#2B1D17] shadow-sm">
-          
-          {/* Main Background Styled Room Photography */}
-          <div className="relative aspect-[16/9] max-h-[640px] w-full overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1600&q=85" 
-              alt="The Heritage Konkan Drawing Room" 
-              className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-black/20 pointer-events-none" />
-
-            {/* Hotspot Markers */}
-            {lookHotspots.map((spot) => (
-              <div 
-                key={spot.id}
-                style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
-                className="absolute -translate-x-1/2 -translate-y-1/2 z-20"
-              >
-                <button
-                  onClick={() => setActiveHotspot(activeHotspot === spot.id ? null : spot.id)}
-                  className="relative group cursor-pointer p-2 flex items-center justify-center focus:outline-none"
-                  aria-label={`View ${spot.label}`}
+        {/* Desktop: Asymmetric 5-Image Editorial Mosaic Grid */}
+        <div className="hidden md:flex md:flex-col gap-3.5">
+          {/* Top Row: Large Feature (7 cols) + Supporting Suite (5 cols) */}
+          <div className="grid grid-cols-12 gap-3.5 h-[350px]">
+            {/* Scene 1: Large Feature Living Room (Col 1-7) */}
+            {(() => {
+              const scene = shopTheLookScenes[0];
+              return (
+                <div 
+                  key={scene.id}
+                  className="col-span-7 relative rounded-2xl overflow-hidden border border-[#DED6CC] group bg-[#2B1D17]"
                 >
-                  {/* Pulsing ring animation */}
-                  <span className="absolute w-8 h-8 rounded-full bg-[#B08A57]/40 animate-ping" />
+                  <img
+                    src={scene.img}
+                    alt={scene.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    referrerPolicy="no-referrer"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#2B1D17]/85 via-transparent to-black/20 pointer-events-none" />
                   
-                  {/* Core button */}
-                  <span className={`w-7 h-7 rounded-full border-2 flex items-center justify-center text-xs font-bold transition-all shadow-md ${
-                    activeHotspot === spot.id 
-                      ? 'bg-[#B08A57] border-white text-[#2B1D17] scale-110' 
-                      : 'bg-[#2B1D17]/90 border-[#B08A57] text-white hover:scale-110'
-                  }`}>
-                    +
-                  </span>
-                </button>
+                  {/* Room Tag & Title */}
+                  <div className="absolute bottom-4 left-5 right-5 pointer-events-none">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#B08A57] block mb-0.5">
+                      {scene.roomTag}
+                    </span>
+                    <h3 className="font-serif text-lg font-bold text-white drop-shadow-xs">
+                      {scene.title}
+                    </h3>
+                    <p className="text-xs text-white/80 mt-0.5 line-clamp-1">
+                      {scene.subtitle}
+                    </p>
+                  </div>
 
-                {/* Floating Hotspot Card Popover */}
-                {activeHotspot === spot.id && spot.product && (
-                  <motion.div 
-                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-64 bg-white rounded-xl p-3 shadow-xl border border-[#DED6CC] text-[#211A16] z-30 pointer-events-auto"
-                  >
-                    <div className="flex items-center gap-3">
-                      <img 
-                        src={spot.product.img} 
-                        alt={spot.product.name} 
-                        className="w-14 h-14 rounded-lg object-cover bg-[#F7F4EE] border border-[#DED6CC] shrink-0"
-                      />
-                      <div className="flex-1 min-w-0">
-                        <span className="text-[9px] font-bold text-[#B08A57] uppercase tracking-wider block truncate">
-                          {spot.product.category.replace('-', ' ')}
-                        </span>
-                        <h4 className="font-serif font-bold text-xs text-[#211A16] truncate">
-                          {spot.product.name}
-                        </h4>
-                        <div className="text-xs font-bold text-[#211A16] font-mono mt-0.5">
-                          ₹{spot.product.price.toLocaleString('en-IN')}
-                        </div>
-                      </div>
-                    </div>
+                  {/* Hotspots */}
+                  {scene.hotspots.map((spot) => {
+                    const isActive = activeHotspotId === spot.id;
+                    const horizontalClass = spot.x > 70 
+                      ? 'right-0 translate-x-2' 
+                      : spot.x < 30 
+                      ? 'left-0 -translate-x-2' 
+                      : 'left-1/2 -translate-x-1/2';
+                    const verticalClass = spot.y < 35 
+                      ? 'top-full mt-2.5' 
+                      : 'bottom-full mb-2.5';
 
-                    <div className="mt-2.5 pt-2 border-t border-[#F7F4EE] flex items-center justify-between">
-                      <button
-                        onClick={() => spot.product && onSelectProduct(spot.product.id)}
-                        className="w-full bg-[#2B1D17] hover:bg-[#3A2922] text-white text-[11px] font-bold py-1.5 rounded transition-colors flex items-center justify-center gap-1 cursor-pointer"
+                    return (
+                      <div
+                        key={spot.id}
+                        style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
+                        className="absolute -translate-x-1/2 -translate-y-1/2 z-30"
                       >
-                        <span>View Product Specs</span>
-                        <ArrowRight size={12} />
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setActiveHotspotId(isActive ? null : spot.id);
+                          }}
+                          className="group/hs relative min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer focus:outline-none"
+                          aria-label={`View ${spot.label}`}
+                          title={`View ${spot.label}`}
+                        >
+                          <span className="absolute w-8 h-8 rounded-full bg-white/40 opacity-0 group-hover/hs:opacity-100 group-hover/hs:scale-125 transition-all duration-300 pointer-events-none" />
+                          <span className={`w-7 h-7 rounded-full flex items-center justify-center border shadow-md transition-all duration-200 ${
+                            isActive 
+                              ? 'bg-[#B08A57] border-white text-[#2B1D17] scale-110' 
+                              : 'bg-[#2B1D17]/85 backdrop-blur-xs border-white/80 text-white hover:bg-[#2B1D17] hover:border-[#B08A57] group-hover/hs:scale-105'
+                          }`}>
+                            <span className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                              isActive ? 'bg-[#2B1D17]' : 'bg-[#B08A57] group-hover/hs:bg-white'
+                            }`} />
+                          </span>
+                        </button>
+
+                        {/* Compact Product Preview */}
+                        <AnimatePresence>
+                          {isActive && spot.product && (
+                            <motion.div
+                              initial={{ opacity: 0, y: spot.y < 35 ? -6 : 6, scale: 0.95 }}
+                              animate={{ opacity: 1, y: 0, scale: 1 }}
+                              exit={{ opacity: 0, y: spot.y < 35 ? -6 : 6, scale: 0.95 }}
+                              transition={{ duration: 0.2 }}
+                              onClick={(e) => e.stopPropagation()}
+                              className={`absolute ${verticalClass} ${horizontalClass} w-60 sm:w-64 bg-white rounded-xl p-3 shadow-2xl border border-[#DED6CC] text-[#211A16] z-40 pointer-events-auto`}
+                            >
+                              <div className="flex items-start gap-2.5">
+                                <img
+                                  src={spot.product.img}
+                                  alt={spot.product.name}
+                                  className="w-13 h-13 rounded-lg object-cover bg-[#F7F4EE] border border-[#DED6CC] shrink-0"
+                                  referrerPolicy="no-referrer"
+                                />
+                                <div className="flex-1 min-w-0">
+                                  <span className="text-[9px] font-bold text-[#B08A57] uppercase tracking-wider block truncate">
+                                    {(spot.product?.category || '').replace(/-/g, ' ')}
+                                  </span>
+                                  <h4 className="font-serif font-bold text-xs text-[#211A16] line-clamp-2 leading-tight mt-0.5">
+                                    {spot.product.name}
+                                  </h4>
+                                  <div className="text-xs font-bold text-[#211A16] font-mono mt-1">
+                                    ₹{spot.product.price.toLocaleString('en-IN')}
+                                  </div>
+                                </div>
+                                <button
+                                  type="button"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setActiveHotspotId(null);
+                                  }}
+                                  className="text-stone-400 hover:text-stone-700 p-0.5 transition-colors cursor-pointer"
+                                  aria-label="Close preview"
+                                >
+                                  <X size={14} />
+                                </button>
+                              </div>
+
+                              <div className="mt-2.5 pt-2 border-t border-[#F7F4EE]">
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    if (spot.product) onSelectProduct(spot.product.id);
+                                  }}
+                                  className="w-full min-h-[34px] bg-[#2B1D17] hover:bg-[#3A2922] text-white text-[11px] font-bold py-1.5 px-3 rounded-lg transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                                >
+                                  <span>View Product</span>
+                                  <ArrowRight size={13} />
+                                </button>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })()}
+
+            {/* Scene 2: Bedroom Suite (Col 8-12) */}
+            {(() => {
+              const scene = shopTheLookScenes[1];
+              return (
+                <div 
+                  key={scene.id}
+                  className="col-span-5 relative rounded-2xl overflow-hidden border border-[#DED6CC] group bg-[#2B1D17]"
+                >
+                  <img
+                    src={scene.img}
+                    alt={scene.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    referrerPolicy="no-referrer"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#2B1D17]/85 via-transparent to-black/20 pointer-events-none" />
+                  
+                  <div className="absolute bottom-4 left-5 right-5 pointer-events-none">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#B08A57] block mb-0.5">
+                      {scene.roomTag}
+                    </span>
+                    <h3 className="font-serif text-lg font-bold text-white drop-shadow-xs">
+                      {scene.title}
+                    </h3>
+                    <p className="text-xs text-white/80 mt-0.5 line-clamp-1">
+                      {scene.subtitle}
+                    </p>
+                  </div>
+
+                  {scene.hotspots.map((spot) => {
+                    const isActive = activeHotspotId === spot.id;
+                    const horizontalClass = spot.x > 70 
+                      ? 'right-0 translate-x-2' 
+                      : spot.x < 30 
+                      ? 'left-0 -translate-x-2' 
+                      : 'left-1/2 -translate-x-1/2';
+                    const verticalClass = spot.y < 35 
+                      ? 'top-full mt-2.5' 
+                      : 'bottom-full mb-2.5';
+
+                    return (
+                      <div
+                        key={spot.id}
+                        style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
+                        className="absolute -translate-x-1/2 -translate-y-1/2 z-30"
+                      >
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setActiveHotspotId(isActive ? null : spot.id);
+                          }}
+                          className="group/hs relative min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer focus:outline-none"
+                          aria-label={`View ${spot.label}`}
+                          title={`View ${spot.label}`}
+                        >
+                          <span className="absolute w-8 h-8 rounded-full bg-white/40 opacity-0 group-hover/hs:opacity-100 group-hover/hs:scale-125 transition-all duration-300 pointer-events-none" />
+                          <span className={`w-7 h-7 rounded-full flex items-center justify-center border shadow-md transition-all duration-200 ${
+                            isActive 
+                              ? 'bg-[#B08A57] border-white text-[#2B1D17] scale-110' 
+                              : 'bg-[#2B1D17]/85 backdrop-blur-xs border-white/80 text-white hover:bg-[#2B1D17] hover:border-[#B08A57] group-hover/hs:scale-105'
+                          }`}>
+                            <span className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                              isActive ? 'bg-[#2B1D17]' : 'bg-[#B08A57] group-hover/hs:bg-white'
+                            }`} />
+                          </span>
+                        </button>
+
+                        <AnimatePresence>
+                          {isActive && spot.product && (
+                            <motion.div
+                              initial={{ opacity: 0, y: spot.y < 35 ? -6 : 6, scale: 0.95 }}
+                              animate={{ opacity: 1, y: 0, scale: 1 }}
+                              exit={{ opacity: 0, y: spot.y < 35 ? -6 : 6, scale: 0.95 }}
+                              transition={{ duration: 0.2 }}
+                              onClick={(e) => e.stopPropagation()}
+                              className={`absolute ${verticalClass} ${horizontalClass} w-60 sm:w-64 bg-white rounded-xl p-3 shadow-2xl border border-[#DED6CC] text-[#211A16] z-40 pointer-events-auto`}
+                            >
+                              <div className="flex items-start gap-2.5">
+                                <img
+                                  src={spot.product.img}
+                                  alt={spot.product.name}
+                                  className="w-13 h-13 rounded-lg object-cover bg-[#F7F4EE] border border-[#DED6CC] shrink-0"
+                                  referrerPolicy="no-referrer"
+                                />
+                                <div className="flex-1 min-w-0">
+                                  <span className="text-[9px] font-bold text-[#B08A57] uppercase tracking-wider block truncate">
+                                    {(spot.product?.category || '').replace(/-/g, ' ')}
+                                  </span>
+                                  <h4 className="font-serif font-bold text-xs text-[#211A16] line-clamp-2 leading-tight mt-0.5">
+                                    {spot.product.name}
+                                  </h4>
+                                  <div className="text-xs font-bold text-[#211A16] font-mono mt-1">
+                                    ₹{spot.product.price.toLocaleString('en-IN')}
+                                  </div>
+                                </div>
+                                <button
+                                  type="button"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setActiveHotspotId(null);
+                                  }}
+                                  className="text-stone-400 hover:text-stone-700 p-0.5 transition-colors cursor-pointer"
+                                  aria-label="Close preview"
+                                >
+                                  <X size={14} />
+                                </button>
+                              </div>
+
+                              <div className="mt-2.5 pt-2 border-t border-[#F7F4EE]">
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    if (spot.product) onSelectProduct(spot.product.id);
+                                  }}
+                                  className="w-full min-h-[34px] bg-[#2B1D17] hover:bg-[#3A2922] text-white text-[11px] font-bold py-1.5 px-3 rounded-lg transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                                >
+                                  <span>View Product</span>
+                                  <ArrowRight size={13} />
+                                </button>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })()}
+          </div>
+
+          {/* Bottom Row: 3 Distinct Dimension Supporting Rooms (4 cols each) */}
+          <div className="grid grid-cols-12 gap-3.5 h-[280px]">
+            {shopTheLookScenes.slice(2, 5).map((scene) => (
+              <div 
+                key={scene.id}
+                className="col-span-4 relative rounded-2xl overflow-hidden border border-[#DED6CC] group bg-[#2B1D17]"
+              >
+                <img
+                  src={scene.img}
+                  alt={scene.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                  referrerPolicy="no-referrer"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2B1D17]/85 via-transparent to-black/20 pointer-events-none" />
+                
+                <div className="absolute bottom-3.5 left-4 right-4 pointer-events-none">
+                  <span className="text-[9.5px] font-bold uppercase tracking-widest text-[#B08A57] block mb-0.5">
+                    {scene.roomTag}
+                  </span>
+                  <h3 className="font-serif text-sm font-bold text-white drop-shadow-xs truncate">
+                    {scene.title}
+                  </h3>
+                </div>
+
+                {scene.hotspots.map((spot) => {
+                  const isActive = activeHotspotId === spot.id;
+                  const horizontalClass = spot.x > 70 
+                    ? 'right-0 translate-x-2' 
+                    : spot.x < 30 
+                    ? 'left-0 -translate-x-2' 
+                    : 'left-1/2 -translate-x-1/2';
+                  const verticalClass = spot.y < 35 
+                    ? 'top-full mt-2.5' 
+                    : 'bottom-full mb-2.5';
+
+                  return (
+                    <div
+                      key={spot.id}
+                      style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
+                      className="absolute -translate-x-1/2 -translate-y-1/2 z-30"
+                    >
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveHotspotId(isActive ? null : spot.id);
+                        }}
+                        className="group/hs relative min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer focus:outline-none"
+                        aria-label={`View ${spot.label}`}
+                        title={`View ${spot.label}`}
+                      >
+                        <span className="absolute w-8 h-8 rounded-full bg-white/40 opacity-0 group-hover/hs:opacity-100 group-hover/hs:scale-125 transition-all duration-300 pointer-events-none" />
+                        <span className={`w-7 h-7 rounded-full flex items-center justify-center border shadow-md transition-all duration-200 ${
+                          isActive 
+                            ? 'bg-[#B08A57] border-white text-[#2B1D17] scale-110' 
+                            : 'bg-[#2B1D17]/85 backdrop-blur-xs border-white/80 text-white hover:bg-[#2B1D17] hover:border-[#B08A57] group-hover/hs:scale-105'
+                        }`}>
+                          <span className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                            isActive ? 'bg-[#2B1D17]' : 'bg-[#B08A57] group-hover/hs:bg-white'
+                          }`} />
+                        </span>
                       </button>
+
+                      <AnimatePresence>
+                        {isActive && spot.product && (
+                          <motion.div
+                            initial={{ opacity: 0, y: spot.y < 35 ? -6 : 6, scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: spot.y < 35 ? -6 : 6, scale: 0.95 }}
+                            transition={{ duration: 0.2 }}
+                            onClick={(e) => e.stopPropagation()}
+                            className={`absolute ${verticalClass} ${horizontalClass} w-60 bg-white rounded-xl p-3 shadow-2xl border border-[#DED6CC] text-[#211A16] z-40 pointer-events-auto`}
+                          >
+                            <div className="flex items-start gap-2.5">
+                              <img
+                                src={spot.product.img}
+                                alt={spot.product.name}
+                                className="w-13 h-13 rounded-lg object-cover bg-[#F7F4EE] border border-[#DED6CC] shrink-0"
+                                referrerPolicy="no-referrer"
+                              />
+                              <div className="flex-1 min-w-0">
+                                <span className="text-[9px] font-bold text-[#B08A57] uppercase tracking-wider block truncate">
+                                  {(spot.product?.category || '').replace(/-/g, ' ')}
+                                </span>
+                                <h4 className="font-serif font-bold text-xs text-[#211A16] line-clamp-2 leading-tight mt-0.5">
+                                  {spot.product.name}
+                                </h4>
+                                <div className="text-xs font-bold text-[#211A16] font-mono mt-1">
+                                  ₹{spot.product.price.toLocaleString('en-IN')}
+                                </div>
+                              </div>
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setActiveHotspotId(null);
+                                }}
+                                className="text-stone-400 hover:text-stone-700 p-0.5 transition-colors cursor-pointer"
+                                aria-label="Close preview"
+                              >
+                                <X size={14} />
+                              </button>
+                            </div>
+
+                            <div className="mt-2.5 pt-2 border-t border-[#F7F4EE]">
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  if (spot.product) onSelectProduct(spot.product.id);
+                                }}
+                                className="w-full min-h-[34px] bg-[#2B1D17] hover:bg-[#3A2922] text-white text-[11px] font-bold py-1.5 px-3 rounded-lg transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                              >
+                                <span>View Product</span>
+                                <ArrowRight size={13} />
+                              </button>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
-                  </motion.div>
-                )}
+                  );
+                })}
               </div>
             ))}
-
           </div>
+        </div>
 
-          {/* Quick-select carousel bar underneath the room photo */}
-          <div className="bg-[#2B1D17] text-white p-4 sm:p-5 border-t border-[#3A2922]">
-            <div className="flex items-center justify-between mb-3 text-xs">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#B08A57]">
-                Featured In This Scene ({lookHotspots.length} Pieces)
-              </span>
-              <span className="text-stone-400 text-[11px]">
-                Click any piece to inspect specifications
-              </span>
-            </div>
+        {/* Mobile: Horizontal Swipeable Image Carousel (md:hidden) */}
+        <div className="md:hidden">
+          <div className="flex overflow-x-auto no-scrollbar snap-x snap-mandatory gap-3.5 pb-2 -mx-4 px-4">
+            {shopTheLookScenes.map((scene) => (
+              <div
+                key={scene.id}
+                className="w-[86vw] max-w-[360px] aspect-[4/3] relative rounded-xl overflow-hidden shrink-0 snap-center border border-[#DED6CC] bg-[#2B1D17]"
+              >
+                <img
+                  src={scene.img}
+                  alt={scene.title}
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2B1D17]/85 via-transparent to-black/20 pointer-events-none" />
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {lookHotspots.map((spot) => (
-                <div 
-                  key={spot.id}
-                  onClick={() => {
-                    setActiveHotspot(spot.id);
-                    if (spot.product) onSelectProduct(spot.product.id);
-                  }}
-                  className={`flex items-center gap-3 p-2.5 rounded-lg border cursor-pointer transition-all ${
-                    activeHotspot === spot.id 
-                      ? 'bg-white/15 border-[#B08A57]' 
-                      : 'bg-white/5 border-white/10 hover:border-white/20'
-                  }`}
-                >
-                  <img 
-                    src={spot.product?.img} 
-                    alt={spot.label} 
-                    className="w-11 h-11 rounded object-cover bg-stone-800 shrink-0" 
-                  />
-                  <div className="min-w-0 flex-1">
-                    <span className="text-[10px] text-stone-300 block truncate">{spot.label}</span>
-                    <h5 className="font-serif font-bold text-xs text-white truncate">{spot.product?.name}</h5>
-                    <span className="text-[11px] text-[#B08A57] font-mono font-bold">
-                      ₹{spot.product?.price.toLocaleString('en-IN')}
-                    </span>
-                  </div>
-                  <ChevronRight size={14} className="text-stone-400 shrink-0" />
+                {/* Room tag & title at bottom */}
+                <div className="absolute bottom-3 left-3 right-3 pointer-events-none">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#B08A57] block">
+                    {scene.roomTag}
+                  </span>
+                  <h3 className="font-serif text-sm font-bold text-white drop-shadow-xs truncate">
+                    {scene.title}
+                  </h3>
                 </div>
-              ))}
-            </div>
+
+                {/* Hotspots */}
+                {scene.hotspots.map((spot) => {
+                  const isActive = activeHotspotId === spot.id;
+                  const horizontalClass = spot.x > 60 
+                    ? 'right-0 translate-x-2' 
+                    : spot.x < 40 
+                    ? 'left-0 -translate-x-2' 
+                    : 'left-1/2 -translate-x-1/2';
+                  const verticalClass = spot.y < 45 
+                    ? 'top-full mt-2' 
+                    : 'bottom-full mb-2';
+
+                  return (
+                    <div
+                      key={spot.id}
+                      style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
+                      className="absolute -translate-x-1/2 -translate-y-1/2 z-30"
+                    >
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveHotspotId(isActive ? null : spot.id);
+                        }}
+                        className="group/hs relative min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer focus:outline-none"
+                        aria-label={`View ${spot.label}`}
+                      >
+                        <span className={`w-7 h-7 rounded-full flex items-center justify-center border shadow-md transition-all duration-200 ${
+                          isActive 
+                            ? 'bg-[#B08A57] border-white text-[#2B1D17] scale-110' 
+                            : 'bg-[#2B1D17]/85 backdrop-blur-xs border-white/80 text-white'
+                        }`}>
+                          <span className={`w-2 h-2 rounded-full ${
+                            isActive ? 'bg-[#2B1D17]' : 'bg-[#B08A57]'
+                          }`} />
+                        </span>
+                      </button>
+
+                      <AnimatePresence>
+                        {isActive && spot.product && (
+                          <motion.div
+                            initial={{ opacity: 0, y: spot.y < 45 ? -6 : 6, scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: spot.y < 45 ? -6 : 6, scale: 0.95 }}
+                            transition={{ duration: 0.2 }}
+                            onClick={(e) => e.stopPropagation()}
+                            className={`absolute ${verticalClass} ${horizontalClass} w-56 bg-white rounded-xl p-2.5 shadow-2xl border border-[#DED6CC] text-[#211A16] z-40 pointer-events-auto`}
+                          >
+                            <div className="flex items-start gap-2">
+                              <img
+                                src={spot.product.img}
+                                alt={spot.product.name}
+                                className="w-12 h-12 rounded-lg object-cover bg-[#F7F4EE] border border-[#DED6CC] shrink-0"
+                                referrerPolicy="no-referrer"
+                              />
+                              <div className="flex-1 min-w-0">
+                                <span className="text-[8.5px] font-bold text-[#B08A57] uppercase tracking-wider block truncate">
+                                  {(spot.product?.category || '').replace(/-/g, ' ')}
+                                </span>
+                                <h4 className="font-serif font-bold text-[11px] text-[#211A16] line-clamp-2 leading-tight mt-0.5">
+                                  {spot.product.name}
+                                </h4>
+                                <div className="text-[11px] font-bold text-[#211A16] font-mono mt-0.5">
+                                  ₹{spot.product.price.toLocaleString('en-IN')}
+                                </div>
+                              </div>
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setActiveHotspotId(null);
+                                }}
+                                className="text-stone-400 hover:text-stone-700 p-0.5 transition-colors cursor-pointer"
+                                aria-label="Close preview"
+                              >
+                                <X size={13} />
+                              </button>
+                            </div>
+
+                            <div className="mt-2 pt-1.5 border-t border-[#F7F4EE]">
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  if (spot.product) onSelectProduct(spot.product.id);
+                                }}
+                                className="w-full min-h-[32px] bg-[#2B1D17] text-white text-[10.5px] font-bold py-1 px-2.5 rounded transition-colors flex items-center justify-center gap-1 cursor-pointer"
+                              >
+                                <span>View Product</span>
+                                <ArrowRight size={12} />
+                              </button>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
+              </div>
+            ))}
           </div>
 
+          <div className="flex items-center justify-between mt-3 text-xs text-[#756B62]">
+            <span className="text-[11px]">
+              ← Swipe to explore 5 styled environments →
+            </span>
+            <span className="text-[11px] font-bold text-[#B08A57]">
+              Tap markers for product specs
+            </span>
+          </div>
         </div>
 
       </section>
@@ -1087,7 +1896,7 @@ export default function HomeView({
 
                   <div className="flex-1 min-w-0">
                     <span className="text-[9.5px] font-bold text-[#B08A57] uppercase tracking-wider block">
-                      {piece.category.replace('-', ' ')}
+                      {(piece?.category || '').replace(/-/g, ' ')}
                     </span>
                     <h4 className="font-serif font-bold text-xs sm:text-sm text-[#211A16] group-hover:text-[#B08A57] transition-colors truncate">
                       {piece.name}
@@ -1194,7 +2003,7 @@ export default function HomeView({
 
                   <div className="p-3.5 sm:p-4">
                     <span className="text-[10px] font-bold text-[#B08A57] uppercase tracking-wider block mb-1">
-                      {product.category.replace('-', ' ')}
+                      {(product?.category || '').replace(/-/g, ' ')}
                     </span>
                     <h3 className="font-serif font-bold text-xs sm:text-sm text-[#211A16] group-hover:text-[#B08A57] transition-colors line-clamp-2 leading-snug">
                       {product.name}
