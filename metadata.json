@@ -1,0 +1,6 @@
+{
+  "name": "Bhisez Furniture Showroom",
+  "description": "Handcrafted premium solid wood furniture showroom in Malvan and Sukalwad featuring solid wood beds, mandirs, sofas, and dining sets.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
