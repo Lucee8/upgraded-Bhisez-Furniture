@@ -481,22 +481,20 @@ export default function App() {
 
       {/* Primary Header/Navbar */}
       {!isAdminRoute() && currentView !== 'admin' && (
-        <div className={currentView === 'beds' ? 'hidden md:block' : ''}>
-          <Navbar 
-            currentView={currentView}
-            onNavigate={handleNavigate}
-            cartCount={cart.reduce((s, c) => s + c.quantity, 0)}
-            wishlistCount={wishlist.length}
-            onSearchChange={setSearchQuery}
-            searchQuery={searchQuery}
-            isLoggedIn={isLoggedIn}
-            onLogout={handleLogout}
-            mobileMenuOpen={mobileMenuOpen}
-            setMobileMenuOpen={setMobileMenuOpen}
-            onSelectCategory={handleSelectCategory}
-            onSelectProduct={handleSelectProduct}
-          />
-        </div>
+        <Navbar 
+          currentView={currentView}
+          onNavigate={handleNavigate}
+          cartCount={cart.reduce((s, c) => s + c.quantity, 0)}
+          wishlistCount={wishlist.length}
+          onSearchChange={setSearchQuery}
+          searchQuery={searchQuery}
+          isLoggedIn={isLoggedIn}
+          onLogout={handleLogout}
+          mobileMenuOpen={mobileMenuOpen}
+          setMobileMenuOpen={setMobileMenuOpen}
+          onSelectCategory={handleSelectCategory}
+          onSelectProduct={handleSelectProduct}
+        />
       )}
 
       {/* Main active view port */}

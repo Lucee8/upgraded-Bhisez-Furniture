@@ -7,6 +7,18 @@
   --font-sans: "DM Sans", "Inter", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
   --font-space: "Space Grotesk", sans-serif;
+
+  --color-walnut: #2B1D17;
+  --color-espresso: #3A2922;
+  --color-brass: #B08A57;
+  --color-brass-hover: #C59A63;
+  --color-ivory: #F7F4EE;
+  --color-surface: #FFFFFF;
+  --color-soft: #EFE9DF;
+  --color-wood-text: #211A16;
+  --color-wood-muted: #756B62;
+  --color-wood-border: #DED6CC;
+  --color-wood-success: #47705A;
 }
 
 /* ── ANIMATION KEYFRAMES ── */
