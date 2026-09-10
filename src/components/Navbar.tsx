@@ -207,27 +207,17 @@ export default function Navbar({
     }, 120);
   };
 
-  // Brand Logo Mark
-  const renderBrandLogo = (compact = false) => (
-    <div className="flex items-center gap-2.5 select-none text-left">
-      <div className={`${compact ? 'w-8 h-8 text-base' : 'w-9 h-9 sm:w-10 sm:h-10 text-lg sm:text-xl'} rounded-lg bg-[#3F8F91] text-white flex items-center justify-center font-serif font-black tracking-tight shrink-0 shadow-xs border border-[#2F7779]`}>
-        B
-      </div>
-      <div className="flex flex-col">
-        <div className="flex items-baseline gap-1">
-          <span className={`font-serif font-black tracking-tight text-[#222222] uppercase ${compact ? 'text-base sm:text-lg' : 'text-lg sm:text-xl'}`}>
-            Bhisez
-          </span>
-          <span className="font-sans font-bold text-[9px] sm:text-[10.5px] text-[#3F8F91] tracking-[0.2em] uppercase">
-            Furniture
-          </span>
-        </div>
-        <span className="text-[8.5px] sm:text-[9px] font-sans font-semibold tracking-wider text-[#777777] uppercase -mt-0.5">
-          Solid Teak Wood • Sindhudurg
-        </span>
-      </div>
-    </div>
-  );
+const renderBrandLogo = (compact = false) => (
+  <div className="flex items-center select-none">
+    <img
+      src="src/public/images/bhisez logo.png"
+      alt="Bhisez Furniture"
+      className={`object-contain ${
+        compact ? "h-12 w-auto" : "h-16 sm:h-20 w-auto"
+      }`}
+    />
+  </div>
+);
 
   return (
     <>
@@ -251,7 +241,7 @@ export default function Navbar({
                 id="utility-showrooms-link"
               >
                 <MapPin size={11} className="text-[#3F8F91]" />
-                Showrooms: Malvan Flagship & Sukalwad NH-66
+                Showrooms: Malvan  & Sukalwad NH-66
               </button>
             </div>
 

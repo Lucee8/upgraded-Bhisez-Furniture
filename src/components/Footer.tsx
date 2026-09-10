@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ViewState } from '../types';
-
+import bhisezLogo from "../public/images/bhisez logo.png";
 interface FooterProps {
   onNavigate: (view: ViewState) => void;
 }
@@ -20,12 +20,11 @@ export default function Footer({ onNavigate }: FooterProps) {
             onClick={() => onNavigate('home')} 
             className="cursor-pointer select-none"
           >
-            <img 
-              src="/images/bhisez%20logo.png" 
-              alt="Bhisez Furniture" 
-              className="h-10 sm:h-12 w-auto object-contain block py-0.5" 
-              referrerPolicy="no-referrer"
-            />
+<img
+  src={bhisezLogo}
+  alt="Bhisez Furniture"
+  className="h-11 sm:h-14 w-auto object-contain"
+/>
           </div>
           <p className="text-xs text-[#555555] leading-relaxed max-w-sm">
             Handcrafted with solid teak, sheesham, and mango hardwoods based out of the premium coastal region of Malvan & Sukalwad, Sindhudurg since 2010. Designed to outlast trends.
