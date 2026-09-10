@@ -8,17 +8,81 @@
   --font-mono: "JetBrains Mono", monospace;
   --font-space: "Space Grotesk", sans-serif;
 
-  --color-walnut: #2B1D17;
-  --color-espresso: #3A2922;
-  --color-brass: #B08A57;
-  --color-brass-hover: #C59A63;
-  --color-ivory: #F7F4EE;
+  /* ── WOODEN STREET-INSPIRED LIGHT + TEAL COLOUR SYSTEM ── */
+  --color-primary-teal: #3F8F91;
+  --color-dark-teal: #2F7779;
+  --color-teal-hover: #347F81;
+  --color-sale-red: #E53935;
+  --color-sale-orange: #F47B20;
+  --color-warm-gold: #C99A3A;
+  --color-white: #FFFFFF;
+  --color-off-white: #FAFAF8;
+  --color-light-grey: #F5F5F5;
+  --color-soft-grey: #EEEEEE;
+  --color-text-primary: #222222;
+  --color-text-dark: #333333;
+  --color-text-body: #555555;
+  --color-text-muted: #777777;
+  --color-text-light: #999999;
+  --color-border-main: #E2E2E2;
+  --color-border-light: #EEEEEE;
+  --color-status-success: #2E7D32;
+  --color-status-warning: #F57C00;
+  --color-status-error: #D32F2F;
+
+  /* Unified semantic mappings */
+  --color-walnut: #222222;
+  --color-espresso: #333333;
+  --color-brass: #3F8F91;
+  --color-brass-hover: #2F7779;
+  --color-ivory: #FAFAF8;
   --color-surface: #FFFFFF;
-  --color-soft: #EFE9DF;
-  --color-wood-text: #211A16;
-  --color-wood-muted: #756B62;
-  --color-wood-border: #DED6CC;
-  --color-wood-success: #47705A;
+  --color-soft: #F5F5F5;
+  --color-wood-text: #222222;
+  --color-wood-muted: #777777;
+  --color-wood-border: #E2E2E2;
+  --color-wood-success: #2E7D32;
+}
+
+/* ── WOODEN STREET-INSPIRED BUTTON & BADGE SYSTEM ── */
+.btn-primary {
+  background-color: #3F8F91;
+  color: #FFFFFF;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+.btn-primary:hover {
+  background-color: #2F7779;
+}
+
+.btn-secondary {
+  background-color: #FFFFFF;
+  color: #3F8F91;
+  border: 1px solid #3F8F91;
+  transition: all 0.2s ease;
+}
+.btn-secondary:hover {
+  background-color: #FAFAF8;
+  border-color: #2F7779;
+  color: #2F7779;
+}
+
+.btn-sale {
+  background-color: #E53935;
+  color: #FFFFFF;
+  transition: background-color 0.2s ease;
+}
+.btn-sale:hover {
+  background-color: #D32F2F;
+}
+
+.badge-sale {
+  background-color: #E53935;
+  color: #FFFFFF;
+}
+
+.badge-orange {
+  background-color: #F47B20;
+  color: #FFFFFF;
 }
 
 /* ── ANIMATION KEYFRAMES ── */
@@ -57,23 +121,23 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom Scrollbars matching Teak tones */
+/* Custom Scrollbars matching Teal tones */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #FAF7F2;
+  background: #F5F5F5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #8B6F5C;
+  background: #3F8F91;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3D2B1F;
+  background: #2F7779;
 }
 
 /* Card layout transitions */
