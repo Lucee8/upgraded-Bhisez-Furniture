@@ -289,7 +289,7 @@ const renderBrandLogo = (compact = false) => (
         {/* ========================================================================= */}
         {/* LEVEL 2: MAIN HEADER (Desktop)                                           */}
         {/* ========================================================================= */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hidden md:block">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hidden md:block -mb-5">
           <div className="flex justify-between items-center py-3 bg-white">
             {/* Logo on Left */}
             <button 

@@ -1,158 +1,1708 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap');
+
 @import "tailwindcss";
 
+
+/* =========================================================
+   BHISEZ FURNITURE
+   PREMIUM BRAND DESIGN SYSTEM
+   Gold + Deep Brown + Ivory + Heritage Teal
+   ========================================================= */
+
 @theme {
+
+  /* =======================================================
+     TYPOGRAPHY
+     ======================================================= */
+
   --font-serif: "Playfair Display", Georgia, serif;
-  --font-cormorant: "Cormorant Garamond", serif;
-  --font-sans: "DM Sans", "Inter", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
-  --font-space: "Space Grotesk", sans-serif;
+  --font-cormorant: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "DM Sans", Inter, Arial, sans-serif;
 
-  /* ── WOODEN STREET-INSPIRED LIGHT + TEAL COLOUR SYSTEM ── */
-  --color-primary-teal: #3F8F91;
-  --color-dark-teal: #2F7779;
-  --color-teal-hover: #347F81;
-  --color-sale-red: #E53935;
-  --color-sale-orange: #F47B20;
-  --color-warm-gold: #C99A3A;
+
+  /* =======================================================
+     PRIMARY BRAND
+     ======================================================= */
+
+  --color-primary: #2B211B;
+  --color-primary-dark: #1F1712;
+  --color-primary-deep: #17110D;
+  --color-primary-light: #4A382B;
+
+
+  /* =======================================================
+     BHISEZ GOLD
+     Based on the logo direction
+     ======================================================= */
+
+  --color-gold: #F4B400;
+  --color-gold-light: #FFC928;
+  --color-gold-dark: #D99A00;
+  --color-gold-deep: #B77D00;
+  --color-champagne: #E8D4A5;
+
+
+  /* =======================================================
+     HERITAGE TEAL
+     Secondary only
+     ======================================================= */
+
+  --color-heritage: #347F7D;
+  --color-heritage-dark: #286866;
+  --color-heritage-light: #5C9B98;
+  --color-heritage-soft: #E5F0EF;
+
+
+  /* =======================================================
+     WARM SURFACES
+     ======================================================= */
+
   --color-white: #FFFFFF;
-  --color-off-white: #FAFAF8;
-  --color-light-grey: #F5F5F5;
-  --color-soft-grey: #EEEEEE;
-  --color-text-primary: #222222;
-  --color-text-dark: #333333;
-  --color-text-body: #555555;
-  --color-text-muted: #777777;
-  --color-text-light: #999999;
-  --color-border-main: #E2E2E2;
-  --color-border-light: #EEEEEE;
-  --color-status-success: #2E7D32;
-  --color-status-warning: #F57C00;
-  --color-status-error: #D32F2F;
-
-  /* Unified semantic mappings */
-  --color-walnut: #222222;
-  --color-espresso: #333333;
-  --color-brass: #3F8F91;
-  --color-brass-hover: #2F7779;
-  --color-ivory: #FAFAF8;
   --color-surface: #FFFFFF;
-  --color-soft: #F5F5F5;
-  --color-wood-text: #222222;
-  --color-wood-muted: #777777;
-  --color-wood-border: #E2E2E2;
-  --color-wood-success: #2E7D32;
+
+  --color-ivory: #FAF6ED;
+  --color-cream: #F4EEE3;
+  --color-warm-white: #FFFDF8;
+
+  --color-beige: #EDE3D3;
+  --color-sand: #DED1C0;
+
+  --color-dark: #211A15;
+  --color-dark-soft: #2B211B;
+
+
+  /* =======================================================
+     TEXT
+     ======================================================= */
+
+  --color-text-primary: #2B211B;
+  --color-text-dark: #342B25;
+  --color-text-body: #4A423B;
+  --color-text-muted: #756C63;
+  --color-text-light: #9A9188;
+  --color-text-white: #FFFFFF;
+
+
+  /* =======================================================
+     BORDERS
+     ======================================================= */
+
+  --color-border: #DDD3C6;
+  --color-border-light: #EBE5DC;
+  --color-border-dark: #C5B9AA;
+
+
+  /* =======================================================
+     STATUS
+     ======================================================= */
+
+  --color-success: #426B4A;
+  --color-warning: #A16D25;
+  --color-error: #A13F37;
+
+
+  /* =======================================================
+     SALES
+     ======================================================= */
+
+  --color-sale: #A43E35;
+  --color-sale-dark: #83302A;
+  --color-sale-light: #F3DFDB;
+
+
+  /* =======================================================
+     LEGACY COMPATIBILITY
+     Keeps existing components functional
+     ======================================================= */
+
+  --color-primary-teal: #347F7D;
+  --color-dark-teal: #286866;
+  --color-teal-hover: #286866;
+
+  --color-sale-red: #A43E35;
+  --color-sale-orange: #A86635;
+
+  --color-warm-gold: #F4B400;
+
+  --color-light-grey: #F5F1EA;
+  --color-soft-grey: #ECE6DD;
+
+  --color-text-primary: #2B211B;
+  --color-text-dark: #342B25;
+  --color-text-body: #4A423B;
+  --color-text-muted: #756C63;
+  --color-text-light: #9A9188;
+
+  --color-border-main: #DDD3C6;
+  --color-border-light: #EBE5DC;
+
+  --color-status-success: #426B4A;
+  --color-status-warning: #A16D25;
+  --color-status-error: #A13F37;
+
+
+  /* =======================================================
+     OLD SEMANTIC MAPPINGS
+     ======================================================= */
+
+  --color-walnut: #2B211B;
+  --color-espresso: #1F1712;
+
+  --color-brass: #F4B400;
+  --color-brass-hover: #D99A00;
+
+  --color-ivory: #FAF6ED;
+  --color-surface: #FFFFFF;
+  --color-soft: #F4EEE3;
+
+  --color-wood-text: #2B211B;
+  --color-wood-muted: #756C63;
+  --color-wood-border: #DDD3C6;
+  --color-wood-success: #426B4A;
 }
 
-/* ── WOODEN STREET-INSPIRED BUTTON & BADGE SYSTEM ── */
+
+/* =========================================================
+   GLOBAL RESET
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+  background: #FAF6ED;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  background: #FAF6ED;
+
+  color: #2B211B;
+
+  font-family:
+    "DM Sans",
+    Inter,
+    Arial,
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  color: #2B211B;
+
+  letter-spacing: -0.025em;
+
+  text-rendering: optimizeLegibility;
+}
+
+p {
+  line-height: 1.7;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family:
+    "DM Sans",
+    Inter,
+    Arial,
+    sans-serif;
+}
+
+
+/* =========================================================
+   TEXT UTILITIES
+   ========================================================= */
+
+.heading-display {
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-weight: 600;
+
+  line-height: 1.08;
+
+  letter-spacing: -0.035em;
+}
+
+.heading-elegant {
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-weight: 500;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.015em;
+}
+
+.eyebrow {
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size: 0.7rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: #D99A00;
+}
+
+.gold-text {
+  color: #D99A00 !important;
+}
+
+.heritage-text {
+  color: #347F7D !important;
+}
+
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  background: #F4B400;
+  color: #2B211B;
+}
+
+
+/* =========================================================
+   FOCUS
+   ========================================================= */
+
+:focus-visible {
+  outline: 2px solid #F4B400;
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   PREMIUM NAVIGATION
+   ========================================================= */
+
+.premium-nav {
+  background:
+    rgba(255, 255, 255, 0.97);
+
+  border-bottom:
+    1px solid #EBE5DC;
+
+  backdrop-filter:
+    blur(18px);
+
+  -webkit-backdrop-filter:
+    blur(18px);
+
+  transition:
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.premium-nav.scrolled {
+  box-shadow:
+    0 8px 30px rgba(43, 33, 27, 0.08);
+}
+
+
+/* =========================================================
+   NAVIGATION LINKS
+   ========================================================= */
+
+.nav-link {
+  position: relative;
+
+  color: #342B25;
+
+  font-size: 0.84rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.01em;
+
+  transition:
+    color 0.25s ease;
+}
+
+.nav-link:hover {
+  color: #D99A00;
+}
+
+.nav-link::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -7px;
+
+  width: 100%;
+  height: 1px;
+
+  background: #F4B400;
+
+  transform:
+    scaleX(0);
+
+  transform-origin:
+    right;
+
+  transition:
+    transform 0.35s ease;
+}
+
+.nav-link:hover::after {
+  transform:
+    scaleX(1);
+
+  transform-origin:
+    left;
+}
+
+
+/* =========================================================
+   PREMIUM BUTTONS
+   ========================================================= */
+
 .btn-primary {
-  background-color: #3F8F91;
-  color: #FFFFFF;
-  transition: background-color 0.2s ease, transform 0.15s ease;
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.5rem;
+
+  background: #F4B400;
+
+  color: #2B211B;
+
+  border:
+    1px solid #F4B400;
+
+  border-radius: 3px;
+
+  padding:
+    0.78rem 1.5rem;
+
+  font-size: 0.9rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.01em;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
+
 .btn-primary:hover {
-  background-color: #2F7779;
+  background: #D99A00;
+
+  border-color: #D99A00;
+
+  color: #1F1712;
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 10px 28px rgba(217, 154, 0, 0.24);
 }
+
+
+/* =========================================================
+   SECONDARY BUTTON
+   ========================================================= */
 
 .btn-secondary {
-  background-color: #FFFFFF;
-  color: #3F8F91;
-  border: 1px solid #3F8F91;
-  transition: all 0.2s ease;
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.5rem;
+
+  background: transparent;
+
+  color: #2B211B;
+
+  border:
+    1px solid #2B211B;
+
+  border-radius: 3px;
+
+  padding:
+    0.78rem 1.5rem;
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
 }
+
 .btn-secondary:hover {
-  background-color: #FAFAF8;
-  border-color: #2F7779;
-  color: #2F7779;
+  background: #2B211B;
+
+  color: #FFFFFF;
+
+  border-color: #2B211B;
+
+  transform:
+    translateY(-2px);
 }
+
+
+/* =========================================================
+   DARK BUTTON
+   ========================================================= */
+
+.btn-dark {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.5rem;
+
+  background: #2B211B;
+
+  color: #FFFFFF;
+
+  border:
+    1px solid #2B211B;
+
+  border-radius: 3px;
+
+  padding:
+    0.78rem 1.5rem;
+
+  font-weight: 600;
+
+  transition:
+    all 0.3s ease;
+}
+
+.btn-dark:hover {
+  background: #1F1712;
+
+  border-color: #1F1712;
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 10px 25px rgba(31, 23, 18, 0.18);
+}
+
+
+/* =========================================================
+   GOLD BUTTON
+   ========================================================= */
+
+.btn-gold {
+  background: #F4B400;
+
+  color: #2B211B;
+
+  border:
+    1px solid #F4B400;
+
+  border-radius: 3px;
+
+  transition:
+    all 0.3s ease;
+}
+
+.btn-gold:hover {
+  background: #D99A00;
+
+  border-color: #D99A00;
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 10px 28px rgba(217, 154, 0, 0.25);
+}
+
+
+/* =========================================================
+   SALE BUTTON
+   ========================================================= */
 
 .btn-sale {
-  background-color: #E53935;
+  background: #A43E35;
+
   color: #FFFFFF;
-  transition: background-color 0.2s ease;
-}
-.btn-sale:hover {
-  background-color: #D32F2F;
+
+  border:
+    1px solid #A43E35;
+
+  transition:
+    all 0.3s ease;
 }
 
+.btn-sale:hover {
+  background: #83302A;
+
+  border-color: #83302A;
+}
+
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+
 .badge-sale {
-  background-color: #E53935;
-  color: #FFFFFF;
+  display: inline-flex;
+
+  align-items: center;
+
+  background: #2B211B;
+
+  color: #FFC928;
+
+  padding:
+    0.3rem 0.65rem;
+
+  font-size: 0.68rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.badge-gold {
+  display: inline-flex;
+
+  align-items: center;
+
+  background: #F4B400;
+
+  color: #2B211B;
+
+  padding:
+    0.3rem 0.65rem;
+
+  font-size: 0.68rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
 }
 
 .badge-orange {
-  background-color: #F47B20;
+  background: #F4B400;
+
+  color: #2B211B;
+}
+
+.badge-heritage {
+  background: #347F7D;
+
   color: #FFFFFF;
 }
 
-/* ── ANIMATION KEYFRAMES ── */
-@keyframes slide-track {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+
+/* =========================================================
+   PREMIUM CARDS
+   ========================================================= */
+
+.premium-card {
+  background: #FFFFFF;
+
+  border:
+    1px solid #EBE5DC;
+
+  box-shadow:
+    0 5px 20px rgba(43, 33, 27, 0.045);
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease,
+    border-color 0.35s ease;
 }
 
-.animate-slide-track {
-  display: flex;
-  width: max-content;
-  animation: slide-track 25s linear infinite;
+.premium-card:hover {
+  border-color: #D9C49A;
+
+  transform:
+    translateY(-5px);
+
+  box-shadow:
+    0 20px 50px rgba(43, 33, 27, 0.11);
 }
 
-/* Micro transitions & fade effect */
-.animate-fade-in {
-  animation: fadeIn 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
+/* =========================================================
+   PRODUCT IMAGE
+   ========================================================= */
+
+.product-image {
+  position: relative;
+
+  overflow: hidden;
+
+  background: #F4EEE3;
 }
 
-.animate-scale-in {
-  animation: scaleIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+.product-image img {
+  display: block;
+
+  width: 100%;
+
+  transition:
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.product-image:hover img {
+  transform:
+    scale(1.055);
 }
 
-@keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.92); }
-  to { opacity: 1; transform: scale(1); }
+
+/* =========================================================
+   IMAGE ZOOM
+   ========================================================= */
+
+.image-zoom {
+  overflow: hidden;
 }
 
-/* Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
+.image-zoom img {
+  transition:
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Custom Scrollbars matching Teal tones */
+.image-zoom:hover img {
+  transform:
+    scale(1.06);
+}
+
+
+/* =========================================================
+   COLLECTION CARDS
+   ========================================================= */
+
+.collection-card {
+  position: relative;
+
+  overflow: hidden;
+
+  background: #FFFFFF;
+}
+
+.collection-card img {
+  display: block;
+
+  width: 100%;
+
+  transition:
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.collection-card:hover img {
+  transform:
+    scale(1.06);
+}
+
+.collection-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(31, 23, 18, 0.78) 0%,
+      rgba(31, 23, 18, 0.28) 48%,
+      rgba(31, 23, 18, 0.02) 100%
+    );
+}
+
+
+/* =========================================================
+   PRODUCT PRICES
+   ========================================================= */
+
+.price-current {
+  color: #2B211B;
+
+  font-size: 1rem;
+
+  font-weight: 700;
+}
+
+.price-old {
+  color: #9A9188;
+
+  font-size: 0.84rem;
+
+  text-decoration:
+    line-through;
+}
+
+.price-sale {
+  color: #D99A00;
+
+  font-size: 0.75rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.025em;
+}
+
+
+/* =========================================================
+   SECTION SYSTEM
+   ========================================================= */
+
+.section-white {
+  background: #FFFFFF;
+}
+
+.section-ivory {
+  background: #FAF6ED;
+}
+
+.section-cream {
+  background: #F4EEE3;
+}
+
+.section-beige {
+  background: #EDE3D3;
+}
+
+.section-dark {
+  background: #2B211B;
+
+  color: #FFFFFF;
+}
+
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4,
+.section-dark h5,
+.section-dark h6 {
+  color: #FFFFFF;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero-title {
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  color: #FFFFFF;
+
+  font-weight: 600;
+
+  letter-spacing: -0.04em;
+
+  line-height: 1.02;
+}
+
+.hero-subtitle {
+  color:
+    rgba(255, 255, 255, 0.86);
+
+  line-height: 1.7;
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(31, 23, 18, 0.82) 0%,
+      rgba(31, 23, 18, 0.58) 35%,
+      rgba(31, 23, 18, 0.22) 68%,
+      rgba(31, 23, 18, 0.04) 100%
+    );
+}
+
+
+/* =========================================================
+   HERO GOLD ELEMENT
+   ========================================================= */
+
+.hero-gold {
+  color: #FFC928;
+}
+
+.hero-price {
+  color: #FFC928;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   GOLD DIVIDERS
+   ========================================================= */
+
+.gold-divider {
+  width: 55px;
+
+  height: 2px;
+
+  background: #F4B400;
+}
+
+.gold-divider-long {
+  width: 100px;
+
+  height: 1px;
+
+  background: #F4B400;
+}
+
+
+/* =========================================================
+   ICON BUTTONS
+   ========================================================= */
+
+.icon-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  background: #FFFFFF;
+
+  color: #2B211B;
+
+  border:
+    1px solid #DDD3C6;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.icon-button:hover {
+  background: #F4B400;
+
+  color: #2B211B;
+
+  border-color: #F4B400;
+
+  transform:
+    translateY(-2px);
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+.premium-input {
+  width: 100%;
+
+  background: #FFFFFF;
+
+  color: #342B25;
+
+  border:
+    1px solid #DDD3C6;
+
+  border-radius: 3px;
+
+  padding:
+    0.78rem 0.9rem;
+
+  outline: none;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.premium-input:focus {
+  border-color: #F4B400;
+
+  box-shadow:
+    0 0 0 3px rgba(244, 180, 0, 0.13);
+}
+
+.premium-input::placeholder {
+  color: #9A9188;
+}
+
+
+/* =========================================================
+   TESTIMONIAL
+   ========================================================= */
+
+.testimonial {
+  background: #F4EEE3;
+
+  border:
+    1px solid #EBE5DC;
+}
+
+.quote-mark {
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  color: #D99A00;
+
+  font-size: 5rem;
+
+  line-height: 0.6;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.premium-footer {
+  background: #1F1712;
+
+  color:
+    rgba(255, 255, 255, 0.70);
+}
+
+.premium-footer h1,
+.premium-footer h2,
+.premium-footer h3,
+.premium-footer h4,
+.premium-footer h5,
+.premium-footer h6 {
+  color: #FFFFFF;
+}
+
+.premium-footer a {
+  color:
+    rgba(255, 255, 255, 0.68);
+
+  transition:
+    color 0.25s ease;
+}
+
+.premium-footer a:hover {
+  color: #FFC928;
+}
+
+.footer-divider {
+  height: 1px;
+
+  background:
+    rgba(255, 255, 255, 0.12);
+}
+
+
+/* =========================================================
+   DARK BRAND SECTION
+   ========================================================= */
+
+.brand-dark {
+  background: #2B211B;
+
+  color: #FFFFFF;
+}
+
+.brand-dark h1,
+.brand-dark h2,
+.brand-dark h3,
+.brand-dark h4 {
+  color: #FFFFFF;
+}
+
+.brand-dark .gold-text {
+  color: #FFC928 !important;
+}
+
+
+/* =========================================================
+   HERITAGE SECTION
+   ========================================================= */
+
+.heritage-section {
+  background: #347F7D;
+
+  color: #FFFFFF;
+}
+
+.heritage-section h1,
+.heritage-section h2,
+.heritage-section h3,
+.heritage-section h4 {
+  color: #FFFFFF;
+}
+
+
+/* =========================================================
+   GLASS
+   ========================================================= */
+
+.glass-light {
+  background:
+    rgba(255, 255, 255, 0.84);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.6);
+
+  backdrop-filter:
+    blur(18px);
+
+  -webkit-backdrop-filter:
+    blur(18px);
+}
+
+.glass-dark {
+  background:
+    rgba(43, 33, 27, 0.80);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.10);
+
+  backdrop-filter:
+    blur(18px);
+
+  -webkit-backdrop-filter:
+    blur(18px);
+}
+
+
+/* =========================================================
+   SHADOWS
+   ========================================================= */
+
+.shadow-premium {
+  box-shadow:
+    0 10px 35px rgba(43, 33, 27, 0.08);
+}
+
+.shadow-premium-lg {
+  box-shadow:
+    0 22px 65px rgba(43, 33, 27, 0.13);
+}
+
+.shadow-gold {
+  box-shadow:
+    0 10px 35px rgba(244, 180, 0, 0.17);
+}
+
+
+/* =========================================================
+   DIVIDERS
+   ========================================================= */
+
+.divider {
+  width: 100%;
+
+  height: 1px;
+
+  background: #EBE5DC;
+}
+
+.divider-dark {
+  width: 100%;
+
+  height: 1px;
+
+  background:
+    rgba(255, 255, 255, 0.12);
+}
+
+
+/* =========================================================
+   HOVER UTILITIES
+   ========================================================= */
+
+.gold-hover {
+  transition:
+    color 0.25s ease;
+}
+
+.gold-hover:hover {
+  color: #D99A00 !important;
+}
+
+.transition-premium {
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s ease,
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.4s ease;
+}
+
+.transition-transform {
+  transition:
+    transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F5F5F5;
+  background: #F4EEE3;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3F8F91;
-  border-radius: 4px;
+  background: #D99A00;
+
+  border:
+    2px solid #F4EEE3;
+
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2F7779;
+  background: #2B211B;
 }
 
-/* Card layout transitions */
-.transition-transform {
-  transition-property: transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 250ms;
+* {
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    #D99A00
+    #F4EEE3;
 }
 
-/* Hide scrollbars for slick horizontal scroll rows */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
+
+/* =========================================================
+   HORIZONTAL SCROLL
+   ========================================================= */
+
 .no-scrollbar {
   -ms-overflow-style: none;
+
   scrollbar-width: none;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes fadeIn {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+@keyframes fadeUp {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+@keyframes fadeDown {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(-15px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+@keyframes scaleIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1);
+  }
+}
+
+
+@keyframes slide-track {
+
+  0% {
+    transform:
+      translateX(0);
+  }
+
+  100% {
+    transform:
+      translateX(-50%);
+  }
+}
+
+
+@keyframes shimmer {
+
+  0% {
+    background-position:
+      -1000px 0;
+  }
+
+  100% {
+    background-position:
+      1000px 0;
+  }
+}
+
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-6px);
+  }
+}
+
+
+/* =========================================================
+   ANIMATION UTILITIES
+   ========================================================= */
+
+.animate-fade-in {
+  animation:
+    fadeIn 0.45s ease both;
+}
+
+.animate-fade-up {
+  animation:
+    fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-fade-down {
+  animation:
+    fadeDown 0.45s ease both;
+}
+
+.animate-scale-in {
+  animation:
+    scaleIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-slide-track {
+  display: flex;
+
+  width: max-content;
+
+  animation:
+    slide-track 28s linear infinite;
+}
+
+.animate-slide-track:hover {
+  animation-play-state: paused;
+}
+
+.animate-float {
+  animation:
+    float 3.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   LEGACY TEAL HEX OVERRIDES
+   Handles existing hard-coded colors
+   ========================================================= */
+
+/* Old primary teal */
+.bg-\[\#3F8F91\] {
+  background-color: #F4B400 !important;
+}
+
+.text-\[\#3F8F91\] {
+  color: #D99A00 !important;
+}
+
+.border-\[\#3F8F91\] {
+  border-color: #F4B400 !important;
+}
+
+
+/* Old dark teal */
+.bg-\[\#2F7779\] {
+  background-color: #D99A00 !important;
+}
+
+.text-\[\#2F7779\] {
+  color: #D99A00 !important;
+}
+
+.border-\[\#2F7779\] {
+  border-color: #D99A00 !important;
+}
+
+
+/* Existing screenshot teal */
+.bg-\[\#347F7D\] {
+  background-color: #2B211B !important;
+}
+
+.text-\[\#347F7D\] {
+  color: #D99A00 !important;
+}
+
+.border-\[\#347F7D\] {
+  border-color: #F4B400 !important;
+}
+
+
+/* Existing darker heritage teal */
+.bg-\[\#286866\] {
+  background-color: #1F1712 !important;
+}
+
+.text-\[\#286866\] {
+  color: #D99A00 !important;
+}
+
+.border-\[\#286866\] {
+  border-color: #D99A00 !important;
+}
+
+
+/* Old orange */
+.bg-\[\#F47B20\] {
+  background-color: #F4B400 !important;
+}
+
+.text-\[\#F47B20\] {
+  color: #D99A00 !important;
+}
+
+.border-\[\#F47B20\] {
+  border-color: #F4B400 !important;
+}
+
+
+/* =========================================================
+   TAILWIND TEAL COMPATIBILITY
+   Existing components using bg-teal-* / text-teal-*
+   ========================================================= */
+
+.bg-teal-50 {
+  background-color: #F4EEE3 !important;
+}
+
+.bg-teal-100 {
+  background-color: #E5F0EF !important;
+}
+
+.bg-teal-200 {
+  background-color: #DDD3C6 !important;
+}
+
+.bg-teal-500,
+.bg-teal-600 {
+  background-color: #F4B400 !important;
+}
+
+.bg-teal-700,
+.bg-teal-800 {
+  background-color: #2B211B !important;
+}
+
+.bg-teal-900 {
+  background-color: #1F1712 !important;
+}
+
+
+.text-teal-400,
+.text-teal-500,
+.text-teal-600 {
+  color: #D99A00 !important;
+}
+
+.text-teal-700,
+.text-teal-800,
+.text-teal-900 {
+  color: #2B211B !important;
+}
+
+
+.border-teal-300,
+.border-teal-400,
+.border-teal-500,
+.border-teal-600 {
+  border-color: #F4B400 !important;
+}
+
+.border-teal-700,
+.border-teal-800 {
+  border-color: #2B211B !important;
+}
+
+
+/* =========================================================
+   OLD WOODEN STREET COLOURS
+   ========================================================= */
+
+.bg-\[\#FAFAF8\] {
+  background-color: #FAF6ED !important;
+}
+
+.bg-\[\#F5F5F5\] {
+  background-color: #F4EEE3 !important;
+}
+
+.bg-\[\#EEEEEE\] {
+  background-color: #EBE5DC !important;
+}
+
+.text-\[\#222222\] {
+  color: #2B211B !important;
+}
+
+.text-\[\#333333\] {
+  color: #342B25 !important;
+}
+
+.text-\[\#555555\] {
+  color: #4A423B !important;
+}
+
+.text-\[\#777777\] {
+  color: #756C63 !important;
+}
+
+.text-\[\#999999\] {
+  color: #9A9188 !important;
+}
+
+.border-\[\#E2E2E2\] {
+  border-color: #DDD3C6 !important;
+}
+
+.border-\[\#EEEEEE\] {
+  border-color: #EBE5DC !important;
+}
+
+
+/* =========================================================
+   OLD GOLD MAPPING
+   ========================================================= */
+
+.text-\[\#C99A3A\] {
+  color: #D99A00 !important;
+}
+
+.bg-\[\#C99A3A\] {
+  background-color: #F4B400 !important;
+}
+
+.border-\[\#C99A3A\] {
+  border-color: #F4B400 !important;
+}
+
+
+/* =========================================================
+   REDUCE EXCESSIVE ROUNDED MARKETPLACE UI
+   Only applies to our premium utility classes
+   ========================================================= */
+
+.premium-card,
+.collection-card {
+  border-radius: 2px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+  .nav-link {
+    font-size: 0.8rem;
+  }
+
+  .premium-card:hover {
+    transform:
+      translateY(-3px);
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .hero-title {
+    letter-spacing: -0.025em;
+  }
+
+  .premium-card:hover {
+    transform: none;
+
+    box-shadow:
+      0 8px 25px rgba(43, 33, 27, 0.07);
+  }
+
+  .product-image:hover img,
+  .collection-card:hover img,
+  .image-zoom:hover img {
+    transform: none;
+  }
+
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .btn-dark:hover,
+  .btn-gold:hover {
+    transform: none;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-dark,
+  .btn-gold {
+    padding:
+      0.7rem 1.15rem;
+
+    font-size:
+      0.84rem;
+  }
+
+  .icon-button {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+
+    scroll-behavior: auto !important;
+  }
+}
