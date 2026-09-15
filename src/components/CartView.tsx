@@ -63,23 +63,23 @@ export default function CartView({
   };
 
   return (
-    <div className="bg-[#FAF7F2] min-h-screen py-8">
+    <div className="bg-[#FAF5F2] min-h-screen py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <h1 className="font-serif text-3xl font-black text-[#3D2B1F] mb-2">Shopping Cart</h1>
-        <p className="text-xs text-stone-500 mb-8">{cart.length} item{cart.length === 1 ? '' : 's'} placed for review</p>
+        <h1 className="font-serif text-3xl font-black text-[#5F220F] mb-2">Shopping Cart</h1>
+        <p className="text-xs text-[#7E655C] mb-8">{cart.length} item{cart.length === 1 ? '' : 's'} placed for review</p>
 
         {cart.length === 0 ? (
-          <div className="bg-white border border-[#E0D8CF] rounded-2xl p-16 text-center space-y-4 shadow-xs">
+          <div className="bg-white border border-[#EADBD2] rounded-2xl p-16 text-center space-y-4 shadow-xs">
             <div className="text-4xl">🛒</div>
-            <h3 className="font-serif text-lg font-bold text-[#3D2B1F]">Your Cart is Currently Empty</h3>
-            <p className="text-stone-500 text-xs max-w-sm mx-auto leading-relaxed">
+            <h3 className="font-serif text-lg font-bold text-[#5F220F]">Your Cart is Currently Empty</h3>
+            <p className="text-[#7E655C] text-xs max-w-sm mx-auto leading-relaxed">
               Explore our handcrafted seasoned timber beds, divans or modular mandirs to begin furnishing your premium Konkan home.
             </p>
             <div className="pt-2">
               <button 
                 onClick={() => onNavigate('beds')}
-                className="bg-[#C9983A] text-amber-950 font-bold text-xs py-2.5 px-6 rounded-md hover:bg-[#E8B84B] transition-colors"
+                className="bg-[#FFC102] text-[#5F220F] font-bold text-xs py-2.5 px-6 rounded-xl hover:bg-[#E5AC00] transition-colors cursor-pointer"
               >
                 Inquire Beds Series
               </button>
@@ -101,18 +101,18 @@ export default function CartView({
                 return (
                   <div 
                     key={idx}
-                    className="bg-white border border-[#E0D8CF] rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs"
+                    className="bg-white border border-[#EADBD2] rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs"
                   >
                     {/* Item details */}
                     <div className="flex items-center space-x-4">
-                      <div className="w-16 h-16 rounded-xl overflow-hidden border border-[#E0D8CF] bg-amber-50">
+                      <div className="w-16 h-16 rounded-xl overflow-hidden border border-[#EADBD2] bg-[#FAF5F2]">
                         <img src={item.product.img} alt={item.product.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                       </div>
                       <div className="space-y-1">
-                        <h4 className="font-serif text-sm font-black text-amber-950 leading-tight">
+                        <h4 className="font-serif text-sm font-black text-[#5F220F] leading-tight">
                           {item.product.name}
                         </h4>
-                        <div className="flex flex-wrap gap-x-2.5 gap-y-1 text-[10px] text-stone-500 uppercase tracking-wider font-semibold">
+                        <div className="flex flex-wrap gap-x-2.5 gap-y-1 text-[10px] text-[#7E655C] uppercase tracking-wider font-semibold">
                           <span>Size: {item.size}</span>
                           <span>|</span>
                           <span>Finish: {item.finish}</span>
@@ -127,29 +127,29 @@ export default function CartView({
                       <div className="flex items-center space-x-2">
                         <button
                           onClick={() => onUpdateCartItemQty(item.product.id, item.quantity - 1)}
-                          className="w-7 h-7 rounded-lg border border-[#E0D8CF] flex items-center justify-center font-bold hover:bg-stone-50 bg-transparent cursor-pointer"
+                          className="w-7 h-7 rounded-lg border border-[#EADBD2] flex items-center justify-center font-bold hover:bg-stone-50 bg-transparent text-[#5F220F] cursor-pointer"
                         >
                           −
                         </button>
-                        <span className="text-xs font-bold text-stone-800 w-6 text-center">{item.quantity}</span>
+                        <span className="text-xs font-bold text-[#5F220F] w-6 text-center">{item.quantity}</span>
                         <button
                           onClick={() => onUpdateCartItemQty(item.product.id, item.quantity + 1)}
-                          className="w-7 h-7 rounded-lg border border-[#E0D8CF] flex items-center justify-center font-bold hover:bg-stone-50 bg-transparent cursor-pointer"
+                          className="w-7 h-7 rounded-lg border border-[#EADBD2] flex items-center justify-center font-bold hover:bg-stone-50 bg-transparent text-[#5F220F] cursor-pointer"
                         >
                           +
                         </button>
                       </div>
 
                       <div className="text-right">
-                        <span className="text-xs font-bold text-stone-400 uppercase block">Total</span>
-                        <span className="text-sm font-black text-amber-950">
+                        <span className="text-xs font-bold text-[#7E655C] uppercase block">Total</span>
+                        <span className="text-sm font-black text-[#5F220F]">
                           ₹{(computedItemPrice * item.quantity).toLocaleString('en-IN')}
                         </span>
                       </div>
 
                       <button 
                         onClick={() => onRemoveCartItem(item.product.id)}
-                        className="text-stone-400 hover:text-red-600 rounded-md p-2 transition-colors bg-transparent border-none cursor-pointer"
+                        className="text-[#7E655C] hover:text-[#E73129] rounded-md p-2 transition-colors bg-transparent border-none cursor-pointer"
                         title="Remove Item"
                       >
                         <Trash2 size={16} />
@@ -171,49 +171,49 @@ export default function CartView({
             <div className="space-y-6">
               
               {/* Promo section */}
-              <div className="bg-white border border-[#E0D8CF] p-5 rounded-2xl space-y-4 shadow-xs">
-                <h3 className="font-serif text-xs font-black text-[#3D2B1F] uppercase tracking-wider flex items-center gap-1">
-                  <Tag size={12} className="text-amber-700" /> Apply Promo Coupon
+              <div className="bg-white border border-[#EADBD2] p-5 rounded-2xl space-y-4 shadow-xs">
+                <h3 className="font-serif text-xs font-black text-[#5F220F] uppercase tracking-wider flex items-center gap-1">
+                  <Tag size={12} className="text-[#FFC102]" /> Apply Promo Coupon
                 </h3>
                 
-                <div className="flex overflow-hidden rounded-xl border border-[#E0D8CF] bg-[#FAF7F2]">
+                <div className="flex overflow-hidden rounded-xl border border-[#EADBD2] bg-[#FAF5F2]">
                   <input
                     type="text"
                     placeholder="Enter FIRST15 or SUMMER20"
                     value={couponCode}
                     onChange={(e) => setCouponCode(e.target.value)}
-                    className="flex-1 px-3.5 py-2 bg-transparent text-xs text-stone-800 outline-none uppercase font-bold"
+                    className="flex-1 px-3.5 py-2 bg-transparent text-xs text-[#5F220F] outline-none uppercase font-bold"
                   />
                   <button
                     onClick={handleApplyCoupon}
-                    className="bg-[#3D2B1F] hover:bg-stone-900 text-amber-50 text-xs font-bold px-4 cursor-pointer"
+                    className="bg-[#5F220F] hover:bg-[#46190B] text-[#FFC102] text-xs font-bold px-4 cursor-pointer"
                   >
                     Apply
                   </button>
                 </div>
 
                 {couponMsg && (
-                  <div className={`p-2.5 rounded-lg text-[11px] font-semibold flex items-center space-x-1.5 ${couponSuccess ? 'bg-emerald-50 border border-emerald-200 text-emerald-800' : 'bg-red-50 border border-red-200 text-red-800'}`}>
+                  <div className={`p-2.5 rounded-lg text-[11px] font-semibold flex items-center space-x-1.5 ${couponSuccess ? 'bg-emerald-50 border border-emerald-200 text-emerald-800' : 'bg-red-50 border border-red-200 text-[#E73129]'}`}>
                     {couponSuccess && <CheckCircle size={12} className="text-emerald-600" />}
                     <span>{couponMsg}</span>
                   </div>
                 )}
 
                 <div className="pt-2 flex flex-wrap gap-2">
-                  <button onClick={() => { setCouponCode('FIRST15'); setDiscountPercent(0); setCouponMsg(''); }} className="text-[10px] font-bold bg-[#E8DDD1]/40 hover:bg-[#E8DDD1]/80 px-2.5 py-1 rounded-sm text-[#3D2B1F] border border-transparent">
+                  <button onClick={() => { setCouponCode('FIRST15'); setDiscountPercent(0); setCouponMsg(''); }} className="text-[10px] font-bold bg-[#FAF5F2] hover:bg-[#FFC102]/20 px-2.5 py-1 rounded-lg text-[#5F220F] border border-[#EADBD2] cursor-pointer">
                     FIRST15
                   </button>
-                  <button onClick={() => { setCouponCode('SUMMER20'); setDiscountPercent(0); setCouponMsg(''); }} className="text-[10px] font-bold bg-[#E8DDD1]/40 hover:bg-[#E8DDD1]/80 px-2.5 py-1 rounded-sm text-[#3D2B1F] border border-transparent">
+                  <button onClick={() => { setCouponCode('SUMMER20'); setDiscountPercent(0); setCouponMsg(''); }} className="text-[10px] font-bold bg-[#FAF5F2] hover:bg-[#FFC102]/20 px-2.5 py-1 rounded-lg text-[#5F220F] border border-[#EADBD2] cursor-pointer">
                     SUMMER20
                   </button>
                 </div>
               </div>
 
               {/* Price details sheet */}
-              <div className="bg-white border border-[#E0D8CF] p-5 rounded-2xl space-y-4 shadow-xs">
-                <h3 className="font-serif text-sm font-black text-[#3D2B1F] pb-3 border-b border-[#E0D8CF]">Price Details</h3>
+              <div className="bg-white border border-[#EADBD2] p-5 rounded-2xl space-y-4 shadow-xs">
+                <h3 className="font-serif text-sm font-black text-[#5F220F] pb-3 border-b border-[#EADBD2]">Price Details</h3>
                 
-                <div className="space-y-2.5 text-xs text-stone-600">
+                <div className="space-y-2.5 text-xs text-[#7E655C]">
                   <div className="flex justify-between">
                     <span>MRP Total</span>
                     <span>₹{mrpTotal.toLocaleString('en-IN')}</span>
@@ -223,7 +223,7 @@ export default function CartView({
                     <span className="text-emerald-600 font-bold">− ₹{productDiscount.toLocaleString('en-IN')}</span>
                   </div>
                   {discountPercent > 0 && (
-                    <div className="flex justify-between items-center text-rose-700">
+                    <div className="flex justify-between items-center text-[#E73129]">
                       <span>Coupon Discount ({discountPercent}%)</span>
                       <span className="font-bold">− ₹{couponDiscount.toLocaleString('en-IN')}</span>
                     </div>
@@ -234,9 +234,9 @@ export default function CartView({
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-[#E0D8CF] flex justify-between items-baseline bg-transparent">
-                  <span className="text-sm font-bold text-amber-950">Grand Billing Total</span>
-                  <span className="text-xl font-black text-amber-950">
+                <div className="pt-4 border-t border-[#EADBD2] flex justify-between items-baseline bg-transparent">
+                  <span className="text-sm font-bold text-[#5F220F]">Grand Billing Total</span>
+                  <span className="text-xl font-black text-[#5F220F]">
                     ₹{finalTotal.toLocaleString('en-IN')}
                   </span>
                 </div>
@@ -252,7 +252,7 @@ export default function CartView({
                 {/* Checkout CTA */}
                 <button
                   onClick={() => onNavigate('checkout')}
-                  className="w-full py-3.5 rounded-xl bg-[#3D2B1F] hover:bg-[#1C120A] text-amber-50 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-xs cursor-pointer transition-colors"
+                  className="w-full py-3.5 rounded-xl bg-[#FFC102] hover:bg-[#E5AC00] text-[#5F220F] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-xs cursor-pointer transition-colors"
                   id="cart-checkout-cta-btn"
                 >
                   Proceed to Shipping <ArrowRight size={14} />

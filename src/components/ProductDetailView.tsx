@@ -261,16 +261,16 @@ export default function ProductDetailView({
   };
 
   return (
-    <div className="bg-[#FAF7F2] min-h-screen py-8">
+    <div className="bg-[#FAF5F2] min-h-screen py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Breadcrumb Slat */}
-        <div className="flex items-center space-x-2 text-xs text-stone-500 font-medium mb-8">
-          <button onClick={() => onNavigate('home')} className="hover:text-amber-800 bg-transparent border-none cursor-pointer">Home</button>
+        <div className="flex items-center space-x-2 text-xs text-[#7E655C] font-medium mb-8">
+          <button onClick={() => onNavigate('home')} className="hover:text-[#5F220F] bg-transparent border-none cursor-pointer">Home</button>
           <span>›</span>
-          <button onClick={() => onNavigate('beds')} className="hover:text-amber-800 bg-transparent border-none cursor-pointer">Beds</button>
+          <button onClick={() => onNavigate('beds')} className="hover:text-[#5F220F] bg-transparent border-none cursor-pointer">Beds</button>
           <span>›</span>
-          <span className="text-[#3D2B1F] line-clamp-1">{product.name}</span>
+          <span className="text-[#5F220F] font-bold line-clamp-1">{product.name}</span>
         </div>
 
         {/* MAIN PRODUCT SHEETS */}
@@ -280,7 +280,7 @@ export default function ProductDetailView({
           <div className="space-y-4">
             
             {/* Main Stage Frame */}
-            <div className="relative aspect-1.1/1 rounded-2xl overflow-hidden border border-[#E0D8CF] bg-white">
+            <div className="relative aspect-1.1/1 rounded-2xl overflow-hidden border border-[#EADBD2] bg-white">
               <img 
                 src={product.img} 
                 alt={product.name} 
@@ -294,19 +294,19 @@ export default function ProductDetailView({
               <div className="absolute top-4 right-4 flex flex-col space-y-2.5 z-20">
                 <button 
                   onClick={() => onToggleWishlist(product.id)}
-                  className="p-2.5 bg-white/95 hover:bg-white rounded-full shadow-md text-stone-500 transition-transform hover:scale-115"
+                  className="p-2.5 bg-white/95 hover:bg-white rounded-full shadow-md text-stone-500 transition-transform hover:scale-115 cursor-pointer"
                 >
-                  <Heart size={16} className={isWished ? 'fill-red-500 stroke-red-500' : 'text-stone-600'} />
+                  <Heart size={16} className={isWished ? 'fill-[#E73129] stroke-[#E73129]' : 'text-stone-600'} />
                 </button>
                 <button 
                   onClick={shareProduct}
-                  className="p-2.5 bg-white/95 hover:bg-white rounded-full shadow-md text-stone-600 transition-transform hover:scale-115"
+                  className="p-2.5 bg-white/95 hover:bg-white rounded-full shadow-md text-[#5F220F] transition-transform hover:scale-115 cursor-pointer"
                 >
                   <Share2 size={16} />
                 </button>
               </div>
 
-              <div className="absolute bottom-4 left-4 text-[10px] font-bold text-white bg-black/40 px-3 py-1 rounded-sm uppercase tracking-widest pointer-events-none">
+              <div className="absolute bottom-4 left-4 text-[10px] font-bold text-white bg-black/50 px-3 py-1 rounded-sm uppercase tracking-widest pointer-events-none">
                 📍 Tested Carpenter seasoned
               </div>
             </div>
@@ -317,30 +317,30 @@ export default function ProductDetailView({
           <div className="space-y-6">
             
             <div>
-              <span className="text-xs font-black tracking-widest text-[#8B6F5C] uppercase">{seriesName}</span>
-              <h1 className="font-serif text-2xl sm:text-3xl font-black text-amber-950 mt-1 leading-tight">{product.name}</h1>
-              <p className="text-xs text-[#8B6F5C] mt-2">By <button onClick={() => onNavigate('about')} className="underline hover:text-amber-900 bg-transparent border-none p-0">{brandName}</button></p>
+              <span className="text-xs font-black tracking-widest text-[#7E655C] uppercase">{seriesName}</span>
+              <h1 className="font-serif text-2xl sm:text-3xl font-black text-[#5F220F] mt-1 leading-tight">{product.name}</h1>
+              <p className="text-xs text-[#7E655C] mt-2">By <button onClick={() => onNavigate('about')} className="underline hover:text-[#5F220F] bg-transparent border-none p-0 cursor-pointer">{brandName}</button></p>
               
               {product.availableSize && !isBedProduct && (
-                <div className="mt-3.5 inline-flex items-center space-x-1.5 bg-amber-50 border border-amber-200 px-3.5 py-1.5 rounded-xl text-xs font-bold text-amber-900 shadow-3xs">
+                <div className="mt-3.5 inline-flex items-center space-x-1.5 bg-[#FAF5F2] border border-[#EADBD2] px-3.5 py-1.5 rounded-xl text-xs font-bold text-[#5F220F] shadow-3xs">
                   <span>📐</span>
                   <span>Available Size/Dimensions: <strong>{product.availableSize}</strong></span>
                 </div>
               )}
             </div>
 
-            <hr className="border-[#E0D8CF]" />
+            <hr className="border-[#EADBD2]" />
 
             {/* Sizing switch triggers */}
             {sizesList.length > 0 && (
               <div className="space-y-2.5">
-                <span className="text-xs font-bold text-stone-500 uppercase tracking-wider block">{sizingLabel}</span>
+                <span className="text-xs font-bold text-[#7E655C] uppercase tracking-wider block">{sizingLabel}</span>
                 <div className="flex flex-wrap gap-2.5">
                   {sizesList.map(opt => (
                     <button
                       key={opt}
                       onClick={() => setSelectedSize(opt)}
-                      className={`px-4 py-2.5 border rounded-xl text-xs font-bold transition-all ${selectedSize === opt ? 'bg-[#3D2B1F] border-[#3D2B1F] text-amber-50' : 'bg-transparent border-[#E0D8CF] text-[#3D2B1F] hover:border-[#3D2B1F]'}`}
+                      className={`px-4 py-2.5 border rounded-xl text-xs font-bold transition-all cursor-pointer ${selectedSize === opt ? 'bg-[#5F220F] border-[#5F220F] text-[#FFC102]' : 'bg-transparent border-[#EADBD2] text-[#5F220F] hover:border-[#5F220F]'}`}
                     >
                       {opt}
                     </button>
@@ -352,24 +352,25 @@ export default function ProductDetailView({
             {/* Wood Type Selection */}
             {availableWoodTypes.length > 0 && (
               <div className="space-y-2.5">
-                <span className="text-xs font-bold text-stone-500 uppercase tracking-wider block">Wood Type selection</span>
+                <span className="text-xs font-bold text-[#7E655C] uppercase tracking-wider block">Wood Type selection</span>
                 <div className="flex flex-wrap gap-2.5">
                   {availableWoodTypes.map(wood => {
                     const colors = { Sagwan: '#8F4A14', Shivan: '#C9A36C', Aakashi: '#A37233' };
                     const detailColor = colors[wood as keyof typeof colors] || '#C9A36C';
                     const price = product.woodTypePrices?.[wood as keyof typeof product.woodTypePrices];
+
                     return (
                       <button
                         key={wood}
                         onClick={() => setSelectedWoodType(wood)}
-                        className={`flex flex-col items-start p-3 border rounded-xl transition-all min-w-[120px] cursor-pointer text-left ${selectedWoodType === wood ? 'bg-[#3D2B1F] border-[#2C1C11] text-amber-50 shadow-xs ring-1 ring-[#3D2B1F]' : 'bg-white border-[#E0D8CF] text-[#3D2B1F] hover:border-[#3D2B1F]'}`}
+                        className={`flex flex-col items-start p-3 border rounded-xl transition-all min-w-[120px] cursor-pointer text-left ${selectedWoodType === wood ? 'bg-[#5F220F] border-[#46190B] text-[#FFC102] shadow-xs ring-1 ring-[#5F220F]' : 'bg-white border-[#EADBD2] text-[#5F220F] hover:border-[#5F220F]'}`}
                         id={`wood-type-${wood}`}
                       >
                         <div className="flex items-center space-x-2 mb-1">
                           <span className="w-3 h-3 rounded-full border border-stone-300" style={{ backgroundColor: detailColor }} />
                           <span className="font-extrabold text-xs tracking-wider">{wood}</span>
                         </div>
-                        <span className={`text-[10px] font-bold ${selectedWoodType === wood ? 'text-amber-200' : 'text-stone-500'}`}>
+                        <span className={`text-[10px] font-bold ${selectedWoodType === wood ? 'text-amber-200' : 'text-[#7E655C]'}`}>
                           {price ? `₹${price.toLocaleString('en-IN')}` : 'Contact Quote'}
                         </span>
                       </button>
@@ -382,13 +383,13 @@ export default function ProductDetailView({
             {/* Storage configuration */}
             {optionsList.length > 0 && optionsLabel && (
               <div className="space-y-2.5">
-                <span className="text-xs font-bold text-stone-500 uppercase tracking-wider block">{optionsLabel}</span>
+                <span className="text-xs font-bold text-[#7E655C] uppercase tracking-wider block">{optionsLabel}</span>
                 <div className="flex flex-wrap gap-2.5">
                   {optionsList.map(opt => (
                     <button
                       key={opt}
                       onClick={() => setSelectedStorage(opt)}
-                      className={`px-4 py-2.5 border rounded-xl text-xs font-bold transition-all ${selectedStorage === opt ? 'bg-[#3D2B1F] border-[#3D2B1F] text-amber-50' : 'bg-transparent border-[#E0D8CF] text-[#3D2B1F] hover:border-[#3D2B1F]'}`}
+                      className={`px-4 py-2.5 border rounded-xl text-xs font-bold transition-all cursor-pointer ${selectedStorage === opt ? 'bg-[#5F220F] border-[#5F220F] text-[#FFC102]' : 'bg-transparent border-[#EADBD2] text-[#5F220F] hover:border-[#5F220F]'}`}
                     >
                       {opt}
                     </button>
@@ -397,14 +398,14 @@ export default function ProductDetailView({
               </div>
             )}
 
-            <hr className="border-[#E0D8CF]" />
+            <hr className="border-[#EADBD2]" />
 
             {/* LIVE PRICE PANEL */}
             {computedPrice > 0 ? (
-              <div className="bg-white border border-[#E0D8CF] p-5 rounded-2xl space-y-2">
-                <span className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block">Season sale direct rate</span>
+              <div className="bg-white border border-[#EADBD2] p-5 rounded-2xl space-y-2">
+                <span className="text-[10px] font-bold text-[#7E655C] uppercase tracking-widest block">Season sale direct rate</span>
                 <div className="flex items-baseline space-x-2">
-                  <span className="text-3xl font-black text-amber-950">₹{computedPrice.toLocaleString('en-IN')}</span>
+                  <span className="text-3xl font-black text-[#5F220F]">₹{computedPrice.toLocaleString('en-IN')}</span>
                   {computedOrigPrice > 0 && (
                     <>
                       <span className="text-xs text-stone-400 line-through">₹{computedOrigPrice.toLocaleString('en-IN')}</span>
@@ -412,29 +413,29 @@ export default function ProductDetailView({
                     </>
                   )}
                 </div>
-                <p className="text-[11px] text-stone-500">{deliverySubtext}</p>
+                <p className="text-[11px] text-[#7E655C]">{deliverySubtext}</p>
               </div>
             ) : (
-              <div className="bg-white border border-[#E0D8CF] p-5 rounded-2xl flex flex-col items-start space-y-1">
-                <span className="text-xs font-bold text-amber-800">🛠️ Price Upon Custom Quote</span>
-                <p className="text-[11px] text-stone-500">Contact Bhisez directly to provide custom dimensional sketches or wood finishes.</p>
+              <div className="bg-white border border-[#EADBD2] p-5 rounded-2xl flex flex-col items-start space-y-1">
+                <span className="text-xs font-bold text-[#E73129]">🛠️ Price Upon Custom Quote</span>
+                <p className="text-[11px] text-[#7E655C]">Contact Bhisez directly to provide custom dimensional sketches or wood finishes.</p>
               </div>
             )}
 
             {/* Quantity Counter */}
             <div className="flex items-center space-x-4">
-              <span className="text-xs font-bold text-stone-500 uppercase tracking-wider">Quantity</span>
-              <div className="inline-flex items-center border border-[#E0D8CF] rounded-xl bg-white overflow-hidden">
+              <span className="text-xs font-bold text-[#7E655C] uppercase tracking-wider">Quantity</span>
+              <div className="inline-flex items-center border border-[#EADBD2] rounded-xl bg-white overflow-hidden">
                 <button 
                   onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
-                  className="px-3 py-1.5 hover:bg-stone-100 font-bold text-stone-700 bg-transparent cursor-pointer"
+                  className="px-3 py-1.5 hover:bg-stone-100 font-bold text-[#5F220F] bg-transparent cursor-pointer"
                 >
                   −
                 </button>
-                <span className="px-4 py-1.5 font-bold text-stone-800 text-xs">{quantity}</span>
+                <span className="px-4 py-1.5 font-bold text-[#5F220F] text-xs">{quantity}</span>
                 <button 
                   onClick={() => setQuantity(prev => Math.min(10, prev + 1))}
-                  className="px-3 py-1.5 hover:bg-stone-100 font-bold text-stone-700 bg-transparent cursor-pointer"
+                  className="px-3 py-1.5 hover:bg-stone-100 font-bold text-[#5F220F] bg-transparent cursor-pointer"
                 >
                   +
                 </button>
@@ -443,20 +444,20 @@ export default function ProductDetailView({
 
             {/* Pin check Slat */}
             <div className="space-y-2.5">
-              <span className="text-xs font-bold text-stone-500 uppercase tracking-wider block">Check Delivery Pincode</span>
-              <div className="flex max-w-xs overflow-hidden rounded-xl border border-[#E0D8CF] bg-white">
+              <span className="text-xs font-bold text-[#7E655C] uppercase tracking-wider block">Check Delivery Pincode</span>
+              <div className="flex max-w-xs overflow-hidden rounded-xl border border-[#EADBD2] bg-white">
                 <input 
                   type="text" 
                   maxLength={6}
                   placeholder="Enter 6-digit Pincode"
                   value={pincode}
                   onChange={(e) => setPincode(e.target.value.replace(/\D/g, ''))}
-                  className="flex-1 px-4 py-2 bg-transparent text-xs text-[#3D2B1F] outline-none"
+                  className="flex-1 px-4 py-2 bg-transparent text-xs text-[#5F220F] outline-none"
                   id="pincode-entry-input"
                 />
                 <button 
                   onClick={handlePincodeCheck}
-                  className="bg-[#3D2B1F] hover:bg-[#120a04] px-4 text-xs font-bold text-amber-50 cursor-pointer"
+                  className="bg-[#5F220F] hover:bg-[#46190B] px-4 text-xs font-bold text-[#FFC102] cursor-pointer"
                   id="pincode-check-btn"
                 >
                   Check
@@ -473,17 +474,17 @@ export default function ProductDetailView({
 
             {/* Quick trust metrics row */}
             <div className="grid grid-cols-3 gap-2 text-center pt-2">
-              <div className="p-3 bg-white border border-[#E0D8CF] rounded-xl text-center space-y-1">
+              <div className="p-3 bg-white border border-[#EADBD2] rounded-xl text-center space-y-1">
                 <span className="text-lg">🛡️</span>
-                <h5 className="text-[10px] font-black text-amber-950 uppercase tracking-wide">3 Year Warranty</h5>
+                <h5 className="text-[10px] font-black text-[#5F220F] uppercase tracking-wide">3 Year Warranty</h5>
               </div>
-              <div className="p-3 bg-white border border-[#E0D8CF] rounded-xl text-center space-y-1">
+              <div className="p-3 bg-white border border-[#EADBD2] rounded-xl text-center space-y-1">
                 <span className="text-lg">🚚</span>
-                <h5 className="text-[10px] font-black text-amber-950 uppercase tracking-wide">Complimentary</h5>
+                <h5 className="text-[10px] font-black text-[#5F220F] uppercase tracking-wide">Complimentary</h5>
               </div>
-              <div className="p-3 bg-white border border-[#E0D8CF] rounded-xl text-center space-y-1">
+              <div className="p-3 bg-white border border-[#EADBD2] rounded-xl text-center space-y-1">
                 <span className="text-lg">🪚</span>
-                <h5 className="text-[10px] font-black text-amber-950 uppercase tracking-wide">seasoned teak</h5>
+                <h5 className="text-[10px] font-black text-[#5F220F] uppercase tracking-wide">seasoned teak</h5>
               </div>
             </div>
 
@@ -493,7 +494,7 @@ export default function ProductDetailView({
               {product.price > 0 ? (
                 <button
                   onClick={handleAddToCartClick}
-                  className="w-full bg-[#C9983A] hover:bg-[#E8B84B] text-amber-950 font-bold text-xs uppercase tracking-wider py-4 rounded-xl flex items-center justify-center gap-2 shadow-xs cursor-pointer"
+                  className="w-full bg-[#FFC102] hover:bg-[#E5AC00] text-[#5F220F] font-bold text-xs uppercase tracking-wider py-4 rounded-xl flex items-center justify-center gap-2 shadow-xs cursor-pointer"
                   id="add-to-cart-cta-btn"
                 >
                   <ShoppingCart size={16} /> Add to Cart
@@ -523,9 +524,9 @@ export default function ProductDetailView({
         </div>
 
         {/* BOTTOM ACCORDIONS DETAIL INFORMATION */}
-        <div className="mt-16 bg-white border border-[#E0D8CF] rounded-2xl p-6 sm:p-8 space-y-6 shadow-xs">
+        <div className="mt-16 bg-white border border-[#EADBD2] rounded-2xl p-6 sm:p-8 space-y-6 shadow-xs">
           
-          <div className="flex border-b border-[#E0D8CF] space-x-6 overflow-x-auto">
+          <div className="flex border-b border-[#EADBD2] space-x-6 overflow-x-auto">
             {[
               { id: 'desc', label: 'Description' },
               { id: 'spec', label: `Specifications (${selectedWoodType})` },
@@ -535,7 +536,7 @@ export default function ProductDetailView({
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`pb-4 text-xs sm:text-sm font-bold uppercase tracking-wider whitespace-nowrap bg-transparent border-none cursor-pointer focus:outline-none ${activeTab === tab.id ? 'border-b-2 border-amber-800 text-[#3D2B1F]' : 'text-stone-400 hover:text-stone-600'}`}
+                className={`pb-4 text-xs sm:text-sm font-bold uppercase tracking-wider whitespace-nowrap bg-transparent border-none cursor-pointer focus:outline-none ${activeTab === tab.id ? 'border-b-2 border-[#E73129] text-[#5F220F]' : 'text-stone-400 hover:text-stone-600'}`}
               >
                 {tab.label}
               </button>

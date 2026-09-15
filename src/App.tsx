@@ -459,20 +459,20 @@ export default function App() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#FAF7F2] font-sans antialiased text-[#3D2B1F]">
+    <div className="flex flex-col min-h-screen bg-[#FAF5F2] font-sans antialiased text-[#5F220F]">
       
       {/* Live Database Sync Status Ribbon */}
       {loadingDb && (
-        <div className="bg-[#EAE1D5]/80 backdrop-blur-md text-[#3D2B1F] text-[10px] sm:text-xs font-semibold py-2 px-4 text-center border-b border-[#E0D8CF] flex items-center justify-center gap-2 select-none z-[100] transition-opacity">
-          <span className="w-3 h-3 rounded-full border-2 border-[#3D2B1F] border-t-transparent animate-spin shrink-0"></span>
+        <div className="bg-[#FAF5F2]/90 backdrop-blur-md text-[#5F220F] text-[10px] sm:text-xs font-semibold py-2 px-4 text-center border-b border-[#EADBD2] flex items-center justify-center gap-2 select-none z-[100] transition-opacity">
+          <span className="w-3 h-3 rounded-full border-2 border-[#5F220F] border-t-transparent animate-spin shrink-0"></span>
           <span>Connecting to live Bhisez Workshop Firebase Database...</span>
         </div>
       )}
 
       {/* Dynamic Alert Toast */}
       {toastVisible && (
-        <div className="fixed bottom-24 right-6 sm:bottom-8 sm:right-8 z-[200] max-w-sm bg-[#1A1209] text-[#FAF7F2] border border-[#3D2B1F] shadow-xl px-5 py-3.5 rounded-xl flex items-center space-x-2.5 animate-scale-in">
-          <span className="flex items-center justify-center w-5 h-5 rounded-full bg-emerald-500 text-white font-bold text-xs">
+        <div className="fixed bottom-24 right-6 sm:bottom-8 sm:right-8 z-[200] max-w-sm bg-[#5F220F] text-[#FAF5F2] border border-[#FFC102]/40 shadow-xl px-5 py-3.5 rounded-xl flex items-center space-x-2.5 animate-scale-in">
+          <span className="flex items-center justify-center w-5 h-5 rounded-full bg-[#FFC102] text-[#5F220F] font-bold text-xs">
             ✓
           </span>
           <span className="text-xs font-bold font-space select-none tracking-wide">{toastMessage}</span>

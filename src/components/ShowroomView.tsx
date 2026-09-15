@@ -83,27 +83,27 @@ Notes: ${walkthroughForm.notes}`;
   };
 
   return (
-    <div className="bg-[#FAF7F2] min-h-screen py-10">
+    <div className="bg-[#FAF5F2] min-h-screen py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Intro Hero */}
         <div className="text-center max-w-2xl mx-auto space-y-4">
-          <span className="text-xs font-black tracking-widest text-[#8B6F5C] uppercase block">Malvan & Sukalwad · Seasoned logs</span>
-          <h1 className="font-serif text-3xl sm:text-4xl font-extrabold text-[#3D2B1F] leading-tight">Come. Touch. Feel.<br /><span className="text-[#C9983A] italic">Experience.</span></h1>
-          <p className="text-stone-500 text-xs sm:text-sm leading-relaxed font-light">
+          <span className="text-xs font-black tracking-widest text-[#7E655C] uppercase block">Malvan & Sukalwad · Seasoned logs</span>
+          <h1 className="font-serif text-3xl sm:text-4xl font-extrabold text-[#5F220F] leading-tight">Come. Touch. Feel.<br /><span className="text-[#FFC102] italic">Experience.</span></h1>
+          <p className="text-[#7E655C] text-xs sm:text-sm leading-relaxed font-light">
             No screen does absolute justice to the seasoned warmth of Indian timber grains. Walk through our model layouts, pull out drawers, open cupboards, and pick the heirloom of your dreams.
           </p>
           
           <div className="pt-2 flex justify-center space-x-3">
             <button
               onClick={() => setActiveShowroom('malvan')}
-              className={`px-5 py-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${activeShowroom === 'malvan' ? 'bg-[#3D2B1F] text-amber-50' : 'bg-white text-[#3D2B1F] border border-[#E0D8CF] hover:border-[#3D2B1F]'}`}
+              className={`px-5 py-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${activeShowroom === 'malvan' ? 'bg-[#5F220F] text-[#FFC102]' : 'bg-white text-[#5F220F] border border-[#EADBD2] hover:border-[#5F220F]'}`}
             >
               Showroom 01: Malvan Flagship
             </button>
             <button
               onClick={() => setActiveShowroom('sukalwad')}
-              className={`px-5 py-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${activeShowroom === 'sukalwad' ? 'bg-[#3D2B1F] text-amber-50' : 'bg-white text-[#3D2B1F] border border-[#E0D8CF] hover:border-[#3D2B1F]'}`}
+              className={`px-5 py-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${activeShowroom === 'sukalwad' ? 'bg-[#5F220F] text-[#FFC102]' : 'bg-white text-[#5F220F] border border-[#EADBD2] hover:border-[#5F220F]'}`}
             >
               Showroom 02: Sukalwad Highway
             </button>
@@ -114,7 +114,7 @@ Notes: ${walkthroughForm.notes}`;
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           
           {/* MAP WRAPPER FRAME (Live responsive CSS frame) */}
-          <div className="relative rounded-3xl overflow-hidden border border-[#E0D8CF] bg-stone-100 min-h-[350px] lg:min-h-full">
+          <div className="relative rounded-3xl overflow-hidden border border-[#EADBD2] bg-stone-100 min-h-[350px] lg:min-h-full">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeShowroom}
@@ -127,7 +127,7 @@ Notes: ${walkthroughForm.notes}`;
                 {activeShowroom === 'malvan' ? (
                   <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d973.6092088653397!2d73.47889493193321!3d16.056605625082074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc0039d343d37b9%3A0x121c449423322376!2sGEETA&#39;S%20MASALE!5e0!3m2!1sen!2sin!4v1779375697198!5m2!1sen!2sin" 
-                    className="w-full h-full border-none absolute inset-0"
+                    className="w-full h-full border-none absolute inset-0" 
                     allowFullScreen={true} 
                     loading="lazy" 
                     referrerPolicy="no-referrer-when-downgrade"
@@ -148,7 +148,7 @@ Notes: ${walkthroughForm.notes}`;
           </div>
 
           {/* ACTIVE LOCATION INFO SLAT */}
-          <div className="bg-white border border-[#E0D8CF] p-8 rounded-3xl flex flex-col justify-between overflow-hidden relative min-h-[460px]">
+          <div className="bg-white border border-[#EADBD2] p-8 rounded-3xl flex flex-col justify-between overflow-hidden relative min-h-[460px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeShowroom}
@@ -167,11 +167,11 @@ Notes: ${walkthroughForm.notes}`;
                     <span className="text-xs font-black uppercase tracking-wider text-emerald-700">Open Today · Mon-Sat</span>
                   </div>
 
-                  <h2 className="font-serif text-2xl font-black text-amber-950">
+                  <h2 className="font-serif text-2xl font-black text-[#5F220F]">
                     {activeShowroom === 'malvan' ? 'Malvan Flagship Showroom' : 'Sukalwad Highway Showroom'}
                   </h2>
                   
-                  <p className="text-stone-500 text-xs leading-relaxed font-light">
+                  <p className="text-[#7E655C] text-xs leading-relaxed font-light">
                     {activeShowroom === 'malvan' 
                       ? 'Our primary flagship studio established in 2010. Spread over 3 curated floors showcasing rich living, master beds, and pooja mandirs setups.' 
                       : 'Located directly on the NH-66 highway for easy access. Our largest showroom spanning 6,800 sq.ft on a single ground tier, exhibiting massive cabinets, sideboards, and heavy double beds.'
@@ -179,10 +179,10 @@ Notes: ${walkthroughForm.notes}`;
                   </p>
 
                   <div className="space-y-3.5 pt-4">
-                    <div className="flex items-start space-x-3 text-xs text-stone-600">
-                      <MapPin size={16} className="text-amber-700 shrink-0 mt-0.5" />
+                    <div className="flex items-start space-x-3 text-xs text-[#7E655C]">
+                      <MapPin size={16} className="text-[#5F220F] shrink-0 mt-0.5" />
                       <div>
-                        <span className="font-bold text-stone-800">Address</span>
+                        <span className="font-bold text-[#5F220F]">Address</span>
                         <p className="mt-0.5">
                           {activeShowroom === 'malvan' 
                             ? 'Main Market Road, Malvan, Sindhudurg, Maharashtra – 416606' 
@@ -192,30 +192,30 @@ Notes: ${walkthroughForm.notes}`;
                       </div>
                     </div>
 
-                    <div className="flex items-start space-x-3 text-xs text-stone-600">
-                      <Clock size={16} className="text-amber-700 shrink-0 mt-0.5" />
+                    <div className="flex items-start space-x-3 text-xs text-[#7E655C]">
+                      <Clock size={16} className="text-[#5F220F] shrink-0 mt-0.5" />
                       <div>
-                        <span className="font-bold text-stone-800">Hours</span>
+                        <span className="font-bold text-[#5F220F]">Hours</span>
                         <p className="mt-0.5">10:00 AM – 7:30 PM (Sunday Closed)</p>
                       </div>
                     </div>
 
-                    <div className="flex items-start space-x-3 text-xs text-stone-600">
-                      <Building size={16} className="text-amber-700 shrink-0 mt-0.5" />
+                    <div className="flex items-start space-x-3 text-xs text-[#7E655C]">
+                      <Building size={16} className="text-[#5F220F] shrink-0 mt-0.5" />
                       <div>
-                        <span className="font-bold text-stone-800">Concourse Floor Area</span>
+                        <span className="font-bold text-[#5F220F]">Concourse Floor Area</span>
                         <p className="mt-0.5">{activeShowroom === 'malvan' ? '4,200 sq.ft (3 floors model rooms)' : '6,800 sq.ft (Ground level access)'}</p>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-[#F2EDE4] bg-transparent">
+                <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-[#EADBD2] bg-transparent">
                   <a 
                     href={activeShowroom === 'malvan' ? 'https://maps.google.com/?q=Malvan+Maharashtra' : 'https://maps.google.com/?q=Sukalwad+Sindhudurg+Maharashtra'}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex-1 text-center bg-[#3D2B1F] hover:bg-[#1C120A] text-amber-50 font-bold text-xs py-3.5 rounded-xl transition-colors active:scale-95 duration-200"
+                    className="flex-1 text-center bg-[#5F220F] hover:bg-[#46190B] text-[#FFC102] font-bold text-xs py-3.5 rounded-xl transition-colors active:scale-95 duration-200"
                   >
                     🗺️ Open in Google Maps
                   </a>
@@ -223,7 +223,7 @@ Notes: ${walkthroughForm.notes}`;
                     href={`https://wa.me/917057441122?text=${encodeURIComponent(`Hi Bhisez! I'd like to visit the ${activeShowroom === 'malvan' ? 'Malvan' : 'Sukalwad'} Showroom.`)}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex-1 text-center border border-[#E0D8CF] hover:bg-stone-50 text-[#3D2B1F] text-xs font-bold py-3.5 rounded-xl transition-all active:scale-95 duration-200"
+                    className="flex-1 text-center border border-[#EADBD2] hover:bg-stone-50 text-[#5F220F] text-xs font-bold py-3.5 rounded-xl transition-all active:scale-95 duration-200"
                   >
                     💬 Ask Directions
                   </a>
@@ -235,32 +235,32 @@ Notes: ${walkthroughForm.notes}`;
         </div>
 
         {/* LANDMARKS / HOW TO REACH */}
-        <div className="bg-white border border-[#E0D8CF] p-6 sm:p-8 rounded-3xl space-y-6 shadow-xs">
-          <h3 className="font-serif text-sm font-black text-amber-950 uppercase tracking-widest pb-3 border-b border-[#E0D8CF]">
+        <div className="bg-white border border-[#EADBD2] p-6 sm:p-8 rounded-3xl space-y-6 shadow-xs">
+          <h3 className="font-serif text-sm font-black text-[#5F220F] uppercase tracking-widest pb-3 border-b border-[#EADBD2]">
             Showroom Landmarks & Accessibility
           </h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-xs text-stone-600">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-xs text-[#7E655C]">
             {activeShowroom === 'malvan' ? (
               <>
                 <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#FAF7F2] border border-[#E0D8CF] flex items-center justify-center shrink-0">🚌</div>
+                  <div className="w-8 h-8 rounded-lg bg-[#FAF5F2] border border-[#EADBD2] flex items-center justify-center shrink-0">🚌</div>
                   <div>
-                    <span className="font-bold text-stone-800">Malvan Bus Stand</span>
+                    <span className="font-bold text-[#5F220F]">Malvan Bus Stand</span>
                     <p className="mt-0.5">Approx. 350 meters walk, easily accessed within 2-3 mins.</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#FAF7F2] border border-[#E0D8CF] flex items-center justify-center shrink-0">🏰</div>
+                  <div className="w-8 h-8 rounded-lg bg-[#FAF5F2] border border-[#EADBD2] flex items-center justify-center shrink-0">🏰</div>
                   <div>
-                    <span className="font-bold text-stone-800">Sindhudurg Fort Jetty</span>
+                    <span className="font-bold text-[#5F220F]">Sindhudurg Fort Jetty</span>
                     <p className="mt-0.5">Approx. 3.2 kms driving distance from Malvan flagship.</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#FAF7F2] border border-[#E0D8CF] flex items-center justify-center shrink-0">📍</div>
+                  <div className="w-8 h-8 rounded-lg bg-[#FAF5F2] border border-[#EADBD2] flex items-center justify-center shrink-0">📍</div>
                   <div>
-                    <span className="font-bold text-stone-800">Malvan Market Circle</span>
+                    <span className="font-bold text-[#5F220F]">Malvan Market Circle</span>
                     <p className="mt-0.5">Less than 100 meters walk from the city market square.</p>
                   </div>
                 </div>
@@ -268,23 +268,23 @@ Notes: ${walkthroughForm.notes}`;
             ) : (
               <>
                 <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#FAF7F2] border border-[#E0D8CF] flex items-center justify-center shrink-0">🛣️</div>
+                  <div className="w-8 h-8 rounded-lg bg-[#FAF5F2] border border-[#EADBD2] flex items-center justify-center shrink-0">🛣️</div>
                   <div>
-                    <span className="font-bold text-stone-800">NH-66 Highway</span>
+                    <span className="font-bold text-[#5F220F]">NH-66 Highway</span>
                     <p className="mt-0.5">Situated directly on the bypass side lanes, easy for trucks and cargos.</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#FAF7F2] border border-[#E0D8CF] flex items-center justify-center shrink-0">🏘️</div>
+                  <div className="w-8 h-8 rounded-lg bg-[#FAF5F2] border border-[#EADBD2] flex items-center justify-center shrink-0">🏘️</div>
                   <div>
-                    <span className="font-bold text-stone-800">Sukalwad Village</span>
+                    <span className="font-bold text-[#5F220F]">Sukalwad Village</span>
                     <p className="mt-0.5">Approx. 500 meters walking distance from the village panchayat.</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#FAF7F2] border border-[#E0D8CF] flex items-center justify-center shrink-0">🛤️</div>
+                  <div className="w-8 h-8 rounded-lg bg-[#FAF5F2] border border-[#EADBD2] flex items-center justify-center shrink-0">🛤️</div>
                   <div>
-                    <span className="font-bold text-stone-800">Kudal Junction (Railway)</span>
+                    <span className="font-bold text-[#5F220F]">Kudal Junction (Railway)</span>
                     <p className="mt-0.5">Approx 18 kms drive, taking around 25 mins on smooth asphalt.</p>
                   </div>
                 </div>
@@ -294,18 +294,18 @@ Notes: ${walkthroughForm.notes}`;
         </div>
 
         {/* BOOK WALKTHROUGH FORM */}
-        <section className="bg-white border border-[#E0D8CF] rounded-3xl p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-5 gap-8 items-start shadow-xs">
+        <section className="bg-white border border-[#EADBD2] rounded-3xl p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-5 gap-8 items-start shadow-xs">
           
           {/* Left instructions block */}
           <div className="lg:col-span-2 space-y-4">
-            <span className="text-xs font-bold text-[#8B6F5C] uppercase tracking-wider block">Private Walkthroughs</span>
-            <h2 className="font-serif text-2xl font-black text-amber-950 leading-tight">Book a Private Guided Tour</h2>
-            <p className="text-stone-500 text-xs leading-relaxed font-light">
+            <span className="text-xs font-bold text-[#7E655C] uppercase tracking-wider block">Private Walkthroughs</span>
+            <h2 className="font-serif text-2xl font-black text-[#5F220F] leading-tight">Book a Private Guided Tour</h2>
+            <p className="text-[#7E655C] text-xs leading-relaxed font-light">
               Are you furnishing an entire house or bedroom suite? Schedule a dedicated, 1-hour slot with Bhisez master artisans. We will have models room organized matching your wood preferences and specifications, saving you vital hours.
             </p>
             
-            <div className="bg-[#FAF7F2] border border-[#E0D8CF] p-4 rounded-2xl space-y-2 text-xs text-stone-600 max-w-sm">
-              <span className="text-[#C9983A] font-bold">★ What is inside the tour?</span>
+            <div className="bg-[#FAF5F2] border border-[#EADBD2] p-4 rounded-2xl space-y-2 text-xs text-[#7E655C] max-w-sm">
+              <span className="text-[#FFC102] font-bold">★ What is inside the tour?</span>
               <ul className="space-y-1 list-disc pl-5">
                 <li>Material seasoned grade comparative sheets</li>
                 <li>Live dimension estimations with tape lines</li>
@@ -320,59 +320,59 @@ Notes: ${walkthroughForm.notes}`;
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex flex-col space-y-1.5">
-                  <label className="text-[10px] font-black text-stone-400 uppercase tracking-widest">Full Name *</label>
+                  <label className="text-[10px] font-black text-[#7E655C] uppercase tracking-widest">Full Name *</label>
                   <input 
                     type="text" 
                     required 
                     placeholder="E.g. Rajesh Patil"
                     value={walkthroughForm.name}
                     onChange={(e) => setWalkthroughForm({...walkthroughForm, name: e.target.value})}
-                    className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700 outline-none focus:ring-1 focus:ring-amber-500"
+                    className="border border-[#EADBD2] bg-[#FAF5F2] rounded-xl px-4 py-2.5 text-xs text-[#5F220F] outline-none focus:ring-1 focus:ring-[#FFC102]"
                   />
                 </div>
                 <div className="flex flex-col space-y-1.5">
-                  <label className="text-[10px] font-black text-stone-400 uppercase tracking-widest">WhatsApp Number *</label>
+                  <label className="text-[10px] font-black text-[#7E655C] uppercase tracking-widest">WhatsApp Number *</label>
                   <input 
                     type="tel" 
                     required 
                     placeholder="E.g. +91 70574 41122"
                     value={walkthroughForm.phone}
                     onChange={(e) => setWalkthroughForm({...walkthroughForm, phone: e.target.value.replace(/[^\d+ ]/g, '')})}
-                    className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700 outline-none focus:ring-1 focus:ring-amber-500"
+                    className="border border-[#EADBD2] bg-[#FAF5F2] rounded-xl px-4 py-2.5 text-xs text-[#5F220F] outline-none focus:ring-1 focus:ring-[#FFC102]"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex flex-col space-y-1.5">
-                  <label className="text-[10px] font-black text-stone-400 uppercase tracking-widest">Preferred Showroom *</label>
+                  <label className="text-[10px] font-black text-[#7E655C] uppercase tracking-widest">Preferred Showroom *</label>
                   <select
                     value={walkthroughForm.location}
                     onChange={(e) => setWalkthroughForm({...walkthroughForm, location: e.target.value})}
-                    className="bg-[#FAF7F2] border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700 outline-none focus:ring-1 focus:ring-amber-500"
+                    className="bg-[#FAF5F2] border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-[#5F220F] outline-none focus:ring-1 focus:ring-[#FFC102]"
                   >
                     <option value="malvan">Malvan — Main Market Road</option>
                     <option value="sukalwad">Sukalwad — NH-66 Highway</option>
                   </select>
                 </div>
                 <div className="flex flex-col space-y-1.5">
-                  <label className="text-[10px] font-black text-stone-400 uppercase tracking-widest">Preferred Date *</label>
+                  <label className="text-[10px] font-black text-[#7E655C] uppercase tracking-widest">Preferred Date *</label>
                   <input 
                     type="date" 
                     required
                     value={walkthroughForm.date}
                     onChange={(e) => setWalkthroughForm({...walkthroughForm, date: e.target.value})}
-                    className="bg-[#FAF7F2] border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700 outline-none focus:ring-1 focus:ring-amber-500"
+                    className="bg-[#FAF5F2] border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-[#5F220F] outline-none focus:ring-1 focus:ring-[#FFC102]"
                   />
                 </div>
               </div>
 
               <div className="flex flex-col space-y-1.5">
-                <label className="text-[10px] font-black text-stone-400 uppercase tracking-widest">What are you looking for?</label>
+                <label className="text-[10px] font-black text-[#7E655C] uppercase tracking-widest">What are you looking for?</label>
                 <select
                   value={walkthroughForm.category}
                   onChange={(e) => setWalkthroughForm({...walkthroughForm, category: e.target.value})}
-                  className="bg-[#FAF7F2] border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700 outline-none focus:ring-1 focus:ring-amber-500"
+                  className="bg-[#FAF5F2] border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-[#5F220F] outline-none focus:ring-1 focus:ring-[#FFC102]"
                 >
                   <option>Beds & Bedroom Furniture</option>
                   <option>Sofas & Recliners</option>
@@ -383,48 +383,48 @@ Notes: ${walkthroughForm.notes}`;
               </div>
 
               {/* Custom Measurement Sizing Grid */}
-              <div className="bg-[#FAF7F2] border border-[#E0D8CF] p-4 rounded-2xl space-y-3">
+              <div className="bg-[#FAF5F2] border border-[#EADBD2] p-4 rounded-2xl space-y-3">
                 <label className="flex items-center space-x-3 cursor-pointer">
                   <input 
                     type="checkbox" 
                     checked={useCustomGrid}
                     onChange={(e) => setUseCustomGrid(e.target.checked)}
-                    className="w-4 h-4 text-amber-600 focus:ring-amber-500 border-stone-300 rounded"
+                    className="w-4 h-4 accent-[#5F220F] rounded"
                   />
                   <div>
-                    <span className="text-xs font-bold text-stone-800 uppercase tracking-wide block">Need Custom Dimensions? (Length, Width & Wood Grade)</span>
-                    <span className="text-[10px] text-stone-400 block">Bring pre-calculated measurements or requested timber types to the walkthrough</span>
+                    <span className="text-xs font-bold text-[#5F220F] uppercase tracking-wide block">Need Custom Dimensions? (Length, Width & Wood Grade)</span>
+                    <span className="text-[10px] text-[#7E655C] block">Bring pre-calculated measurements or requested timber types to the walkthrough</span>
                   </div>
                 </label>
 
                 {useCustomGrid && (
-                  <div className="pt-3 border-t border-[#E0D8CF]/60 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="pt-3 border-t border-[#EADBD2]/60 grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div className="flex flex-col space-y-1">
-                      <label className="text-[9px] font-black text-stone-400 uppercase tracking-wider">Custom Length (Inches / Feet)</label>
+                      <label className="text-[9px] font-black text-[#7E655C] uppercase tracking-wider">Custom Length (Inches / Feet)</label>
                       <input 
                         type="text" 
                         placeholder="E.g. 78 inches"
                         value={customLength}
                         onChange={(e) => setCustomLength(e.target.value)}
-                        className="bg-white border border-[#E0D8CF] rounded-xl px-3 py-2 text-xs text-stone-700 outline-none focus:ring-1 focus:ring-amber-500"
+                        className="bg-white border border-[#EADBD2] rounded-xl px-3 py-2 text-xs text-[#5F220F] outline-none focus:ring-1 focus:ring-[#FFC102]"
                       />
                     </div>
                     <div className="flex flex-col space-y-1">
-                      <label className="text-[9px] font-black text-stone-400 uppercase tracking-wider">Custom Width (Inches / Feet)</label>
+                      <label className="text-[9px] font-black text-[#7E655C] uppercase tracking-wider">Custom Width (Inches / Feet)</label>
                       <input 
                         type="text" 
                         placeholder="E.g. 72 inches"
                         value={customWidth}
                         onChange={(e) => setCustomWidth(e.target.value)}
-                        className="bg-white border border-[#E0D8CF] rounded-xl px-3 py-2 text-xs text-stone-700 outline-none focus:ring-1 focus:ring-amber-500"
+                        className="bg-white border border-[#EADBD2] rounded-xl px-3 py-2 text-xs text-[#5F220F] outline-none focus:ring-1 focus:ring-[#FFC102]"
                       />
                     </div>
                     <div className="flex flex-col space-y-1">
-                      <label className="text-[9px] font-black text-stone-400 uppercase tracking-wider">Timber Wood Grade Selection</label>
+                      <label className="text-[9px] font-black text-[#7E655C] uppercase tracking-wider">Timber Wood Grade Selection</label>
                       <select
                         value={woodGrade}
                         onChange={(e) => setWoodGrade(e.target.value)}
-                        className="bg-white border border-[#E0D8CF] rounded-xl px-3 py-2 text-xs text-stone-700 outline-none focus:ring-1 focus:ring-amber-500 font-bold"
+                        className="bg-white border border-[#EADBD2] rounded-xl px-3 py-2 text-xs text-[#5F220F] outline-none focus:ring-1 focus:ring-[#FFC102] font-bold"
                       >
                         <option value="Grade-A Sagwan">Grade-A Sagwan</option>
                         <option value="Premium Shivan">Premium Shivan</option>
@@ -437,18 +437,18 @@ Notes: ${walkthroughForm.notes}`;
               </div>
 
               <div className="flex flex-col space-y-1.5">
-                <label className="text-[10px] font-black text-stone-400 uppercase tracking-widest">Additional Notes</label>
+                <label className="text-[10px] font-black text-[#7E655C] uppercase tracking-widest">Additional Notes</label>
                 <textarea 
                   placeholder="E.g. Room sizing, wood grains selection, specific design codes..."
                   value={walkthroughForm.notes}
                   onChange={(e) => setWalkthroughForm({...walkthroughForm, notes: e.target.value})}
-                  className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700 outline-none focus:ring-1 focus:ring-amber-500 min-h-[70px] resize-none"
+                  className="border border-[#EADBD2] bg-[#FAF5F2] rounded-xl px-4 py-2.5 text-xs text-[#5F220F] outline-none focus:ring-1 focus:ring-[#FFC102] min-h-[70px] resize-none"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-[#3D2B1F] hover:bg-stone-900 text-amber-50 text-xs font-bold uppercase tracking-wider py-3.5 rounded-xl shadow-xs cursor-pointer"
+                className="w-full bg-[#FFC102] hover:bg-[#E5AC00] text-[#5F220F] text-xs font-bold uppercase tracking-wider py-3.5 rounded-xl shadow-xs cursor-pointer"
                 id="showroom-submit-booking-btn"
               >
                 Book Guided Walkthrough

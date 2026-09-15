@@ -735,7 +735,7 @@ export default function AdminView({
   // Lockscreen View
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-[#FAF7F2] flex items-center justify-center p-4">
+      <div className="min-h-screen bg-[#FAF5F2] flex items-center justify-center p-4">
         <div className="absolute top-6 left-6">
           <button 
             onClick={() => onNavigate('home')}
@@ -746,13 +746,13 @@ export default function AdminView({
           </button>
         </div>
 
-        <div className="w-full max-w-sm bg-white border border-[#E0D8CF] rounded-3xl p-8 shadow-xl text-center space-y-6">
+        <div className="w-full max-w-sm bg-white border border-[#EADBD2] rounded-3xl p-8 shadow-xl text-center space-y-6">
           <div className="w-16 h-16 bg-amber-50 border border-amber-200 rounded-full flex items-center justify-center mx-auto text-amber-700">
             <Lock size={24} />
           </div>
 
           <div className="space-y-1.5">
-            <h1 className="font-serif text-xl font-black text-[#3D2B1F]">Bhisez Workshop Portal</h1>
+            <h1 className="font-serif text-xl font-black text-[#5F220F]">Bhisez Workshop Portal</h1>
             <p className="text-stone-500 text-xs font-light">Enter secure passcode to manage products, view inquiries, and edit website layout variables.</p>
           </div>
 
@@ -765,7 +765,7 @@ export default function AdminView({
                 placeholder="Hint: 1234 or admin"
                 value={passcode}
                 onChange={(e) => setPasscode(e.target.value)}
-                className="w-full border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-center text-sm tracking-widest font-black text-stone-800 focus:outline-none focus:ring-1 focus:ring-amber-500"
+                className="w-full border border-[#EADBD2] rounded-xl px-4 py-2.5 text-center text-sm tracking-widest font-black text-stone-800 focus:outline-none focus:ring-1 focus:ring-amber-500"
               />
             </div>
 
@@ -777,7 +777,7 @@ export default function AdminView({
 
             <button 
               type="submit"
-              className="w-full bg-[#3D2B1F] hover:bg-stone-950 text-amber-50 text-xs font-bold uppercase tracking-wider py-3.5 rounded-xl cursor-pointer transition-all shadow-xs"
+              className="w-full bg-[#5F220F] hover:bg-[#46190B] text-amber-50 text-xs font-bold uppercase tracking-wider py-3.5 rounded-xl cursor-pointer transition-all shadow-xs"
             >
               Authenticate Portal
             </button>
@@ -793,17 +793,17 @@ export default function AdminView({
 
   // Authenticated Admin Dashboard Screen
   return (
-    <div className="min-h-screen bg-[#FAF7F2] font-sans text-stone-800">
+    <div className="min-h-screen bg-[#FAF5F2] font-sans text-stone-800">
       
       {/* Admin Title Ribbon / Status bar */}
-      <div className="bg-[#1C120A] text-amber-50 border-b border-stone-800 px-4 sm:px-6 lg:px-8 py-3.5">
+      <div className="bg-[#5F220F] text-amber-50 border-b border-stone-800 px-4 sm:px-6 lg:px-8 py-3.5">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
           <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 rounded-lg bg-[#FBBD18] text-stone-950 flex items-center justify-center font-black text-base select-none">
+            <div className="w-8 h-8 rounded-lg bg-[#FFC102] text-stone-950 flex items-center justify-center font-black text-base select-none">
               B
             </div>
             <div>
-              <span className="text-[10px] font-black tracking-widest text-[#C9BA9F] uppercase block leading-none">Bhisez Furnishing Ltd</span>
+              <span className="text-[10px] font-black tracking-widest text-[#FFC102] uppercase block leading-none">Bhisez Furnishing Ltd</span>
               <h1 className="font-serif text-sm font-black text-white mt-0.5 leading-none">Workshop Administrator Console</h1>
             </div>
           </div>
@@ -824,7 +824,7 @@ export default function AdminView({
 
             <button 
               onClick={handleLogoutAdmin}
-              className="text-[#E52E2D] hover:bg-[#E52E2D]/10 rounded-lg p-1.5 cursor-pointer"
+              className="text-[#E73129] hover:bg-[#E73129]/10 rounded-lg p-1.5 cursor-pointer"
               title="Secure Logout"
             >
               <LogOut size={16} />
@@ -840,12 +840,12 @@ export default function AdminView({
           
           {/* LEFT: ADMIN MENU NAVIGATION */}
           <div className="lg:col-span-3 space-y-4">
-            <div className="bg-white border border-[#E0D8CF] rounded-2xl p-4 shadow-2xs space-y-1.5">
-              <span className="text-[10px] font-black text-[#8B6F5C] uppercase tracking-widest block px-3 mb-2">Controls</span>
+            <div className="bg-white border border-[#EADBD2] rounded-2xl p-4 shadow-2xs space-y-1.5">
+              <span className="text-[10px] font-black text-[#7E655C] uppercase tracking-widest block px-3 mb-2">Controls</span>
               
               <button 
                 onClick={() => setActiveTab('dashboard')}
-                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-left cursor-pointer ${activeTab === 'dashboard' ? 'bg-[#3D2B1F] text-amber-50' : 'text-stone-600 hover:bg-[#FAF7F2] hover:text-stone-900'}`}
+                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-left cursor-pointer ${activeTab === 'dashboard' ? 'bg-[#5F220F] text-amber-50' : 'text-stone-600 hover:bg-[#FAF5F2] hover:text-stone-900'}`}
               >
                 <div className="flex items-center space-x-2.5">
                   <LayoutDashboard size={16} />
@@ -856,7 +856,7 @@ export default function AdminView({
 
               <button 
                 onClick={() => setActiveTab('products')}
-                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-left cursor-pointer ${activeTab === 'products' ? 'bg-[#3D2B1F] text-amber-50' : 'text-stone-600 hover:bg-[#FAF7F2] hover:text-stone-900'}`}
+                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-left cursor-pointer ${activeTab === 'products' ? 'bg-[#5F220F] text-amber-50' : 'text-stone-600 hover:bg-[#FAF5F2] hover:text-stone-900'}`}
               >
                 <div className="flex items-center space-x-2.5">
                   <ShoppingBag size={16} />
@@ -867,7 +867,7 @@ export default function AdminView({
 
               <button 
                 onClick={() => setActiveTab('categories')}
-                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-left cursor-pointer ${activeTab === 'categories' ? 'bg-[#3D2B1F] text-amber-50' : 'text-stone-600 hover:bg-[#FAF7F2] hover:text-stone-900'}`}
+                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-left cursor-pointer ${activeTab === 'categories' ? 'bg-[#5F220F] text-amber-50' : 'text-stone-600 hover:bg-[#FAF5F2] hover:text-stone-900'}`}
               >
                 <div className="flex items-center space-x-2.5">
                   <Tags size={16} />
@@ -878,10 +878,10 @@ export default function AdminView({
 
               <button 
                 onClick={() => setActiveTab('reports')}
-                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-left cursor-pointer ${activeTab === 'reports' ? 'bg-[#3D2B1F] text-amber-50' : 'text-stone-600 hover:bg-[#FAF7F2] hover:text-stone-900'}`}
+                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-left cursor-pointer ${activeTab === 'reports' ? 'bg-[#5F220F] text-amber-50' : 'text-stone-600 hover:bg-[#FAF5F2] hover:text-stone-900'}`}
               >
                 <div className="flex items-center space-x-2.5">
-                  <BarChart3 size={16} className={activeTab === 'reports' ? 'text-amber-50' : 'text-[#8B6F5C]'} />
+                  <BarChart3 size={16} className={activeTab === 'reports' ? 'text-amber-50' : 'text-[#7E655C]'} />
                   <span>Reports & Analytics</span>
                 </div>
                 <ChevronRight size={14} className={activeTab === 'reports' ? 'opacity-100' : 'opacity-30'} />
@@ -889,20 +889,20 @@ export default function AdminView({
 
               <button 
                 onClick={() => setActiveTab('inquiries')}
-                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-left cursor-pointer ${activeTab === 'inquiries' ? 'bg-[#3D2B1F] text-amber-50' : 'text-stone-600 hover:bg-[#FAF7F2] hover:text-stone-900'}`}
+                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-left cursor-pointer ${activeTab === 'inquiries' ? 'bg-[#5F220F] text-amber-50' : 'text-stone-600 hover:bg-[#FAF5F2] hover:text-stone-900'}`}
               >
                 <div className="flex items-center space-x-2.5">
                   <MessageSquare size={16} />
                   <span>Inquiries & Design Quotes</span>
                 </div>
                 {unresolvedInquiriesCount > 0 && (
-                  <span className="bg-[#E52E2D] text-white text-[9px] font-black px-1.5 py-0.5 rounded-full animate-bounce">{unresolvedInquiriesCount}</span>
+                  <span className="bg-[#E73129] text-white text-[9px] font-black px-1.5 py-0.5 rounded-full animate-bounce">{unresolvedInquiriesCount}</span>
                 )}
               </button>
 
               <button 
                 onClick={() => setActiveTab('logs')}
-                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-left cursor-pointer ${activeTab === 'logs' ? 'bg-[#3D2B1F] text-amber-50' : 'text-stone-600 hover:bg-[#FAF7F2] hover:text-stone-900'}`}
+                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-left cursor-pointer ${activeTab === 'logs' ? 'bg-[#5F220F] text-amber-50' : 'text-stone-600 hover:bg-[#FAF5F2] hover:text-stone-900'}`}
               >
                 <div className="flex items-center space-x-2.5">
                   <ShieldAlert size={16} className="text-red-700" />
@@ -913,7 +913,7 @@ export default function AdminView({
 
               <button 
                 onClick={() => setActiveTab('content')}
-                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-left cursor-pointer ${activeTab === 'content' ? 'bg-[#3D2B1F] text-amber-50' : 'text-stone-600 hover:bg-[#FAF7F2] hover:text-stone-900'}`}
+                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-left cursor-pointer ${activeTab === 'content' ? 'bg-[#5F220F] text-amber-50' : 'text-stone-600 hover:bg-[#FAF5F2] hover:text-stone-900'}`}
               >
                 <div className="flex items-center space-x-2.5">
                   <FileText size={16} />
@@ -924,7 +924,7 @@ export default function AdminView({
 
               <button 
                 onClick={() => setActiveTab('settings')}
-                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-left cursor-pointer ${activeTab === 'settings' ? 'bg-[#3D2B1F] text-amber-50' : 'text-stone-600 hover:bg-[#FAF7F2] hover:text-stone-900'}`}
+                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-left cursor-pointer ${activeTab === 'settings' ? 'bg-[#5F220F] text-amber-50' : 'text-stone-600 hover:bg-[#FAF5F2] hover:text-stone-900'}`}
               >
                 <div className="flex items-center space-x-2.5">
                   <Settings size={16} />
@@ -934,7 +934,7 @@ export default function AdminView({
               </button>
             </div>
 
-            <div className="bg-white border border-[#E0D8CF] rounded-2xl p-4 sm:p-5 shadow-2xs text-xs space-y-3.5">
+            <div className="bg-white border border-[#EADBD2] rounded-2xl p-4 sm:p-5 shadow-2xs text-xs space-y-3.5">
               <h4 className="font-serif text-sm font-black text-amber-950 uppercase tracking-widest pb-2 border-b border-stone-100">Quick Helper</h4>
               <div className="space-y-2 text-stone-500 font-light leading-relaxed">
                 <p><strong>Editing products:</strong> Edits you perform update your client app state dynamically and persist through local storage sessions.</p>
@@ -962,7 +962,7 @@ export default function AdminView({
                 <div className="space-y-6">
                   
                   {/* Premium Business summary overview panel */}
-                  <div className="bg-white border border-[#E0D8CF] rounded-3xl p-6 shadow-2xs space-y-4">
+                  <div className="bg-white border border-[#EADBD2] rounded-3xl p-6 shadow-2xs space-y-4">
                     <div className="flex justify-between items-center border-b border-stone-100 pb-3">
                       <div>
                         <span className="text-[9px] font-black text-amber-800 uppercase tracking-widest block mb-0.5">Section 1 Compliance</span>
@@ -974,7 +974,7 @@ export default function AdminView({
                     </div>
 
                     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5 text-xs font-medium">
-                      <div className="bg-[#FAF7F2]/50 border border-stone-200/50 p-4 rounded-2xl flex flex-col justify-between space-y-2">
+                      <div className="bg-[#FAF5F2]/50 border border-stone-200/50 p-4 rounded-2xl flex flex-col justify-between space-y-2">
                         <span className="text-[9px] font-black text-stone-400 uppercase tracking-wider block">Total Products</span>
                         <div>
                           <div className="text-xl font-serif font-black text-stone-800">{totalProductsCount}</div>
@@ -982,7 +982,7 @@ export default function AdminView({
                         </div>
                       </div>
 
-                      <div className="bg-[#FAF7F2]/50 border border-stone-200/50 p-4 rounded-2xl flex flex-col justify-between space-y-2">
+                      <div className="bg-[#FAF5F2]/50 border border-stone-200/50 p-4 rounded-2xl flex flex-col justify-between space-y-2">
                         <span className="text-[9px] font-black text-stone-400 uppercase tracking-wider block">Total Orders</span>
                         <div>
                           <div className="text-xl font-serif font-black text-stone-800">{totalOrdersCount}</div>
@@ -990,15 +990,15 @@ export default function AdminView({
                         </div>
                       </div>
 
-                      <div className="bg-[#FAF7F2]/50 border border-stone-200/50 p-4 rounded-2xl flex flex-col justify-between space-y-2">
-                        <span className="text-[9px] font-black text-[#E52E2D] uppercase tracking-wider block">Pending Orders</span>
+                      <div className="bg-[#FAF5F2]/50 border border-stone-200/50 p-4 rounded-2xl flex flex-col justify-between space-y-2">
+                        <span className="text-[9px] font-black text-[#E73129] uppercase tracking-wider block">Pending Orders</span>
                         <div>
-                          <div className="text-xl font-serif font-black text-[#E52E2D]">{pendingOrdersCount}</div>
+                          <div className="text-xl font-serif font-black text-[#E73129]">{pendingOrdersCount}</div>
                           <span className="text-[9px] text-stone-400 block font-light">Awaiting completion</span>
                         </div>
                       </div>
 
-                      <div className="bg-[#FAF7F2]/50 border border-stone-200/50 p-4 rounded-2xl flex flex-col justify-between space-y-2">
+                      <div className="bg-[#FAF5F2]/50 border border-stone-200/50 p-4 rounded-2xl flex flex-col justify-between space-y-2">
                         <span className="text-[9px] font-black text-emerald-800 uppercase tracking-wider block">Total Revenue</span>
                         <div>
                           <div className="text-xl font-serif font-black text-emerald-800">₹{totalRevenueSum.toLocaleString()}</div>
@@ -1006,7 +1006,7 @@ export default function AdminView({
                         </div>
                       </div>
 
-                      <div className="bg-[#FAF7F2]/50 border border-stone-200/50 p-4 rounded-2xl flex flex-col justify-between space-y-2">
+                      <div className="bg-[#FAF5F2]/50 border border-stone-200/50 p-4 rounded-2xl flex flex-col justify-between space-y-2">
                         <span className="text-[9px] font-black text-stone-400 uppercase tracking-wider block">New Customers</span>
                         <div>
                           <div className="text-xl font-serif font-black text-stone-800">{newCustomersCount}</div>
@@ -1014,7 +1014,7 @@ export default function AdminView({
                         </div>
                       </div>
 
-                      <div className="bg-[#FAF7F2]/50 border border-stone-200/50 p-4 rounded-2xl flex flex-col justify-between space-y-2">
+                      <div className="bg-[#FAF5F2]/50 border border-stone-200/50 p-4 rounded-2xl flex flex-col justify-between space-y-2">
                         <span className="text-[9px] font-black text-amber-800 uppercase tracking-wider block">Low Stock Items</span>
                         <div>
                           <div className="text-xl font-serif font-black text-amber-800">{lowStockCount}</div>
@@ -1026,7 +1026,7 @@ export default function AdminView({
 
                   {/* Metrics ribbon */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div className="bg-white border border-[#E0D8CF] p-5 rounded-2xl shadow-2xs space-y-1.5">
+                    <div className="bg-white border border-[#EADBD2] p-5 rounded-2xl shadow-2xs space-y-1.5">
                       <span className="text-[10px] font-black text-stone-400 uppercase tracking-widest block">Standard Products</span>
                       <div className="flex justify-between items-baseline">
                         <span className="text-3xl font-serif font-black text-stone-800">{activeProductsCount}</span>
@@ -1034,7 +1034,7 @@ export default function AdminView({
                       </div>
                     </div>
 
-                    <div className="bg-white border border-[#E0D8CF] p-5 rounded-2xl shadow-2xs space-y-1.5">
+                    <div className="bg-white border border-[#EADBD2] p-5 rounded-2xl shadow-2xs space-y-1.5">
                       <span className="text-[10px] font-black text-stone-400 uppercase tracking-widest block">Interactive Categories</span>
                       <div className="flex justify-between items-baseline">
                         <span className="text-3xl font-serif font-black text-stone-800">{categoriesCount}</span>
@@ -1042,17 +1042,17 @@ export default function AdminView({
                       </div>
                     </div>
 
-                    <div className="bg-white border border-[#E0D8CF] p-5 rounded-2xl shadow-2xs space-y-1.5">
+                    <div className="bg-white border border-[#EADBD2] p-5 rounded-2xl shadow-2xs space-y-1.5">
                       <span className="text-[10px] font-black text-stone-400 uppercase tracking-widest block">Open Inquiries</span>
                       <div className="flex justify-between items-baseline">
-                        <span className="text-3xl font-serif font-black text-[#E52E2D]">{unresolvedInquiriesCount}</span>
+                        <span className="text-3xl font-serif font-black text-[#E73129]">{unresolvedInquiriesCount}</span>
                         <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${unresolvedInquiriesCount > 0 ? 'bg-red-50 text-red-600' : 'bg-emerald-50 text-emerald-600'}`}>
                           {unresolvedInquiriesCount > 0 ? 'Requires Action' : 'All Clear'}
                         </span>
                       </div>
                     </div>
 
-                    <div className="bg-white border border-[#E0D8CF] p-5 rounded-2xl shadow-2xs space-y-1.5">
+                    <div className="bg-white border border-[#EADBD2] p-5 rounded-2xl shadow-2xs space-y-1.5">
                       <span className="text-[10px] font-black text-stone-400 uppercase tracking-widest block">Catalog Assessed Value</span>
                       <div className="flex justify-between items-baseline">
                         <span className="text-2xl font-serif font-black text-emerald-800">₹{(totalCatalogAssessedValue / 100000).toFixed(1)} Lakhs</span>
@@ -1065,8 +1065,8 @@ export default function AdminView({
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   
                   {/* Category Share Distribution Card */}
-                  <div className="bg-white border border-[#E0D8CF] p-6 rounded-3xl space-y-4 shadow-2xs">
-                    <h3 className="font-serif text-sm font-black text-amber-950 uppercase tracking-widest pb-3 border-b border-[#FAF7F2]">
+                  <div className="bg-white border border-[#EADBD2] p-6 rounded-3xl space-y-4 shadow-2xs">
+                    <h3 className="font-serif text-sm font-black text-amber-950 uppercase tracking-widest pb-3 border-b border-[#FAF5F2]">
                       Category inventory Share
                     </h3>
 
@@ -1093,9 +1093,9 @@ export default function AdminView({
                   </div>
 
                   {/* System Actions & Diagnostics and Alerts */}
-                  <div className="bg-white border border-[#E0D8CF] p-6 rounded-3xl space-y-4 shadow-2xs flex flex-col justify-between">
+                  <div className="bg-white border border-[#EADBD2] p-6 rounded-3xl space-y-4 shadow-2xs flex flex-col justify-between">
                     <div>
-                      <div className="flex justify-between items-center pb-3 border-b border-[#FAF7F2] mb-3">
+                      <div className="flex justify-between items-center pb-3 border-b border-[#FAF5F2] mb-3">
                         <h3 className="font-serif text-sm font-black text-amber-950 uppercase tracking-widest">
                           Firebase Firestore Status
                         </h3>
@@ -1116,7 +1116,7 @@ export default function AdminView({
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-stone-800 font-bold">SDK Mode</span>
-                          <span className="text-[#3D2B1F] font-bold">Web-v9 modular (Firestore)</span>
+                          <span className="text-[#5F220F] font-bold">Web-v9 modular (Firestore)</span>
                         </div>
                       </div>
 
@@ -1131,11 +1131,11 @@ export default function AdminView({
                       </div>
                     </div>
 
-                    <div className="pt-4 border-t border-[#FAF7F2] space-y-2">
+                    <div className="pt-4 border-t border-[#FAF5F2] space-y-2">
                        <button
                          disabled={seeding}
                          onClick={handleSeedFirebaseDb}
-                         className="w-full text-center bg-[#3D2B1F] hover:bg-stone-900 text-amber-50 text-[11px] font-bold py-2.5 rounded-xl transition-colors cursor-pointer disabled:opacity-50"
+                         className="w-full text-center bg-[#5F220F] hover:bg-[#46190B] text-amber-50 text-[11px] font-bold py-2.5 rounded-xl transition-colors cursor-pointer disabled:opacity-50"
                        >
                          {seeding ? '⚙ Seeding collections...' : '🔥 Reset & Seed Live Firebase Database'}
                        </button>
@@ -1159,7 +1159,7 @@ export default function AdminView({
                 </div>
 
                 {/* Recent Inquiries Quick Table */}
-                <div className="bg-white border border-[#E0D8CF] rounded-3xl p-6 shadow-2xs space-y-4">
+                <div className="bg-white border border-[#EADBD2] rounded-3xl p-6 shadow-2xs space-y-4">
                   <div className="flex justify-between items-center pb-2 border-b border-stone-100">
                     <h3 className="font-serif text-sm font-black text-amber-950 uppercase tracking-widest">
                       Recent inquiries backlog
@@ -1240,7 +1240,7 @@ export default function AdminView({
 
             {/* 2. PRODUCT MANAGEMENT VIEWPORT */}
             {activeTab === 'products' && (
-              <div className="bg-white border border-[#E0D8CF] rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xs">
+              <div className="bg-white border border-[#EADBD2] rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xs">
                 
                 {/* Header controls layout */}
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-stone-100">
@@ -1258,7 +1258,7 @@ export default function AdminView({
                     </button>
                     <button 
                       onClick={handleOpenAddProduct}
-                      className="bg-[#3D2B1F] hover:bg-stone-900 text-amber-50 text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-xl cursor-pointer flex items-center gap-1.5 shadow-xs"
+                      className="bg-[#5F220F] hover:bg-[#46190B] text-amber-50 text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-xl cursor-pointer flex items-center gap-1.5 shadow-xs"
                     >
                       <Plus size={14} /> Add New Model
                     </button>
@@ -1274,7 +1274,7 @@ export default function AdminView({
                       placeholder="Search items, specs, wood..."
                       value={productSearch}
                       onChange={(e) => setProductSearch(e.target.value)}
-                      className="w-full bg-[#FAF7F2] border border-[#E0D8CF] text-stone-700 text-xs rounded-xl pl-9 pr-4 py-2.5 outline-none focus:ring-1 focus:ring-amber-500"
+                      className="w-full bg-[#FAF5F2] border border-[#EADBD2] text-stone-700 text-xs rounded-xl pl-9 pr-4 py-2.5 outline-none focus:ring-1 focus:ring-amber-500"
                     />
                     <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400" />
                   </div>
@@ -1285,7 +1285,7 @@ export default function AdminView({
                     <select
                       value={selectedCategoryFilter}
                       onChange={(e) => setSelectedCategoryFilter(e.target.value)}
-                      className="bg-[#FAF7F2] border border-[#E0D8CF] text-xs font-bold text-stone-700 rounded-xl px-3 py-2.5 outline-none"
+                      className="bg-[#FAF5F2] border border-[#EADBD2] text-xs font-bold text-stone-700 rounded-xl px-3 py-2.5 outline-none"
                     >
                       <option value="all">🌐 All Departments</option>
                       {categories.map(c => (
@@ -1310,7 +1310,7 @@ export default function AdminView({
                     </thead>
                     <tbody>
                       {filteredProducts.map((prod) => (
-                        <tr key={prod.id} className="border-b border-stone-50 hover:bg-[#FAF7F2]/40 font-medium text-stone-700 transition-colors">
+                        <tr key={prod.id} className="border-b border-stone-50 hover:bg-[#FAF5F2]/40 font-medium text-stone-700 transition-colors">
                           <td className="py-3.5">
                             <div className="flex items-center space-x-3">
                               <img 
@@ -1343,13 +1343,13 @@ export default function AdminView({
                             <div className="flex justify-end gap-1">
                               <button 
                                 onClick={() => handleOpenEditProduct(prod)}
-                                className="p-1 px-2.5 border border-[#E0D8CF] text-stone-600 hover:text-stone-900 rounded-lg text-[11px] font-bold bg-white cursor-pointer transition-colors"
+                                className="p-1 px-2.5 border border-[#EADBD2] text-stone-600 hover:text-stone-900 rounded-lg text-[11px] font-bold bg-white cursor-pointer transition-colors"
                               >
                                 Edit
                               </button>
                               <button 
                                 onClick={() => handleDeleteProduct(prod.id)}
-                                className="p-1 px-2 hover:bg-red-50 text-[#E52E2D] rounded-lg cursor-pointer transition-colors"
+                                className="p-1 px-2 hover:bg-red-50 text-[#E73129] rounded-lg cursor-pointer transition-colors"
                                 title="Delete Permanently"
                               >
                                 <Trash2 size={14} className="inline" />
@@ -1373,7 +1373,7 @@ export default function AdminView({
 
             {/* 3. CATEGORY CATALOG MANAGER */}
             {activeTab === 'categories' && (
-              <div className="bg-white border border-[#E0D8CF] rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xs">
+              <div className="bg-white border border-[#EADBD2] rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xs">
                 
                 <div className="flex justify-between items-center pb-4 border-b border-stone-100">
                   <div>
@@ -1383,7 +1383,7 @@ export default function AdminView({
 
                   <button 
                     onClick={() => setShowCatModal(true)}
-                    className="bg-[#3D2B1F] hover:bg-stone-900 text-amber-50 text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-xl cursor-pointer flex items-center gap-1.5 shadow-xs"
+                    className="bg-[#5F220F] hover:bg-[#46190B] text-amber-50 text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-xl cursor-pointer flex items-center gap-1.5 shadow-xs"
                   >
                     <Plus size={14} /> Add Category Slat
                   </button>
@@ -1421,7 +1421,7 @@ export default function AdminView({
                     const count = products.filter(p => p.category === cat.slug).length;
 
                     return (
-                      <div key={cat.slug} className="border border-[#E0D8CF] rounded-2xl overflow-hidden shadow-3xs hover:shadow-2xs transition-all bg-white flex flex-col justify-between">
+                      <div key={cat.slug} className="border border-[#EADBD2] rounded-2xl overflow-hidden shadow-3xs hover:shadow-2xs transition-all bg-white flex flex-col justify-between">
                         
                         <div className="relative h-36 bg-stone-950">
                           <img 
@@ -1446,7 +1446,7 @@ export default function AdminView({
                         </div>
 
                         {/* Middle status section */}
-                        <div className="p-4 flex justify-between items-center text-xs border-t border-stone-100 bg-[#FAF7F2]/40">
+                        <div className="p-4 flex justify-between items-center text-xs border-t border-stone-100 bg-[#FAF5F2]/40">
                           <div>
                             <span className="text-stone-400 block text-[10px] font-bold uppercase tracking-wider">Indexed Database Products</span>
                             <div className="flex items-center space-x-2 mt-0.5">
@@ -1461,7 +1461,7 @@ export default function AdminView({
 
                           <button 
                             onClick={() => handleDeleteCategory(cat.slug)}
-                            className="text-[#E52E2D] hover:bg-red-50 text-[11px] font-bold px-3 py-1.5 rounded-xl transition-all"
+                            className="text-[#E73129] hover:bg-red-50 text-[11px] font-bold px-3 py-1.5 rounded-xl transition-all"
                           >
                             Remove Slat
                           </button>
@@ -1552,7 +1552,7 @@ export default function AdminView({
               }).sort((a, b) => b.views - a.views).slice(0, 5);
 
               return (
-                <div className="bg-white border border-[#E0D8CF] rounded-3xl p-6 sm:p-8 space-y-8 shadow-2xs">
+                <div className="bg-white border border-[#EADBD2] rounded-3xl p-6 sm:p-8 space-y-8 shadow-2xs">
                   
                   {/* Tab Header */}
                   <div className="pb-4 border-b border-stone-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
@@ -1563,8 +1563,8 @@ export default function AdminView({
                       </h3>
                       <p className="text-stone-400 text-xs font-light">Monitor top-selling furniture products, trace client conversion ratios, view popular models, and evaluate revenue trends.</p>
                     </div>
-                    <div className="flex bg-[#FAF7F2] border border-[#E0D8CF] rounded-xl p-1 text-[11px] font-bold text-stone-600">
-                      <span className="px-3 py-1 bg-white shadow-2xs text-[#3D2B1F] rounded-lg">All-Time</span>
+                    <div className="flex bg-[#FAF5F2] border border-[#EADBD2] rounded-xl p-1 text-[11px] font-bold text-stone-600">
+                      <span className="px-3 py-1 bg-white shadow-2xs text-[#5F220F] rounded-lg">All-Time</span>
                       <span className="px-3 py-1 cursor-pointer hover:text-stone-900">Current Month</span>
                     </div>
                   </div>
@@ -1574,7 +1574,7 @@ export default function AdminView({
                     <div className="bg-stone-50 border border-stone-200/60 p-5 rounded-2xl flex flex-col justify-between space-y-2">
                       <span className="text-[10px] font-black text-stone-400 uppercase tracking-wider block">Total Sales Booked</span>
                       <div>
-                        <div className="text-xl sm:text-2xl font-serif font-black text-[#3D2B1F]">
+                        <div className="text-xl sm:text-2xl font-serif font-black text-[#5F220F]">
                           ₹{totalSalesSum.toLocaleString()}
                         </div>
                         <div className="flex items-center gap-1 text-[9px] text-emerald-600 font-bold mt-1">
@@ -1618,7 +1618,7 @@ export default function AdminView({
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                     
                     {/* Left: Monthly Revenue Recharts */}
-                    <div className="lg:col-span-7 border border-[#E0D8CF] rounded-2xl p-5 space-y-4">
+                    <div className="lg:col-span-7 border border-[#EADBD2] rounded-2xl p-5 space-y-4">
                       <div className="flex justify-between items-center pb-2 border-b border-stone-100">
                         <div>
                           <h4 className="font-serif text-xs font-black text-stone-800 uppercase tracking-wider">📈 Revenue & Collections Trend</h4>
@@ -1634,8 +1634,8 @@ export default function AdminView({
                           <AreaChart data={monthlyRevenueData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                             <defs>
                               <linearGradient id="colorRev" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="5%" stopColor="#3D2B1F" stopOpacity={0.15}/>
-                                <stop offset="95%" stopColor="#3D2B1F" stopOpacity={0.0}/>
+                                <stop offset="5%" stopColor="#5F220F" stopOpacity={0.15}/>
+                                <stop offset="95%" stopColor="#5F220F" stopOpacity={0.0}/>
                               </linearGradient>
                               <linearGradient id="colorColl" x1="0" y1="0" x2="0" y2="1">
                                 <stop offset="5%" stopColor="#10B981" stopOpacity={0.15}/>
@@ -1647,7 +1647,7 @@ export default function AdminView({
                             <YAxis stroke="#a8a29e" />
                             <Tooltip formatter={(value: any) => [`₹${Number(value).toLocaleString()}`]} />
                             <Legend />
-                            <Area type="monotone" dataKey="revenue" name="Total Revenue" stroke="#3D2B1F" fillOpacity={1} fill="url(#colorRev)" strokeWidth={2.5} />
+                            <Area type="monotone" dataKey="revenue" name="Total Revenue" stroke="#5F220F" fillOpacity={1} fill="url(#colorRev)" strokeWidth={2.5} />
                             <Area type="monotone" dataKey="collections" name="Advance Received" stroke="#10B981" fillOpacity={1} fill="url(#colorColl)" strokeWidth={2} />
                           </AreaChart>
                         </ResponsiveContainer>
@@ -1655,7 +1655,7 @@ export default function AdminView({
                     </div>
 
                     {/* Right: Top Categories Performance */}
-                    <div className="lg:col-span-5 border border-[#E0D8CF] rounded-2xl p-5 space-y-4">
+                    <div className="lg:col-span-5 border border-[#EADBD2] rounded-2xl p-5 space-y-4">
                       <div className="flex justify-between items-center pb-2 border-b border-stone-100">
                         <div>
                           <h4 className="font-serif text-xs font-black text-stone-800 uppercase tracking-wider">🗂️ Category Performance & Market Demand</h4>
@@ -1670,9 +1670,9 @@ export default function AdminView({
                             <XAxis type="number" stroke="#a8a29e" />
                             <YAxis dataKey="name" type="category" stroke="#a8a29e" width={75} tick={{ fontSize: 9 }} />
                             <Tooltip formatter={(value: any) => [value, 'Demand score']} />
-                            <Bar dataKey="salesVal" name="Relative Demand" fill="#8B6F5C" radius={[0, 4, 4, 0]}>
+                            <Bar dataKey="salesVal" name="Relative Demand" fill="#7E655C" radius={[0, 4, 4, 0]}>
                               {categoryPerformance.map((entry, index) => (
-                                <Cell key={`cell-${index}`} fill={index === 0 ? '#3D2B1F' : index === 1 ? '#8B6F5C' : '#C9BA9F'} />
+                                <Cell key={`cell-${index}`} fill={index === 0 ? '#5F220F' : index === 1 ? '#7E655C' : '#FFC102'} />
                               ))}
                             </Bar>
                           </BarChart>
@@ -1686,7 +1686,7 @@ export default function AdminView({
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     
                     {/* Best Selling Products */}
-                    <div className="border border-[#E0D8CF] rounded-2xl p-5 space-y-4">
+                    <div className="border border-[#EADBD2] rounded-2xl p-5 space-y-4">
                       <div className="pb-2 border-b border-stone-100">
                         <h4 className="font-serif text-xs font-black text-stone-800 uppercase tracking-wider flex items-center gap-1.5">
                           🏆 Best-Selling Furniture Models
@@ -1698,12 +1698,12 @@ export default function AdminView({
                         {bestSellers.map((item, idx) => (
                           <div key={item.prod.id} className="flex items-center justify-between p-3 bg-stone-50 rounded-xl hover:bg-stone-100/50 transition-colors">
                             <div className="flex items-center space-x-3">
-                              <span className="w-5 h-5 rounded-full bg-[#3D2B1F] text-amber-50 text-[10px] font-black flex items-center justify-center">
+                              <span className="w-5 h-5 rounded-full bg-[#5F220F] text-amber-50 text-[10px] font-black flex items-center justify-center">
                                 {idx + 1}
                               </span>
                               <div>
                                 <span className="font-serif text-xs font-black text-stone-800 block leading-tight">{item.prod.name}</span>
-                                <span className="text-[9px] text-[#8B6F5C] uppercase font-bold tracking-wider">{item.prod.category}</span>
+                                <span className="text-[9px] text-[#7E655C] uppercase font-bold tracking-wider">{item.prod.category}</span>
                               </div>
                             </div>
                             <div className="text-right">
@@ -1716,7 +1716,7 @@ export default function AdminView({
                     </div>
 
                     {/* Most Viewed Products */}
-                    <div className="border border-[#E0D8CF] rounded-2xl p-5 space-y-4">
+                    <div className="border border-[#EADBD2] rounded-2xl p-5 space-y-4">
                       <div className="pb-2 border-b border-stone-100">
                         <h4 className="font-serif text-xs font-black text-stone-800 uppercase tracking-wider flex items-center gap-1.5">
                           👁️ Most Viewed Showroom Models
@@ -1765,7 +1765,7 @@ export default function AdminView({
 
             {/* 4. INQUIRY MANAGEMENT PORTAL */}
             {activeTab === 'inquiries' && (
-              <div className="bg-white border border-[#E0D8CF] rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xs">
+              <div className="bg-white border border-[#EADBD2] rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xs">
                 
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-4 border-b border-stone-100">
                   <div>
@@ -1776,16 +1776,16 @@ export default function AdminView({
                   {/* Actions & Modes bar */}
                   <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
                     {/* View Switcher */}
-                    <div className="flex bg-[#FAF7F2] p-1 rounded-xl border border-[#E0D8CF]">
+                    <div className="flex bg-[#FAF5F2] p-1 rounded-xl border border-[#EADBD2]">
                       <button
                         onClick={() => setCrmMode('kanban')}
-                        className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${crmMode === 'kanban' ? 'bg-[#3D2B1F] text-amber-50 shadow-2xs' : 'text-stone-500 hover:text-stone-700'}`}
+                        className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${crmMode === 'kanban' ? 'bg-[#5F220F] text-amber-50 shadow-2xs' : 'text-stone-500 hover:text-stone-700'}`}
                       >
                         <Kanban size={13} /> Kanban CRM
                       </button>
                       <button
                         onClick={() => setCrmMode('list')}
-                        className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${crmMode === 'list' ? 'bg-[#3D2B1F] text-amber-50 shadow-2xs' : 'text-stone-500 hover:text-stone-700'}`}
+                        className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${crmMode === 'list' ? 'bg-[#5F220F] text-amber-50 shadow-2xs' : 'text-stone-500 hover:text-stone-700'}`}
                       >
                         <List size={13} /> Table View
                       </button>
@@ -1794,7 +1794,7 @@ export default function AdminView({
                     {/* Export Action */}
                     <button
                       onClick={handleExportCSV}
-                      className="bg-amber-50 hover:bg-amber-100 text-amber-900 border border-[#E0D8CF] text-xs font-bold px-3.5 py-2.5 rounded-xl transition-colors cursor-pointer flex items-center gap-1.5 shadow-3xs"
+                      className="bg-amber-50 hover:bg-amber-100 text-amber-900 border border-[#EADBD2] text-xs font-bold px-3.5 py-2.5 rounded-xl transition-colors cursor-pointer flex items-center gap-1.5 shadow-3xs"
                       title="Download Excel CSV Spreadsheet"
                     >
                       <FileSpreadsheet size={14} /> Export Excel
@@ -1827,11 +1827,11 @@ export default function AdminView({
                           key={col.id}
                           onDragOver={handleDragOverInq}
                           onDrop={(e) => handleDropInq(e, col.id)}
-                          className={`border-t-4 ${col.color} rounded-2xl p-4 min-h-[500px] flex flex-col space-y-4 border border-[#E0D8CF]/80 shadow-3xs shrink-0 w-80 xl:w-auto`}
+                          className={`border-t-4 ${col.color} rounded-2xl p-4 min-h-[500px] flex flex-col space-y-4 border border-[#EADBD2]/80 shadow-3xs shrink-0 w-80 xl:w-auto`}
                         >
-                          <div className="flex justify-between items-center pb-2 border-b border-[#E0D8CF]/40">
+                          <div className="flex justify-between items-center pb-2 border-b border-[#EADBD2]/40">
                             <span className="text-[11px] font-black text-stone-800 uppercase tracking-wider">{col.name}</span>
-                            <span className="bg-white border border-[#E0D8CF] text-stone-500 font-mono font-bold text-[10px] px-2 py-0.5 rounded-full">
+                            <span className="bg-white border border-[#EADBD2] text-stone-500 font-mono font-bold text-[10px] px-2 py-0.5 rounded-full">
                               {colInquiries.length}
                             </span>
                           </div>
@@ -1846,7 +1846,7 @@ export default function AdminView({
                                   key={inq.id || i}
                                   draggable
                                   onDragStart={(e) => handleDragStartInq(e, inq.id)}
-                                  className="bg-white border border-[#E0D8CF] rounded-xl p-4 space-y-3 shadow-3xs hover:shadow-2xs hover:border-amber-400 transition-all cursor-grab active:cursor-grabbing relative"
+                                  className="bg-white border border-[#EADBD2] rounded-xl p-4 space-y-3 shadow-3xs hover:shadow-2xs hover:border-amber-400 transition-all cursor-grab active:cursor-grabbing relative"
                                 >
                                   {/* Draggable indicator dot banner */}
                                   <div className="absolute top-4 right-4 flex gap-1 items-center">
@@ -1863,7 +1863,7 @@ export default function AdminView({
                                     <p className="text-[10px] text-stone-500 font-mono mt-0.5">{inq.phone} {inq.city ? `| ${inq.city}` : ''}</p>
                                   </div>
 
-                                  <div className="bg-[#FAF7F2] p-2 rounded-lg border border-stone-200/50">
+                                  <div className="bg-[#FAF5F2] p-2 rounded-lg border border-stone-200/50">
                                     <div className="text-[10px] text-amber-900 font-black truncate">
                                       ✦ {inq.subject || inq.category || 'Special Order Specification'}
                                     </div>
@@ -1905,7 +1905,7 @@ export default function AdminView({
                                         onUpdateInquiries(next);
                                         alert('✓ CRM note successfully saved!');
                                       }}
-                                      className="w-full bg-[#3D2B1F]/10 hover:bg-[#3D2B1F] hover:text-amber-50 text-stone-700 text-[9px] font-black uppercase py-1 rounded transition-colors text-center"
+                                      className="w-full bg-[#5F220F]/10 hover:bg-[#5F220F] hover:text-amber-50 text-stone-700 text-[9px] font-black uppercase py-1 rounded transition-colors text-center"
                                     >
                                       Save Remark
                                     </button>
@@ -1916,7 +1916,7 @@ export default function AdminView({
                                     {/* Print Job sheet */}
                                     <button
                                       onClick={() => handlePrintWorkshopCard(inq)}
-                                      className="p-1.5 border border-[#E0D8CF] hover:border-[#3D2B1F] hover:bg-stone-50 rounded-lg text-stone-600 transition-colors"
+                                      className="p-1.5 border border-[#EADBD2] hover:border-[#5F220F] hover:bg-stone-50 rounded-lg text-stone-600 transition-colors"
                                       title="Print Job Card for Carving Team"
                                     >
                                       <Printer size={12} className="inline mr-1" />
@@ -2019,12 +2019,12 @@ export default function AdminView({
                       const whatsappLink = `https://wa.me/${inq.phone.replace(/[^\d]/g, '')}?text=${encodeURIComponent(clientPayload)}`;
 
                       return (
-                        <div key={inq.id || i} className="border border-[#E0D8CF] rounded-2xl p-5 hover:border-amber-300 transition-all bg-[#FAF7F2]/10 space-y-4 relative">
+                        <div key={inq.id || i} className="border border-[#EADBD2] rounded-2xl p-5 hover:border-amber-300 transition-all bg-[#FAF5F2]/10 space-y-4 relative">
                           
                           {/* Top row */}
                           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                             <div className="flex items-center space-x-2.5">
-                              <span className="text-stone-400 text-xs font-mono font-bold block bg-white border border-[#E0D8CF] px-2 py-0.5 rounded-lg">
+                              <span className="text-stone-400 text-xs font-mono font-bold block bg-white border border-[#EADBD2] px-2 py-0.5 rounded-lg">
                                 #{inquiries.length - i}
                               </span>
                               <span className="text-xs text-stone-400 font-bold">{inq.date || 'Received Today'}</span>
@@ -2045,7 +2045,7 @@ export default function AdminView({
                               </button>
                               <button 
                                 onClick={() => handleToggleInquiryStatus(inq.id)}
-                                className="px-2.5 py-1 text-[11px] font-bold border border-[#E0D8CF] hover:border-stone-800 rounded-lg bg-white"
+                                className="px-2.5 py-1 text-[11px] font-bold border border-[#EADBD2] hover:border-stone-800 rounded-lg bg-white"
                               >
                                 Toggle status
                               </button>
@@ -2096,7 +2096,7 @@ export default function AdminView({
                           </div>
 
                           {/* Dynamic CRM Note Editor */}
-                          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 bg-[#FAF7F2] border border-[#E0D8CF] rounded-xl p-2 px-3 text-xs">
+                          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 bg-[#FAF5F2] border border-[#EADBD2] rounded-xl p-2 px-3 text-xs">
                             <span className="text-[10px] font-black text-stone-400 uppercase tracking-wider shrink-0 sm:mt-0.5">Admin CRM Note:</span>
                             <input
                               type="text"
@@ -2112,7 +2112,7 @@ export default function AdminView({
                                 onUpdateInquiries(next);
                                 alert('✓ CRM note successfully saved to Cloud Firestore database!');
                               }}
-                              className="bg-[#3D2B1F] text-amber-50 px-3 py-2 text-[10px] font-black uppercase rounded-lg hover:bg-stone-900 transition-all shrink-0 cursor-pointer text-center"
+                              className="bg-[#5F220F] text-amber-50 px-3 py-2 text-[10px] font-black uppercase rounded-lg hover:bg-[#46190B] transition-all shrink-0 cursor-pointer text-center"
                             >
                               Save Note
                             </button>
@@ -2122,7 +2122,7 @@ export default function AdminView({
                           <div className="flex gap-2.5 pt-1.5 justify-end relative">
                             <a 
                               href={`tel:${inq.phone}`} 
-                              className="text-stone-700 hover:bg-stone-50 text-[11px] font-bold px-3 py-1.5 border border-[#E0D8CF] rounded-lg transition-colors"
+                              className="text-stone-700 hover:bg-stone-50 text-[11px] font-bold px-3 py-1.5 border border-[#EADBD2] rounded-lg transition-colors"
                             >
                               📞 Call Customer
                             </a>
@@ -2214,7 +2214,7 @@ export default function AdminView({
 
             {/* 5. WEBSITE CONTENT VARIABLES MANAGEMENT */}
             {activeTab === 'content' && (
-              <div className="bg-white border border-[#E0D8CF] rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xs">
+              <div className="bg-white border border-[#EADBD2] rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xs">
                 
                 <div className="pb-4 border-b border-stone-100">
                   <h3 className="font-serif text-lg font-black text-stone-800">Website Content Management</h3>
@@ -2233,7 +2233,7 @@ export default function AdminView({
                         type="text" 
                         value={websiteContent.heroTitle}
                         onChange={(e) => handleUpdateContentField('heroTitle', e.target.value)}
-                        className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700 bg-[#FAF7F2]"
+                        className="border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-stone-700 bg-[#FAF5F2]"
                       />
                     </div>
 
@@ -2242,7 +2242,7 @@ export default function AdminView({
                       <textarea 
                         value={websiteContent.heroSubtitle}
                         onChange={(e) => handleUpdateContentField('heroSubtitle', e.target.value)}
-                        className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700 resize-none h-16 bg-[#FAF7F2]"
+                        className="border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-stone-700 resize-none h-16 bg-[#FAF5F2]"
                       />
                     </div>
 
@@ -2251,7 +2251,7 @@ export default function AdminView({
                       <textarea 
                         value={websiteContent.aboutQuote}
                         onChange={(e) => handleUpdateContentField('aboutQuote', e.target.value)}
-                        className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700 resize-none h-16 bg-[#FAF7F2]"
+                        className="border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-stone-700 resize-none h-16 bg-[#FAF5F2]"
                       />
                     </div>
                   </div>
@@ -2266,7 +2266,7 @@ export default function AdminView({
                         type="text" 
                         value={websiteContent.whatsappLine || '+91 70574 41122'}
                         onChange={(e) => handleUpdateContentField('whatsappLine', e.target.value)}
-                        className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700 bg-[#FAF7F2]"
+                        className="border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-stone-700 bg-[#FAF5F2]"
                       />
                     </div>
 
@@ -2277,7 +2277,7 @@ export default function AdminView({
                         placeholder="E.g. SUMMER SALE: Get 15% instant cashbacks on Seasoned Sagwan Beds"
                         value={websiteContent.activeOfferBanner || '✨ GANESH FESTIVAL SPECIAL: Free home delivery and free hydraulic polish across Sindhudurg!'}
                         onChange={(e) => handleUpdateContentField('activeOfferBanner', e.target.value)}
-                        className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700 bg-[#FAF7F2]"
+                        className="border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-stone-700 bg-[#FAF5F2]"
                       />
                     </div>
 
@@ -2286,7 +2286,7 @@ export default function AdminView({
                       <textarea 
                         value={websiteContent.malvanAddress}
                         onChange={(e) => handleUpdateContentField('malvanAddress', e.target.value)}
-                        className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700 resize-none h-14 bg-[#FAF7F2]"
+                        className="border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-stone-700 resize-none h-14 bg-[#FAF5F2]"
                       />
                     </div>
 
@@ -2295,7 +2295,7 @@ export default function AdminView({
                       <textarea 
                         value={websiteContent.sukalwadAddress}
                         onChange={(e) => handleUpdateContentField('sukalwadAddress', e.target.value)}
-                        className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700 resize-none h-14 bg-[#FAF7F2]"
+                        className="border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-stone-700 resize-none h-14 bg-[#FAF5F2]"
                       />
                     </div>
                   </div>
@@ -2368,7 +2368,7 @@ export default function AdminView({
                                 alert('✓ Testimonial deleted.');
                               }
                             }}
-                            className="text-[10px] text-[#E52E2D] font-bold hover:underline cursor-pointer"
+                            className="text-[10px] text-[#E73129] font-bold hover:underline cursor-pointer"
                           >
                             Remove Card
                           </button>
@@ -2383,7 +2383,7 @@ export default function AdminView({
                     onClick={() => {
                       alert('Website layout parameters saved dynamically. The storefront is updated according to your adjustments.');
                     }}
-                    className="bg-[#3D2B1F] hover:bg-stone-900 text-amber-50 text-xs font-bold uppercase tracking-wider px-6 py-3 rounded-xl transition-all shadow-xs cursor-pointer"
+                    className="bg-[#5F220F] hover:bg-[#46190B] text-amber-50 text-xs font-bold uppercase tracking-wider px-6 py-3 rounded-xl transition-all shadow-xs cursor-pointer"
                   >
                     Commit Content Changes
                   </button>
@@ -2394,7 +2394,7 @@ export default function AdminView({
 
             {/* 9. SECURITY ACTIVITY & AUDIT LOGS VIEWPORT */}
             {activeTab === 'logs' && (
-              <div className="bg-white border border-[#E0D8CF] rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xs">
+              <div className="bg-white border border-[#EADBD2] rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xs">
                 
                 <div className="pb-4 border-b border-stone-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                   <div>
@@ -2418,7 +2418,7 @@ export default function AdminView({
                   </button>
                 </div>
 
-                <div className="bg-[#FAF7F2] border border-[#E0D8CF] rounded-2xl p-4 flex justify-between items-center text-xs">
+                <div className="bg-[#FAF5F2] border border-[#EADBD2] rounded-2xl p-4 flex justify-between items-center text-xs">
                   <div>
                     Active Operator Authority Role: <strong>{adminRole === 'owner' ? '👑 Owner Admin (Bhise / Full Master Privilege)' : '🛠️ Staff Worker (Read & Update-only access)'}</strong>
                   </div>
@@ -2452,7 +2452,7 @@ export default function AdminView({
 
             {/* 10. SETTINGS VIEWPORT */}
             {activeTab === 'settings' && (
-              <div className="bg-white border border-[#E0D8CF] rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xs">
+              <div className="bg-white border border-[#EADBD2] rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xs">
                 
                 <div className="pb-4 border-b border-stone-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
                   <div>
@@ -2467,7 +2467,7 @@ export default function AdminView({
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   
                   {/* General Store Profile Settings */}
-                  <div className="border border-[#E0D8CF] rounded-2xl p-5 space-y-4 bg-stone-50/30">
+                  <div className="border border-[#EADBD2] rounded-2xl p-5 space-y-4 bg-stone-50/30">
                     <h4 className="font-serif text-xs font-black text-stone-750 uppercase tracking-wider border-b border-stone-100 pb-2 flex items-center gap-1.5">
                       🏢 1. General Store Identity & Brand
                     </h4>
@@ -2478,7 +2478,7 @@ export default function AdminView({
                         type="text" 
                         value={websiteContent.businessName || 'Bhisez Carpenter Workshop'}
                         onChange={(e) => handleUpdateContentField('businessName', e.target.value)}
-                        className="border border-[#E0D8CF] rounded-xl px-4 py-2 text-xs text-stone-705 bg-white font-bold"
+                        className="border border-[#EADBD2] rounded-xl px-4 py-2 text-xs text-stone-705 bg-white font-bold"
                       />
                     </div>
 
@@ -2488,7 +2488,7 @@ export default function AdminView({
                         type="text" 
                         value={websiteContent.logoUrl || '/images/bhisez%20logo.png'}
                         onChange={(e) => handleUpdateContentField('logoUrl', e.target.value)}
-                        className="border border-[#E0D8CF] rounded-xl px-4 py-2 text-xs text-stone-705 bg-white"
+                        className="border border-[#EADBD2] rounded-xl px-4 py-2 text-xs text-stone-705 bg-white"
                       />
                     </div>
 
@@ -2498,13 +2498,13 @@ export default function AdminView({
                         rows={2}
                         value={websiteContent.businessAddress || 'Sukalwad NH-66 Highway & Malvan Road showrooms, Sindhudurg, MH'}
                         onChange={(e) => handleUpdateContentField('businessAddress', e.target.value)}
-                        className="border border-[#E0D8CF] rounded-xl px-4 py-2 text-xs text-stone-705 bg-white"
+                        className="border border-[#EADBD2] rounded-xl px-4 py-2 text-xs text-stone-705 bg-white"
                       />
                     </div>
                   </div>
 
                   {/* Communication & Messaging Settings */}
-                  <div className="border border-[#E0D8CF] rounded-2xl p-5 space-y-4 bg-stone-50/30">
+                  <div className="border border-[#EADBD2] rounded-2xl p-5 space-y-4 bg-stone-50/30">
                     <h4 className="font-serif text-xs font-black text-stone-750 uppercase tracking-wider border-b border-stone-100 pb-2 flex items-center gap-1.5">
                       📞 2. Contact & Communications
                     </h4>
@@ -2515,7 +2515,7 @@ export default function AdminView({
                         type="text" 
                         value={websiteContent.contactNumber || '+91 70574 41122'}
                         onChange={(e) => handleUpdateContentField('contactNumber', e.target.value)}
-                        className="border border-[#E0D8CF] rounded-xl px-4 py-2 text-xs text-stone-705 bg-white font-bold"
+                        className="border border-[#EADBD2] rounded-xl px-4 py-2 text-xs text-stone-705 bg-white font-bold"
                       />
                     </div>
 
@@ -2525,7 +2525,7 @@ export default function AdminView({
                         type="email" 
                         value={websiteContent.businessEmail || 'contact@bhisezfurniture.com'}
                         onChange={(e) => handleUpdateContentField('businessEmail', e.target.value)}
-                        className="border border-[#E0D8CF] rounded-xl px-4 py-2 text-xs text-stone-705 bg-white"
+                        className="border border-[#EADBD2] rounded-xl px-4 py-2 text-xs text-stone-705 bg-white"
                       />
                     </div>
 
@@ -2535,13 +2535,13 @@ export default function AdminView({
                         type="text" 
                         value={websiteContent.whatsappSettings || 'Active line: +91 70574 41122 (Auto-Template: Hello, interested in custom order)'}
                         onChange={(e) => handleUpdateContentField('whatsappSettings', e.target.value)}
-                        className="border border-[#E0D8CF] rounded-xl px-4 py-2 text-xs text-stone-705 bg-white"
+                        className="border border-[#EADBD2] rounded-xl px-4 py-2 text-xs text-stone-705 bg-white"
                       />
                     </div>
                   </div>
 
                   {/* Financial & Compliance Settings */}
-                  <div className="border border-[#E0D8CF] rounded-2xl p-5 space-y-4 bg-stone-50/30">
+                  <div className="border border-[#EADBD2] rounded-2xl p-5 space-y-4 bg-stone-50/30">
                     <h4 className="font-serif text-xs font-black text-stone-750 uppercase tracking-wider border-b border-stone-100 pb-2 flex items-center gap-1.5">
                       ⚖️ 3. Tax compliance & Financials
                     </h4>
@@ -2552,7 +2552,7 @@ export default function AdminView({
                         type="text" 
                         value={websiteContent.gstNumber || '27AAAAA1111A1Z1'}
                         onChange={(e) => handleUpdateContentField('gstNumber', e.target.value)}
-                        className="border border-[#E0D8CF] rounded-xl px-4 py-2 text-xs text-stone-705 bg-white font-mono uppercase"
+                        className="border border-[#EADBD2] rounded-xl px-4 py-2 text-xs text-stone-705 bg-white font-mono uppercase"
                       />
                     </div>
 
@@ -2563,7 +2563,7 @@ export default function AdminView({
                           type="number" 
                           value={websiteContent.gstPercent || 18}
                           onChange={(e) => handleUpdateContentField('gstPercent', Number(e.target.value))}
-                          className="border border-[#E0D8CF] rounded-xl px-4 py-2 text-xs text-stone-705 bg-white"
+                          className="border border-[#EADBD2] rounded-xl px-4 py-2 text-xs text-stone-705 bg-white"
                         />
                       </div>
 
@@ -2573,14 +2573,14 @@ export default function AdminView({
                           type="text" 
                           value={websiteContent.currencySymbol || '₹'}
                           onChange={(e) => handleUpdateContentField('currencySymbol', e.target.value)}
-                          className="border border-[#E0D8CF] rounded-xl px-4 py-2 text-xs text-stone-705 bg-white font-bold"
+                          className="border border-[#EADBD2] rounded-xl px-4 py-2 text-xs text-stone-705 bg-white font-bold"
                         />
                       </div>
                     </div>
                   </div>
 
                   {/* Logistics & Payment Gateway Settings */}
-                  <div className="border border-[#E0D8CF] rounded-2xl p-5 space-y-4 bg-stone-50/30">
+                  <div className="border border-[#EADBD2] rounded-2xl p-5 space-y-4 bg-stone-50/30">
                     <h4 className="font-serif text-xs font-black text-stone-750 uppercase tracking-wider border-b border-stone-100 pb-2 flex items-center gap-1.5">
                       💰 4. Logistics & Payment Options
                     </h4>
@@ -2591,7 +2591,7 @@ export default function AdminView({
                         type="text" 
                         value={websiteContent.deliveryCharges || 'Free across Sindhudurg region (₹1,500 flat for outer MH district dispatches)'}
                         onChange={(e) => handleUpdateContentField('deliveryCharges', e.target.value)}
-                        className="border border-[#E0D8CF] rounded-xl px-4 py-2 text-xs text-stone-705 bg-white"
+                        className="border border-[#EADBD2] rounded-xl px-4 py-2 text-xs text-stone-705 bg-white"
                       />
                     </div>
 
@@ -2601,7 +2601,7 @@ export default function AdminView({
                         type="text" 
                         value={websiteContent.paymentSettings || 'UPI App redirect screenshot proof, bank NEFT, cash upon delivery check'}
                         onChange={(e) => handleUpdateContentField('paymentSettings', e.target.value)}
-                        className="border border-[#E0D8CF] rounded-xl px-4 py-2 text-xs text-stone-705 bg-white"
+                        className="border border-[#EADBD2] rounded-xl px-4 py-2 text-xs text-stone-705 bg-white"
                       />
                     </div>
 
@@ -2610,7 +2610,7 @@ export default function AdminView({
                       <select 
                         value={websiteContent.themeName || 'Warm Artisan Wood'}
                         onChange={(e) => handleUpdateContentField('themeName', e.target.value)}
-                        className="border border-[#E0D8CF] bg-white rounded-xl px-3 py-2 text-xs text-stone-705 font-bold"
+                        className="border border-[#EADBD2] bg-white rounded-xl px-3 py-2 text-xs text-stone-705 font-bold"
                       >
                         <option value="Warm Artisan Wood">🪓 Warm Artisan Wood (Authentic Malvan)</option>
                         <option value="Classic Ivory">🏺 Classic Ivory & Brass</option>
@@ -2632,7 +2632,7 @@ export default function AdminView({
                         type="text" 
                         value={websiteContent.adminPasscode || '1234'}
                         onChange={(e) => handleUpdateContentField('adminPasscode', e.target.value)}
-                        className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-705 font-bold bg-[#FAF7F2]"
+                        className="border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-stone-705 font-bold bg-[#FAF5F2]"
                       />
                     </div>
                     <div className="p-3.5 bg-amber-50/50 border border-amber-200/50 text-stone-600 rounded-xl text-[11px] leading-relaxed font-light">
@@ -2646,7 +2646,7 @@ export default function AdminView({
                     onClick={() => {
                       alert('✓ All business workspace configuration variables and metadata successfully saved and updated!');
                     }}
-                    className="bg-[#3D2B1F] hover:bg-stone-900 text-amber-50 text-xs font-bold uppercase tracking-wider px-6 py-3 rounded-xl transition-all shadow-md cursor-pointer"
+                    className="bg-[#5F220F] hover:bg-[#46190B] text-amber-50 text-xs font-bold uppercase tracking-wider px-6 py-3 rounded-xl transition-all shadow-md cursor-pointer"
                   >
                     Save settings parameters
                   </button>
@@ -2666,7 +2666,7 @@ export default function AdminView({
       {/* 1. PRODUCT ADD / EDIT DIALOG MODAL */}
       {showProductModal && (
         <div className="fixed inset-0 z-[250] bg-stone-950/40 backdrop-blur-3xs flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white border border-[#E0D8CF] rounded-3xl w-full max-w-lg p-6 sm:p-8 space-y-5 shadow-2xl relative my-8 max-h-[90vh] overflow-y-auto">
+          <div className="bg-white border border-[#EADBD2] rounded-3xl w-full max-w-lg p-6 sm:p-8 space-y-5 shadow-2xl relative my-8 max-h-[90vh] overflow-y-auto">
             
             <button 
               onClick={() => setShowProductModal(false)}
@@ -2691,7 +2691,7 @@ export default function AdminView({
                     value={productForm.id}
                     onChange={(e) => setProductForm({...productForm, id: e.target.value})}
                     disabled={!!editingProduct}
-                    className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700 bg-stone-50 disabled:opacity-55"
+                    className="border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-stone-700 bg-stone-50 disabled:opacity-55"
                   />
                 </div>
 
@@ -2703,7 +2703,7 @@ export default function AdminView({
                     placeholder="E.g. BED - premium bed #05"
                     value={productForm.name}
                     onChange={(e) => setProductForm({...productForm, name: e.target.value})}
-                    className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700"
+                    className="border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-stone-700"
                   />
                 </div>
               </div>
@@ -2717,7 +2717,7 @@ export default function AdminView({
                     placeholder="38000"
                     value={productForm.price}
                     onChange={(e) => setProductForm({...productForm, price: Number(e.target.value)})}
-                    className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700"
+                    className="border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-stone-700"
                   />
                 </div>
 
@@ -2728,7 +2728,7 @@ export default function AdminView({
                     placeholder="52000"
                     value={productForm.orig}
                     onChange={(e) => setProductForm({...productForm, orig: Number(e.target.value) || undefined})}
-                    className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700"
+                    className="border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-stone-700"
                   />
                 </div>
 
@@ -2737,7 +2737,7 @@ export default function AdminView({
                   <select
                     value={productForm.badge || ''}
                     onChange={(e) => setProductForm({...productForm, badge: (e.target.value || null) as any})}
-                    className="bg-[#FAF7F2] border border-[#E0D8CF] rounded-xl px-3 py-2 text-xs text-stone-700"
+                    className="bg-[#FAF5F2] border border-[#EADBD2] rounded-xl px-3 py-2 text-xs text-stone-700"
                   >
                     <option value="">No Badge</option>
                     <option value="bs">Bestseller (bs)</option>
@@ -2753,7 +2753,7 @@ export default function AdminView({
                   <select
                     value={productForm.category}
                     onChange={(e) => setProductForm({...productForm, category: e.target.value})}
-                    className="bg-[#FAF7F2] border border-[#E0D8CF] rounded-xl px-3 py-2 text-xs text-stone-700"
+                    className="bg-[#FAF5F2] border border-[#EADBD2] rounded-xl px-3 py-2 text-xs text-stone-700"
                   >
                     {categories.map(c => (
                       <option key={c.slug} value={c.slug}>{c.name}</option>
@@ -2769,7 +2769,7 @@ export default function AdminView({
                     placeholder="Selected Seasoned Teakwood"
                     value={productForm.material}
                     onChange={(e) => setProductForm({...productForm, material: e.target.value})}
-                    className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700"
+                    className="border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-stone-700"
                   />
                 </div>
               </div>
@@ -2782,7 +2782,7 @@ export default function AdminView({
                     required 
                     value={productForm.img}
                     onChange={(e) => setProductForm({...productForm, img: e.target.value})}
-                    className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700 flex-1"
+                    className="border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-stone-700 flex-1"
                     placeholder="https://..."
                   />
                 </div>
@@ -2791,7 +2791,7 @@ export default function AdminView({
                   onDragOver={(e) => { e.preventDefault(); e.stopPropagation(); }}
                   onDrop={handleFileDropUploader}
                   onClick={() => fileInputRef.current?.click()}
-                  className="border-2 border-dashed border-stone-200 hover:border-amber-400 bg-[#FAF7F2]/40 hover:bg-amber-50/10 p-4 rounded-xl text-center cursor-pointer transition-all space-y-1"
+                  className="border-2 border-dashed border-stone-200 hover:border-amber-400 bg-[#FAF5F2]/40 hover:bg-amber-50/10 p-4 rounded-xl text-center cursor-pointer transition-all space-y-1"
                 >
                   <input 
                     type="file" 
@@ -2821,7 +2821,7 @@ export default function AdminView({
                   required
                   value={productForm.shortDesc}
                   onChange={(e) => setProductForm({...productForm, shortDesc: e.target.value})}
-                  className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700"
+                  className="border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-stone-700"
                   placeholder="Short summary tagline..."
                 />
               </div>
@@ -2835,7 +2835,7 @@ export default function AdminView({
                     placeholder="E.g. 78L x 72W x 40H inches"
                     value={productForm.dimensions}
                     onChange={(e) => setProductForm({...productForm, dimensions: e.target.value})}
-                    className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700"
+                    className="border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-stone-700"
                   />
                 </div>
 
@@ -2847,7 +2847,7 @@ export default function AdminView({
                     placeholder="E.g. Melamine Semi-Gloss Polish"
                     value={productForm.finish}
                     onChange={(e) => setProductForm({...productForm, finish: e.target.value})}
-                    className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700"
+                    className="border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-stone-700"
                   />
                 </div>
               </div>
@@ -2858,7 +2858,7 @@ export default function AdminView({
                   <select
                     value={productForm.stockStatus || 'In Stock'}
                     onChange={(e) => setProductForm({...productForm, stockStatus: e.target.value})}
-                    className="bg-[#FAF7F2] border border-[#E0D8CF] rounded-xl px-3 py-2 text-xs text-stone-700"
+                    className="bg-[#FAF5F2] border border-[#EADBD2] rounded-xl px-3 py-2 text-xs text-stone-700"
                   >
                     <option value="In Stock">🟢 In Stock (Ready to Deliver)</option>
                     <option value="Out of Stock">🔴 Out of Stock</option>
@@ -2872,7 +2872,7 @@ export default function AdminView({
                     id="is_featured_toggle"
                     checked={!!productForm.featured}
                     onChange={(e) => setProductForm({...productForm, featured: e.target.checked})}
-                    className="w-4 h-4 text-amber-600 border-[#E0D8CF] rounded-md focus:ring-amber-500 cursor-pointer"
+                    className="w-4 h-4 text-amber-600 border-[#EADBD2] rounded-md focus:ring-amber-500 cursor-pointer"
                   />
                   <label htmlFor="is_featured_toggle" className="text-xs font-bold text-stone-700 select-none cursor-pointer">
                     ⭐ Feature Model on Homepage Showcase
@@ -2889,7 +2889,7 @@ export default function AdminView({
                     const urls = e.target.value.split(',').map(s => s.trim()).filter(Boolean);
                     setProductForm({...productForm, images: urls});
                   }}
-                  className="border border-[#E0D8CF] rounded-xl px-4 py-2 text-xs text-stone-700 min-h-[50px] resize-y"
+                  className="border border-[#EADBD2] rounded-xl px-4 py-2 text-xs text-stone-700 min-h-[50px] resize-y"
                 />
               </div>
 
@@ -2900,7 +2900,7 @@ export default function AdminView({
                 </div>
                 
                 {/* HTML rich formatting buttons */}
-                <div className="flex flex-wrap gap-1 bg-stone-100 p-1 border border-[#E0D8CF] rounded-t-xl text-stone-700">
+                <div className="flex flex-wrap gap-1 bg-stone-100 p-1 border border-[#EADBD2] rounded-t-xl text-stone-700">
                   <button
                     type="button"
                     onClick={() => insertFormattedText('<b>', '</b>')}
@@ -2948,7 +2948,7 @@ export default function AdminView({
                         setProductForm({...productForm, description: ''});
                       }
                     }}
-                    className="p-1 px-2 ml-auto text-[9px] font-bold text-[#E52E2D] bg-white border border-stone-200 rounded hover:bg-red-50 cursor-pointer"
+                    className="p-1 px-2 ml-auto text-[9px] font-bold text-[#E73129] bg-white border border-stone-200 rounded hover:bg-red-50 cursor-pointer"
                     title="Clear text"
                   >
                     Clear
@@ -2958,7 +2958,7 @@ export default function AdminView({
                 <textarea 
                   value={productForm.description}
                   onChange={(e) => setProductForm({...productForm, description: e.target.value})}
-                  className="border border-t-0 border-[#E0D8CF] rounded-b-xl px-4 py-2.5 text-xs text-stone-700 min-h-[90px] resize-y focus:outline-none"
+                  className="border border-t-0 border-[#EADBD2] rounded-b-xl px-4 py-2.5 text-xs text-stone-700 min-h-[90px] resize-y focus:outline-none"
                   placeholder="Describe your premium beds, mandirs, wooden carvings, etc..."
                 />
               </div>
@@ -2967,13 +2967,13 @@ export default function AdminView({
                 <button 
                   type="button" 
                   onClick={() => setShowProductModal(false)}
-                  className="px-4 py-2.5 border border-[#E0D8CF] text-xs font-bold rounded-xl text-stone-600 hover:text-stone-900 cursor-pointer"
+                  className="px-4 py-2.5 border border-[#EADBD2] text-xs font-bold rounded-xl text-stone-600 hover:text-stone-900 cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button 
                   type="submit" 
-                  className="px-5 py-2.5 bg-[#3D2B1F] hover:bg-stone-900 text-amber-50 text-xs font-bold uppercase tracking-wider rounded-xl cursor-pointer shadow-xs"
+                  className="px-5 py-2.5 bg-[#5F220F] hover:bg-[#46190B] text-amber-50 text-xs font-bold uppercase tracking-wider rounded-xl cursor-pointer shadow-xs"
                 >
                   Confirm Model
                 </button>
@@ -2987,7 +2987,7 @@ export default function AdminView({
       {/* 2. CATEGORY DIALOG MODAL */}
       {showCatModal && (
         <div className="fixed inset-0 z-[250] bg-stone-950/40 backdrop-blur-3xs flex items-center justify-center p-4">
-          <div className="bg-white border border-[#E0D8CF] rounded-3xl w-full max-w-sm p-6 sm:p-8 space-y-5 shadow-2xl relative">
+          <div className="bg-white border border-[#EADBD2] rounded-3xl w-full max-w-sm p-6 sm:p-8 space-y-5 shadow-2xl relative">
             
             <button 
               onClick={() => setShowCatModal(false)}
@@ -3010,7 +3010,7 @@ export default function AdminView({
                   placeholder="E.g. WINDOW FRAMES"
                   value={catName}
                   onChange={(e) => setCatName(e.target.value)}
-                  className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700"
+                  className="border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-stone-700"
                 />
               </div>
 
@@ -3022,7 +3022,7 @@ export default function AdminView({
                   placeholder="E.g. window-frames"
                   value={catSlug}
                   onChange={(e) => setCatSlug(e.target.value)}
-                  className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700"
+                  className="border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-stone-700"
                 />
               </div>
 
@@ -3033,7 +3033,7 @@ export default function AdminView({
                   placeholder="E.g. 15% OFF"
                   value={catPromoOffer}
                   onChange={(e) => setCatPromoOffer(e.target.value)}
-                  className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700"
+                  className="border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-stone-700"
                 />
               </div>
 
@@ -3044,7 +3044,7 @@ export default function AdminView({
                   placeholder="E.g. Royal seasoned pine collection"
                   value={catPromoTitle}
                   onChange={(e) => setCatPromoTitle(e.target.value)}
-                  className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700"
+                  className="border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-stone-700"
                 />
               </div>
 
@@ -3054,7 +3054,7 @@ export default function AdminView({
                   type="text" 
                   value={catImg}
                   onChange={(e) => setCatImg(e.target.value)}
-                  className="border border-[#E0D8CF] rounded-xl px-4 py-2.5 text-xs text-stone-700"
+                  className="border border-[#EADBD2] rounded-xl px-4 py-2.5 text-xs text-stone-700"
                 />
               </div>
 
@@ -3062,13 +3062,13 @@ export default function AdminView({
                 <button 
                   type="button" 
                   onClick={() => setShowCatModal(false)}
-                  className="px-4 py-2.5 border border-[#E0D8CF] text-xs font-bold rounded-xl text-stone-600 hover:text-stone-900 cursor-pointer"
+                  className="px-4 py-2.5 border border-[#EADBD2] text-xs font-bold rounded-xl text-stone-600 hover:text-stone-900 cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button 
                   type="submit" 
-                  className="px-5 py-2.5 bg-[#3D2B1F] hover:bg-stone-900 text-amber-50 text-xs font-bold uppercase tracking-wider rounded-xl cursor-pointer shadow-xs"
+                  className="px-5 py-2.5 bg-[#5F220F] hover:bg-[#46190B] text-amber-50 text-xs font-bold uppercase tracking-wider rounded-xl cursor-pointer shadow-xs"
                 >
                   Create Department
                 </button>

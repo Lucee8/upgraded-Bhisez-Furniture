@@ -777,31 +777,31 @@ export default function HomeView({
   }, [products, bestsellerFilter]);
 
   return (
-    <div className="bg-[#FAFAF8] text-[#222222] min-h-screen font-sans">
+    <div className="bg-[#FAF5F2] text-[#5F220F] min-h-screen font-sans">
 
       {/* ── SECTION A: ANNOUNCEMENT / OFFER BAR ── */}
       {showAnnouncement && (
-        <div className="bg-[#2F7779] text-white border-b border-[#256264] py-2 px-4 text-xs">
+        <div className="bg-[#5F220F] text-[#FAF5F2] border-b border-[#4A1809] py-2 px-4 text-xs">
           <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
             <div className="flex items-center gap-2 overflow-hidden text-center sm:text-left mx-auto sm:mx-0">
-              <span className="inline-flex items-center gap-1 bg-[#F47B20] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded shrink-0 shadow-2xs">
+              <span className="inline-flex items-center gap-1 bg-[#FFC102] text-[#5F220F] text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded shrink-0">
                 <Sparkles size={11} /> Workshop Direct
               </span>
-              <span className="text-[11px] sm:text-xs text-stone-100 truncate">
+              <span className="text-[11px] sm:text-xs text-stone-200 truncate">
                 100% Seasoned Sagwan Teak & Acacia with 3-Year Solid Wood Warranty • Direct delivery across Sindhudurg, Goa & Western Maharashtra
               </span>
             </div>
 
-            <div className="hidden md:flex items-center gap-4 text-[11px] text-stone-100 shrink-0">
+            <div className="hidden md:flex items-center gap-4 text-[11px] text-stone-300 shrink-0">
               <button 
                 onClick={() => onNavigate('showroom')} 
-                className="hover:text-[#FAFAF8] transition-colors cursor-pointer font-medium"
+                className="hover:text-[#FFC102] transition-colors cursor-pointer"
               >
                 Malvan & Sukalwad Showrooms Open 7 Days
               </button>
               <button 
                 onClick={() => setShowAnnouncement(false)}
-                className="text-white/70 hover:text-white p-0.5 transition-colors cursor-pointer"
+                className="text-stone-400 hover:text-white p-0.5 transition-colors cursor-pointer"
                 title="Dismiss banner"
                 aria-label="Dismiss banner"
               >
@@ -819,7 +819,7 @@ export default function HomeView({
         onMouseEnter={() => setIsHeroHovered(true)}
         onMouseLeave={() => setIsHeroHovered(false)}
       >
-        <div className="relative min-h-[75vh] max-h-[820px] h-[78vh] max-sm:h-[580px] rounded-2xl sm:rounded-3xl overflow-hidden bg-[#222222] shadow-sm border border-[#E2E2E2]">
+        <div className="relative min-h-[75vh] max-h-[820px] h-[78vh] max-sm:h-[580px] rounded-2xl sm:rounded-3xl overflow-hidden bg-[#5F220F] shadow-sm border border-[#EADBD2]">
           
           <AnimatePresence mode="wait">
             <motion.div
@@ -840,8 +840,8 @@ export default function HomeView({
               />
 
               {/* Scrim Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#222222]/95 via-[#222222]/75 to-transparent sm:w-3/4 md:w-3/5 pointer-events-none" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#222222]/90 via-transparent to-transparent sm:hidden pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#5F220F]/95 via-[#5F220F]/75 to-transparent sm:w-3/4 md:w-3/5 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#5F220F]/90 via-transparent to-transparent sm:hidden pointer-events-none" />
 
               {/* Left-Aligned Editorial Content Box (Max 560px) */}
               <div className="absolute inset-y-0 left-0 pl-6 sm:pl-12 md:pl-16 pr-6 flex flex-col justify-center max-w-[560px] z-10 text-white">
@@ -853,8 +853,8 @@ export default function HomeView({
                   transition={{ duration: 0.35, delay: 0.1 }}
                   className="flex items-center gap-2 mb-3"
                 >
-                  <span className="inline-flex items-center gap-1.5 bg-[#3F8F91]/25 border border-[#3F8F91]/60 text-[#3F8F91] text-[10px] sm:text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full backdrop-blur-xs">
-                    <TreePine size={13} className="text-[#3F8F91]" />
+                  <span className="inline-flex items-center gap-1.5 bg-[#FFC102]/20 border border-[#FFC102]/60 text-[#FFC102] text-[10px] sm:text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full backdrop-blur-xs">
+                    <TreePine size={13} className="text-[#FFC102]" />
                     {HERO_SLIDES[currentSlide].badge}
                   </span>
                   <span className="hidden sm:inline-block text-stone-300 text-xs font-medium">
@@ -862,7 +862,7 @@ export default function HomeView({
                   </span>
                 </motion.div>
 
-                {/* Primary Headline */}
+                {/* Primary Headline (Playfair Display 40–48px desktop / 28–34px mobile) */}
                 <motion.h1 
                   initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -872,7 +872,7 @@ export default function HomeView({
                   {HERO_SLIDES[currentSlide].title}
                 </motion.h1>
 
-                {/* Subtitle / Description */}
+                {/* Subtitle / Description (DM Sans) */}
                 <motion.p 
                   initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -892,7 +892,7 @@ export default function HomeView({
                   <span className="text-xs uppercase tracking-wider text-stone-400 font-medium">
                     {HERO_SLIDES[currentSlide].pricePrefix}
                   </span>
-                  <span className="text-xl sm:text-2xl font-bold text-[#3F8F91] font-mono">
+                  <span className="text-xl sm:text-2xl font-bold text-[#FFC102] font-mono">
                     {HERO_SLIDES[currentSlide].priceVal}
                   </span>
                   <span className="text-[11px] text-stone-400 hidden sm:inline">
@@ -909,7 +909,7 @@ export default function HomeView({
                 >
                   <button
                     onClick={() => onSelectCategory(HERO_SLIDES[currentSlide].linkCategory)}
-                    className="min-h-[44px] bg-[#3F8F91] hover:bg-[#2F7779] text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-lg shadow-xs transition-all hover:-translate-y-0.5 active:translate-y-0 cursor-pointer flex items-center gap-2"
+                    className="min-h-[44px] bg-[#FFC102] hover:bg-[#E5AC00] text-[#5F220F] font-bold text-xs sm:text-sm px-6 py-3 rounded-lg shadow-xs transition-all hover:-translate-y-0.5 active:translate-y-0 cursor-pointer flex items-center gap-2"
                     id="hero-primary-cta"
                   >
                     <span>{HERO_SLIDES[currentSlide].primaryCta}</span>
@@ -921,7 +921,7 @@ export default function HomeView({
                     className="min-h-[44px] bg-white/10 hover:bg-white/20 border border-white/30 text-white font-medium text-xs sm:text-sm px-5 py-3 rounded-lg backdrop-blur-xs transition-colors cursor-pointer flex items-center gap-1.5"
                     id="hero-secondary-cta"
                   >
-                    <Store size={15} className="text-[#3F8F91]" />
+                    <Store size={15} className="text-[#FFC102]" />
                     <span>Visit Showrooms</span>
                   </button>
                 </motion.div>
@@ -933,7 +933,7 @@ export default function HomeView({
           {/* Slide Arrow Navigation */}
           <button
             onClick={handlePrevSlide}
-            className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#222222]/60 hover:bg-[#222222]/90 text-white flex items-center justify-center backdrop-blur-xs transition-transform active:scale-95 cursor-pointer border border-white/20"
+            className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#5F220F]/60 hover:bg-[#5F220F]/90 text-white flex items-center justify-center backdrop-blur-xs transition-transform active:scale-95 cursor-pointer border border-white/20"
             aria-label="Previous Slide"
           >
             <ChevronLeft size={20} />
@@ -941,7 +941,7 @@ export default function HomeView({
 
           <button
             onClick={handleNextSlide}
-            className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#222222]/60 hover:bg-[#222222]/90 text-white flex items-center justify-center backdrop-blur-xs transition-transform active:scale-95 cursor-pointer border border-white/20"
+            className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#5F220F]/60 hover:bg-[#5F220F]/90 text-white flex items-center justify-center backdrop-blur-xs transition-transform active:scale-95 cursor-pointer border border-white/20"
             aria-label="Next Slide"
           >
             <ChevronRight size={20} />
@@ -957,7 +957,7 @@ export default function HomeView({
                 aria-label={`Go to slide ${i + 1}`}
               >
                 <span className={`block rounded-full transition-all duration-300 ${
-                  i === currentSlide ? 'w-7 h-2 bg-[#3F8F91]' : 'w-2 h-2 bg-white/40 hover:bg-white/70'
+                  i === currentSlide ? 'w-7 h-2 bg-[#FFC102]' : 'w-2 h-2 bg-white/40 hover:bg-white/70'
                 }`} />
               </button>
             ))}
@@ -969,50 +969,50 @@ export default function HomeView({
 
       {/* ── TRUST / USP STRIP ── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-5 sm:mt-8">
-        <div className="bg-white rounded-xl sm:rounded-2xl border border-[#E2E2E2] p-4 sm:p-5 shadow-2xs">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-[#E2E2E2]">
+        <div className="bg-white rounded-xl sm:rounded-2xl border border-[#DED6CC] p-4 sm:p-5 shadow-2xs">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-[#DED6CC]">
             
             {/* 1. Premium Materials */}
             <div className="flex items-center gap-3 pt-2 sm:pt-0 sm:px-3">
-              <div className="w-10 h-10 rounded-lg bg-[#F5F5F5] border border-[#E2E2E2] flex items-center justify-center text-[#3F8F91] shrink-0">
+              <div className="w-10 h-10 rounded-lg bg-[#F7F4EE] border border-[#DED6CC] flex items-center justify-center text-[#B08A57] shrink-0">
                 <TreePine size={20} />
               </div>
               <div>
-                <h4 className="text-xs sm:text-sm font-bold text-[#222222] leading-tight">100% Solid Timber</h4>
-                <p className="text-[11px] text-[#777777] mt-0.5">Kiln-seasoned Sagwan & Acacia</p>
+                <h4 className="text-xs sm:text-sm font-bold text-[#211A16] leading-tight">100% Solid Timber</h4>
+                <p className="text-[11px] text-[#756B62] mt-0.5">Kiln-seasoned Sagwan & Acacia</p>
               </div>
             </div>
 
             {/* 2. Skilled Joinery */}
             <div className="flex items-center gap-3 pt-2 sm:pt-0 sm:px-3">
-              <div className="w-10 h-10 rounded-lg bg-[#F5F5F5] border border-[#E2E2E2] flex items-center justify-center text-[#3F8F91] shrink-0">
+              <div className="w-10 h-10 rounded-lg bg-[#F7F4EE] border border-[#DED6CC] flex items-center justify-center text-[#B08A57] shrink-0">
                 <Hammer size={20} />
               </div>
               <div>
-                <h4 className="text-xs sm:text-sm font-bold text-[#222222] leading-tight">Skilled Joinery</h4>
-                <p className="text-[11px] text-[#777777] mt-0.5">Mortise & tenon artisan craft</p>
+                <h4 className="text-xs sm:text-sm font-bold text-[#211A16] leading-tight">Skilled Joinery</h4>
+                <p className="text-[11px] text-[#756B62] mt-0.5">Mortise & tenon artisan craft</p>
               </div>
             </div>
 
             {/* 3. Custom Sizing */}
             <div className="flex items-center gap-3 pt-2 sm:pt-0 sm:px-3">
-              <div className="w-10 h-10 rounded-lg bg-[#F5F5F5] border border-[#E2E2E2] flex items-center justify-center text-[#3F8F91] shrink-0">
+              <div className="w-10 h-10 rounded-lg bg-[#F7F4EE] border border-[#DED6CC] flex items-center justify-center text-[#B08A57] shrink-0">
                 <Sliders size={20} />
               </div>
               <div>
-                <h4 className="text-xs sm:text-sm font-bold text-[#222222] leading-tight">Custom Sizing</h4>
-                <p className="text-[11px] text-[#777777] mt-0.5">Millimeter-accurate blueprints</p>
+                <h4 className="text-xs sm:text-sm font-bold text-[#211A16] leading-tight">Custom Sizing</h4>
+                <p className="text-[11px] text-[#756B62] mt-0.5">Millimeter-accurate blueprints</p>
               </div>
             </div>
 
             {/* 4. 3-Year Warranty */}
             <div className="flex items-center gap-3 pt-2 sm:pt-0 sm:px-3">
-              <div className="w-10 h-10 rounded-lg bg-[#F5F5F5] border border-[#E2E2E2] flex items-center justify-center text-[#3F8F91] shrink-0">
+              <div className="w-10 h-10 rounded-lg bg-[#F7F4EE] border border-[#DED6CC] flex items-center justify-center text-[#B08A57] shrink-0">
                 <ShieldCheck size={20} />
               </div>
               <div>
-                <h4 className="text-xs sm:text-sm font-bold text-[#222222] leading-tight">36-Month Warranty</h4>
-                <p className="text-[11px] text-[#777777] mt-0.5">Direct workshop guarantees</p>
+                <h4 className="text-xs sm:text-sm font-bold text-[#211A16] leading-tight">36-Month Warranty</h4>
+                <p className="text-[11px] text-[#756B62] mt-0.5">Direct workshop guarantees</p>
               </div>
             </div>
 
@@ -1027,16 +1027,16 @@ export default function HomeView({
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-8">
           <div>
-            <span className="text-[11px] font-bold uppercase tracking-widest text-[#3F8F91] block mb-1">
+            <span className="text-[11px] font-bold uppercase tracking-widest text-[#B08A57] block mb-1">
               Curated Timber Collections
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#222222]">
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#211A16]">
               Shop by Furniture Category
             </h2>
           </div>
           <button
             onClick={() => onNavigate('beds')}
-            className="inline-flex items-center gap-1 text-xs font-bold text-[#3F8F91] hover:text-[#2F7779] transition-colors cursor-pointer self-start sm:self-auto"
+            className="inline-flex items-center gap-1 text-xs font-bold text-[#B08A57] hover:text-[#C59A63] transition-colors cursor-pointer self-start sm:self-auto"
           >
             <span>View All Categories</span>
             <ArrowRight size={14} />
@@ -1054,11 +1054,11 @@ export default function HomeView({
               <div
                 key={cat.slug}
                 onClick={() => onSelectCategory(cat.slug)}
-                className="min-w-[240px] sm:min-w-0 flex-1 group bg-white rounded-xl border border-[#E2E2E2] hover:border-[#3F8F91] p-4 shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer flex flex-col justify-between snap-start"
+                className="min-w-[240px] sm:min-w-0 flex-1 group bg-white rounded-xl border border-[#DED6CC] hover:border-[#B08A57] p-4 shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer flex flex-col justify-between snap-start"
               >
                 <div>
                   {/* Category Image */}
-                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-[#F5F5F5] mb-3.5">
+                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-[#F7F4EE] mb-3.5">
                     <img 
                       src={imageSrc} 
                       alt={cat.name} 
@@ -1066,22 +1066,22 @@ export default function HomeView({
                       referrerPolicy="no-referrer"
                       loading="lazy"
                     />
-                    <span className="absolute bottom-2 left-2 bg-[#222222]/85 backdrop-blur-xs text-white text-[10px] font-semibold px-2 py-0.5 rounded">
+                    <span className="absolute bottom-2 left-2 bg-[#2B1D17]/85 backdrop-blur-xs text-white text-[10px] font-semibold px-2 py-0.5 rounded">
                       {totalCount} Designs
                     </span>
                   </div>
 
                   {/* Title & Price */}
-                  <h3 className="font-serif font-bold text-base text-[#222222] group-hover:text-[#3F8F91] transition-colors line-clamp-1">
+                  <h3 className="font-serif font-bold text-base text-[#211A16] group-hover:text-[#B08A57] transition-colors line-clamp-1">
                     {cat.name}
                   </h3>
-                  <p className="text-xs text-[#777777] mt-0.5">
-                    From <span className="font-bold text-[#222222] font-mono">₹{minPrice.toLocaleString('en-IN')}</span>
+                  <p className="text-xs text-[#756B62] mt-0.5">
+                    From <span className="font-bold text-[#211A16] font-mono">₹{minPrice.toLocaleString('en-IN')}</span>
                   </p>
                 </div>
 
                 {/* Action Link */}
-                <div className="mt-3 pt-2.5 border-t border-[#F5F5F5] flex items-center justify-between text-xs font-semibold text-[#777777] group-hover:text-[#3F8F91]">
+                <div className="mt-3 pt-2.5 border-t border-[#F7F4EE] flex items-center justify-between text-xs font-semibold text-[#756B62] group-hover:text-[#B08A57]">
                   <span>Explore Collection</span>
                   <ChevronRight size={15} className="group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -1098,16 +1098,16 @@ export default function HomeView({
         
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-8">
           <div>
-            <span className="text-[11px] font-bold uppercase tracking-widest text-[#3F8F91] block mb-1">
+            <span className="text-[11px] font-bold uppercase tracking-widest text-[#B08A57] block mb-1">
               Fresh From Our Konkan Workshop
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#222222]">
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#211A16]">
               New Arrivals & Trending Designs
             </h2>
           </div>
           <button
             onClick={() => onNavigate('beds')}
-            className="inline-flex items-center gap-1 text-xs font-bold text-[#3F8F91] hover:text-[#2F7779] transition-colors cursor-pointer self-start sm:self-auto"
+            className="inline-flex items-center gap-1 text-xs font-bold text-[#B08A57] hover:text-[#C59A63] transition-colors cursor-pointer self-start sm:self-auto"
           >
             <span>Browse All New Pieces</span>
             <ArrowRight size={14} />
@@ -1126,10 +1126,10 @@ export default function HomeView({
               <div
                 key={product.id}
                 onClick={() => onSelectProduct(product.id)}
-                className="group bg-white rounded-xl border border-[#E2E2E2] hover:border-[#3F8F91] shadow-2xs hover:shadow-md transition-all duration-300 overflow-hidden cursor-pointer flex flex-col justify-between"
+                className="group bg-white rounded-xl border border-[#DED6CC] hover:border-[#B08A57] shadow-2xs hover:shadow-md transition-all duration-300 overflow-hidden cursor-pointer flex flex-col justify-between"
               >
                 <div>
-                  <div className="relative aspect-[4/3] bg-[#F5F5F5] overflow-hidden">
+                  <div className="relative aspect-[4/3] bg-[#F7F4EE] overflow-hidden">
                     <img 
                       src={product.img} 
                       alt={product.name} 
@@ -1139,7 +1139,7 @@ export default function HomeView({
                     />
 
                     {/* Badge */}
-                    <span className="absolute top-2.5 left-2.5 bg-[#F47B20] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded shadow-2xs">
+                    <span className="absolute top-2.5 left-2.5 bg-[#B08A57] text-[#2B1D17] text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded shadow-2xs">
                       NEW CRAFT
                     </span>
 
@@ -1155,38 +1155,38 @@ export default function HomeView({
                     >
                       <Heart 
                         size={16} 
-                        className={isWishlisted ? 'fill-[#E53935] stroke-[#E53935] text-[#E53935]' : 'text-stone-500'} 
+                        className={isWishlisted ? 'fill-[#B08A57] stroke-[#B08A57] text-[#B08A57]' : 'text-stone-500'} 
                       />
                     </button>
                   </div>
 
                   <div className="p-3.5 sm:p-4">
-                    <span className="text-[10px] font-bold text-[#777777] uppercase tracking-wider block mb-1">
+                    <span className="text-[10px] font-bold text-[#B08A57] uppercase tracking-wider block mb-1">
                       {(product?.category || '').replace(/-/g, ' ')}
                     </span>
-                    <h3 className="font-serif font-bold text-xs sm:text-sm text-[#222222] group-hover:text-[#3F8F91] transition-colors line-clamp-2 leading-snug">
+                    <h3 className="font-serif font-bold text-xs sm:text-sm text-[#211A16] group-hover:text-[#B08A57] transition-colors line-clamp-2 leading-snug">
                       {product.name}
                     </h3>
                   </div>
                 </div>
 
                 <div className="p-3.5 sm:p-4 pt-0">
-                  <div className="pt-2.5 border-t border-[#F5F5F5] flex items-center justify-between">
+                  <div className="pt-2.5 border-t border-[#F7F4EE] flex items-center justify-between">
                     <div>
-                      <div className="text-[9px] uppercase font-bold text-[#777777]">Workshop Price</div>
+                      <div className="text-[9px] uppercase font-bold text-[#756B62]">Workshop Price</div>
                       <div className="flex items-baseline gap-1.5">
-                        <span className="text-sm sm:text-base font-bold text-[#222222] font-mono">
+                        <span className="text-sm sm:text-base font-bold text-[#211A16] font-mono">
                           ₹{product.price.toLocaleString('en-IN')}
                         </span>
                         {product.orig && (
-                          <span className="text-[11px] text-[#999999] line-through font-mono">
+                          <span className="text-[11px] text-[#756B62] line-through font-mono">
                             ₹{product.orig.toLocaleString('en-IN')}
                           </span>
                         )}
                       </div>
                     </div>
 
-                    <span className="text-xs font-bold text-[#3F8F91] group-hover:translate-x-1 transition-transform flex items-center gap-0.5">
+                    <span className="text-xs font-bold text-[#B08A57] group-hover:translate-x-1 transition-transform flex items-center gap-0.5">
                       <span>View</span>
                       <ArrowRight size={13} />
                     </span>
@@ -1207,13 +1207,13 @@ export default function HomeView({
         {/* Section Header with Desktop Navigation Controls */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 sm:mb-8">
           <div>
-            <span className="text-[11px] font-bold uppercase tracking-widest text-[#3F8F91] block mb-1">
+            <span className="text-[11px] font-bold uppercase tracking-widest text-[#B08A57] block mb-1">
               Curated Living Ideas
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#222222]">
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#211A16]">
               Furniture Inspiration
             </h2>
-            <p className="text-xs sm:text-sm text-[#555555] mt-1">
+            <p className="text-xs sm:text-sm text-[#756B62] mt-1">
               Discover furniture, spaces and ideas for your home.
             </p>
           </div>
@@ -1223,7 +1223,7 @@ export default function HomeView({
             <button
               type="button"
               onClick={() => handleScrollInspiration('left')}
-              className="w-11 h-11 rounded-full border border-[#E2E2E2] bg-white text-[#222222] hover:bg-[#F5F5F5] hover:border-[#3F8F91] flex items-center justify-center transition-all cursor-pointer shadow-2xs"
+              className="w-11 h-11 rounded-full border border-[#DED6CC] bg-white text-[#211A16] hover:bg-[#F7F4EE] hover:border-[#B08A57] flex items-center justify-center transition-all cursor-pointer shadow-2xs"
               aria-label="Previous inspiration items"
             >
               <ChevronLeft size={18} />
@@ -1231,7 +1231,7 @@ export default function HomeView({
             <button
               type="button"
               onClick={() => handleScrollInspiration('right')}
-              className="w-11 h-11 rounded-full border border-[#E2E2E2] bg-white text-[#222222] hover:bg-[#F5F5F5] hover:border-[#3F8F91] flex items-center justify-center transition-all cursor-pointer shadow-2xs"
+              className="w-11 h-11 rounded-full border border-[#DED6CC] bg-white text-[#211A16] hover:bg-[#F7F4EE] hover:border-[#B08A57] flex items-center justify-center transition-all cursor-pointer shadow-2xs"
               aria-label="Next inspiration items"
             >
               <ChevronRight size={18} />
@@ -1262,7 +1262,7 @@ export default function HomeView({
                     onSelectProduct(targetId);
                   }
                 }}
-                className="group w-[190px] sm:w-[210px] md:w-[220px] lg:w-[228px] shrink-0 snap-start relative rounded-xl sm:rounded-2xl overflow-hidden border border-[#E2E2E2] bg-[#222222] cursor-pointer shadow-xs transition-all duration-300 hover:shadow-xl hover:border-[#3F8F91]"
+                className="group w-[190px] sm:w-[210px] md:w-[220px] lg:w-[228px] shrink-0 snap-start relative rounded-xl sm:rounded-2xl overflow-hidden border border-[#DED6CC] bg-[#2B1D17] cursor-pointer shadow-xs transition-all duration-300 hover:shadow-xl hover:border-[#B08A57]"
               >
                 {/* Tall portrait container with 9:15 (~0.60) proportion */}
                 <div className="relative aspect-[9/15] w-full overflow-hidden bg-stone-900">
@@ -1275,12 +1275,12 @@ export default function HomeView({
                   />
 
                   {/* Dark subtle bottom gradient for readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#222222]/95 via-[#222222]/35 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#2B1D17]/95 via-[#2B1D17]/35 to-transparent pointer-events-none" />
 
                   {/* Play button ONLY when asset is actual video */}
                   {item.isVideo && item.videoUrl && (
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      <div className="w-12 h-12 rounded-full bg-[#222222]/85 text-white flex items-center justify-center shadow-lg border border-white/20 group-hover:scale-110 group-hover:bg-[#3F8F91] group-hover:text-white transition-all duration-200">
+                      <div className="w-12 h-12 rounded-full bg-[#2B1D17]/85 text-white flex items-center justify-center shadow-lg border border-white/20 group-hover:scale-110 group-hover:bg-[#B08A57] group-hover:text-[#2B1D17] transition-all duration-200">
                         <Play size={20} className="fill-current ml-0.5" />
                       </div>
                     </div>
@@ -1289,12 +1289,12 @@ export default function HomeView({
                   {/* Bottom Content Area */}
                   <div className="absolute bottom-0 inset-x-0 p-3.5 sm:p-4 pointer-events-auto">
                     {categoryLabel && (
-                      <span className="text-[9.5px] font-bold uppercase tracking-wider text-[#3F8F91] mb-1 block truncate">
+                      <span className="text-[9.5px] font-bold uppercase tracking-wider text-[#B08A57] mb-1 block truncate">
                         {categoryLabel}
                       </span>
                     )}
 
-                    <h3 className="font-serif text-xs sm:text-sm font-bold text-white group-hover:text-[#3F8F91] transition-colors line-clamp-2 leading-snug">
+                    <h3 className="font-serif text-xs sm:text-sm font-bold text-white group-hover:text-[#B08A57] transition-colors line-clamp-2 leading-snug">
                       {displayName}
                     </h3>
 
@@ -1303,7 +1303,7 @@ export default function HomeView({
                         ₹{displayPrice.toLocaleString('en-IN')}
                       </span>
                       {origPrice && (
-                        <span className="text-[10px] sm:text-xs text-white/60 line-through font-mono">
+                        <span className="text-[10px] sm:text-xs text-white/50 line-through font-mono">
                           ₹{origPrice.toLocaleString('en-IN')}
                         </span>
                       )}
@@ -1316,11 +1316,11 @@ export default function HomeView({
         </div>
 
         {/* Mobile Swipe Guidance Note */}
-        <div className="flex sm:hidden items-center justify-between mt-3 text-xs text-[#777777]">
+        <div className="flex sm:hidden items-center justify-between mt-3 text-xs text-[#756B62]">
           <span className="text-[11px]">
             ← Swipe to explore inspiration feed →
           </span>
-          <span className="text-[11px] font-bold text-[#3F8F91]">
+          <span className="text-[11px] font-bold text-[#B08A57]">
             Tap card to inspect piece
           </span>
         </div>
@@ -1335,7 +1335,7 @@ export default function HomeView({
             onClick={() => setActiveVideoModal(null)}
           >
             <div 
-              className="relative w-full max-w-lg bg-[#222222] rounded-2xl overflow-hidden border border-[#E2E2E2]/30 shadow-2xl"
+              className="relative w-full max-w-lg bg-[#2B1D17] rounded-2xl overflow-hidden border border-[#DED6CC]/30 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               <button
@@ -1366,24 +1366,24 @@ export default function HomeView({
 
       {/* ── SECTION G: DEAL ZONE / WORKSHOP VALUE OFFERS ── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-14 sm:my-20">
-        <div className="bg-white rounded-2xl sm:rounded-3xl border border-[#E2E2E2] p-6 sm:p-10 shadow-2xs">
+        <div className="bg-[#EFE9DF] rounded-2xl sm:rounded-3xl border border-[#DED6CC] p-6 sm:p-10 shadow-2xs">
           
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
             <div>
-              <div className="inline-flex items-center gap-1.5 bg-[#E53935]/10 text-[#E53935] text-[10px] sm:text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-2 border border-[#E53935]/25">
+              <div className="inline-flex items-center gap-1.5 bg-[#47705A]/15 text-[#47705A] text-[10px] sm:text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-2 border border-[#47705A]/30">
                 <Tag size={13} /> Direct Workshop Savings
               </div>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#222222]">
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#211A16]">
                 Deal Zone & Furniture Value Bundles
               </h2>
-              <p className="text-xs sm:text-sm text-[#555555] mt-1 max-w-xl">
+              <p className="text-xs sm:text-sm text-[#756B62] mt-1 max-w-xl">
                 Bypass middleman distributor margins. Order complete authentic timber room suites crafted from single-source Malvan Sagwan logs.
               </p>
             </div>
 
             <button
               onClick={() => onNavigate('contact')}
-              className="min-h-[44px] bg-[#3F8F91] hover:bg-[#2F7779] text-white font-bold text-xs px-5 py-2.5 rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 self-start sm:self-auto"
+              className="min-h-[44px] bg-[#2B1D17] hover:bg-[#3A2922] text-white font-bold text-xs px-5 py-2.5 rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 self-start sm:self-auto"
             >
               <span>Custom Suite Consultation</span>
               <ChevronRight size={14} />
@@ -1402,10 +1402,10 @@ export default function HomeView({
                     onSelectCategory(bundle.categorySlug);
                   }
                 }}
-                className="bg-[#FAFAF8] rounded-xl border border-[#E2E2E2] hover:border-[#3F8F91] overflow-hidden shadow-2xs hover:shadow-md transition-all duration-300 group cursor-pointer flex flex-col justify-between"
+                className="bg-white rounded-xl border border-[#DED6CC] hover:border-[#B08A57] overflow-hidden shadow-2xs hover:shadow-md transition-all duration-300 group cursor-pointer flex flex-col justify-between"
               >
                 <div>
-                  <div className="relative aspect-[16/10] bg-[#F5F5F5] overflow-hidden">
+                  <div className="relative aspect-[16/10] bg-[#F7F4EE] overflow-hidden">
                     <img 
                       src={bundle.img} 
                       alt={bundle.title} 
@@ -1415,39 +1415,39 @@ export default function HomeView({
                     />
                     
                     {/* Savings Tag */}
-                    <span className="absolute top-2.5 left-2.5 bg-[#E53935] text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-2xs flex items-center gap-1">
+                    <span className="absolute top-2.5 left-2.5 bg-[#47705A] text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-2xs flex items-center gap-1">
                       <Check size={11} /> Save ₹{bundle.savings.toLocaleString('en-IN')}
                     </span>
                   </div>
 
                   <div className="p-4 sm:p-5">
-                    <span className="text-[10px] font-bold text-[#F47B20] uppercase tracking-wider block mb-1">
+                    <span className="text-[10px] font-bold text-[#B08A57] uppercase tracking-wider block mb-1">
                       {bundle.tag}
                     </span>
-                    <h3 className="font-serif font-bold text-base text-[#222222] group-hover:text-[#3F8F91] transition-colors leading-snug">
+                    <h3 className="font-serif font-bold text-base text-[#211A16] group-hover:text-[#B08A57] transition-colors leading-snug">
                       {bundle.title}
                     </h3>
-                    <p className="text-xs text-[#555555] mt-1.5 leading-relaxed line-clamp-2">
+                    <p className="text-xs text-[#756B62] mt-1.5 leading-relaxed line-clamp-2">
                       {bundle.description}
                     </p>
                   </div>
                 </div>
 
                 <div className="p-4 sm:p-5 pt-0">
-                  <div className="pt-3 border-t border-[#E2E2E2] flex items-center justify-between">
+                  <div className="pt-3 border-t border-[#F7F4EE] flex items-center justify-between">
                     <div>
-                      <div className="text-[9px] uppercase font-bold text-[#777777]">Bundle Price</div>
+                      <div className="text-[9px] uppercase font-bold text-[#756B62]">Bundle Price</div>
                       <div className="flex items-baseline gap-2">
-                        <span className="text-base font-bold text-[#E53935] font-mono">
+                        <span className="text-base font-bold text-[#211A16] font-mono">
                           ₹{bundle.dealPrice.toLocaleString('en-IN')}
                         </span>
-                        <span className="text-xs text-[#999999] line-through font-mono">
+                        <span className="text-xs text-[#756B62] line-through font-mono">
                           ₹{bundle.originalPrice.toLocaleString('en-IN')}
                         </span>
                       </div>
                     </div>
 
-                    <span className="min-h-[36px] px-3.5 bg-[#F5F5F5] group-hover:bg-[#3F8F91] text-[#222222] group-hover:text-white font-bold text-xs rounded flex items-center gap-1 transition-colors">
+                    <span className="min-h-[36px] px-3.5 bg-[#F7F4EE] group-hover:bg-[#B08A57] text-[#211A16] group-hover:text-[#2B1D17] font-bold text-xs rounded flex items-center gap-1 transition-colors">
                       <span>Explore</span>
                       <ArrowRight size={13} />
                     </span>
@@ -1468,18 +1468,18 @@ export default function HomeView({
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
           <div>
-            <span className="text-[11px] font-bold uppercase tracking-widest text-[#3F8F91] block mb-1">
+            <span className="text-[11px] font-bold uppercase tracking-widest text-[#B08A57] block mb-1">
               Curated Living Environments
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#222222]">
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#211A16]">
               Shop The Look
             </h2>
-            <p className="text-xs sm:text-sm text-[#555555] mt-1">
+            <p className="text-xs sm:text-sm text-[#756B62] mt-1">
               Explore authentic handcrafted solid timber ensembles styled in real living spaces.
             </p>
           </div>
-          <div className="hidden sm:flex items-center gap-2 text-xs text-[#555555]">
-            <span className="inline-block w-2 h-2 rounded-full bg-[#3F8F91]" />
+          <div className="hidden sm:flex items-center gap-2 text-xs text-[#756B62]">
+            <span className="inline-block w-2 h-2 rounded-full bg-[#B08A57]" />
             <span>Click any circular marker to inspect handcrafted pieces</span>
           </div>
         </div>
@@ -1494,7 +1494,7 @@ export default function HomeView({
               return (
                 <div 
                   key={scene.id}
-                  className="col-span-7 relative rounded-2xl overflow-hidden border border-[#E2E2E2] group bg-stone-900"
+                  className="col-span-7 relative rounded-2xl overflow-hidden border border-[#DED6CC] group bg-[#2B1D17]"
                 >
                   <img
                     src={scene.img}
@@ -1503,11 +1503,11 @@ export default function HomeView({
                     referrerPolicy="no-referrer"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#222222]/85 via-transparent to-black/20 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#2B1D17]/85 via-transparent to-black/20 pointer-events-none" />
                   
                   {/* Room Tag & Title */}
                   <div className="absolute bottom-4 left-5 right-5 pointer-events-none">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#3F8F91] block mb-0.5">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#B08A57] block mb-0.5">
                       {scene.roomTag}
                     </span>
                     <h3 className="font-serif text-lg font-bold text-white drop-shadow-xs">
@@ -1549,11 +1549,11 @@ export default function HomeView({
                           <span className="absolute w-8 h-8 rounded-full bg-white/40 opacity-0 group-hover/hs:opacity-100 group-hover/hs:scale-125 transition-all duration-300 pointer-events-none" />
                           <span className={`w-7 h-7 rounded-full flex items-center justify-center border shadow-md transition-all duration-200 ${
                             isActive 
-                              ? 'bg-[#3F8F91] border-white text-white scale-110' 
-                              : 'bg-[#222222]/85 backdrop-blur-xs border-white/80 text-white hover:bg-[#222222] hover:border-[#3F8F91] group-hover/hs:scale-105'
+                              ? 'bg-[#B08A57] border-white text-[#2B1D17] scale-110' 
+                              : 'bg-[#2B1D17]/85 backdrop-blur-xs border-white/80 text-white hover:bg-[#2B1D17] hover:border-[#B08A57] group-hover/hs:scale-105'
                           }`}>
                             <span className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                              isActive ? 'bg-white' : 'bg-[#3F8F91] group-hover/hs:bg-white'
+                              isActive ? 'bg-[#2B1D17]' : 'bg-[#B08A57] group-hover/hs:bg-white'
                             }`} />
                           </span>
                         </button>
@@ -1567,23 +1567,23 @@ export default function HomeView({
                               exit={{ opacity: 0, y: spot.y < 35 ? -6 : 6, scale: 0.95 }}
                               transition={{ duration: 0.2 }}
                               onClick={(e) => e.stopPropagation()}
-                              className={`absolute ${verticalClass} ${horizontalClass} w-60 sm:w-64 bg-white rounded-xl p-3 shadow-2xl border border-[#E2E2E2] text-[#222222] z-40 pointer-events-auto`}
+                              className={`absolute ${verticalClass} ${horizontalClass} w-60 sm:w-64 bg-white rounded-xl p-3 shadow-2xl border border-[#DED6CC] text-[#211A16] z-40 pointer-events-auto`}
                             >
                               <div className="flex items-start gap-2.5">
                                 <img
                                   src={spot.product.img}
                                   alt={spot.product.name}
-                                  className="w-13 h-13 rounded-lg object-cover bg-[#F5F5F5] border border-[#E2E2E2] shrink-0"
+                                  className="w-13 h-13 rounded-lg object-cover bg-[#F7F4EE] border border-[#DED6CC] shrink-0"
                                   referrerPolicy="no-referrer"
                                 />
                                 <div className="flex-1 min-w-0">
-                                  <span className="text-[9px] font-bold text-[#3F8F91] uppercase tracking-wider block truncate">
+                                  <span className="text-[9px] font-bold text-[#B08A57] uppercase tracking-wider block truncate">
                                     {(spot.product?.category || '').replace(/-/g, ' ')}
                                   </span>
-                                  <h4 className="font-serif font-bold text-xs text-[#222222] line-clamp-2 leading-tight mt-0.5">
+                                  <h4 className="font-serif font-bold text-xs text-[#211A16] line-clamp-2 leading-tight mt-0.5">
                                     {spot.product.name}
                                   </h4>
-                                  <div className="text-xs font-bold text-[#222222] font-mono mt-1">
+                                  <div className="text-xs font-bold text-[#211A16] font-mono mt-1">
                                     ₹{spot.product.price.toLocaleString('en-IN')}
                                   </div>
                                 </div>
@@ -1600,13 +1600,13 @@ export default function HomeView({
                                 </button>
                               </div>
 
-                              <div className="mt-2.5 pt-2 border-t border-[#EEEEEE]">
+                              <div className="mt-2.5 pt-2 border-t border-[#F7F4EE]">
                                 <button
                                   type="button"
                                   onClick={() => {
                                     if (spot.product) onSelectProduct(spot.product.id);
                                   }}
-                                  className="w-full min-h-[34px] bg-[#3F8F91] hover:bg-[#347F81] text-white text-[11px] font-bold py-1.5 px-3 rounded-lg transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                                  className="w-full min-h-[34px] bg-[#2B1D17] hover:bg-[#3A2922] text-white text-[11px] font-bold py-1.5 px-3 rounded-lg transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
                                 >
                                   <span>View Product</span>
                                   <ArrowRight size={13} />
@@ -1628,7 +1628,7 @@ export default function HomeView({
               return (
                 <div 
                   key={scene.id}
-                  className="col-span-5 relative rounded-2xl overflow-hidden border border-[#E2E2E2] group bg-stone-900"
+                  className="col-span-5 relative rounded-2xl overflow-hidden border border-[#DED6CC] group bg-[#2B1D17]"
                 >
                   <img
                     src={scene.img}
@@ -1637,10 +1637,10 @@ export default function HomeView({
                     referrerPolicy="no-referrer"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#222222]/85 via-transparent to-black/20 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#2B1D17]/85 via-transparent to-black/20 pointer-events-none" />
                   
                   <div className="absolute bottom-4 left-5 right-5 pointer-events-none">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#3F8F91] block mb-0.5">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#B08A57] block mb-0.5">
                       {scene.roomTag}
                     </span>
                     <h3 className="font-serif text-lg font-bold text-white drop-shadow-xs">
@@ -1681,11 +1681,11 @@ export default function HomeView({
                           <span className="absolute w-8 h-8 rounded-full bg-white/40 opacity-0 group-hover/hs:opacity-100 group-hover/hs:scale-125 transition-all duration-300 pointer-events-none" />
                           <span className={`w-7 h-7 rounded-full flex items-center justify-center border shadow-md transition-all duration-200 ${
                             isActive 
-                              ? 'bg-[#3F8F91] border-white text-white scale-110' 
-                              : 'bg-[#222222]/85 backdrop-blur-xs border-white/80 text-white hover:bg-[#222222] hover:border-[#3F8F91] group-hover/hs:scale-105'
+                              ? 'bg-[#B08A57] border-white text-[#2B1D17] scale-110' 
+                              : 'bg-[#2B1D17]/85 backdrop-blur-xs border-white/80 text-white hover:bg-[#2B1D17] hover:border-[#B08A57] group-hover/hs:scale-105'
                           }`}>
                             <span className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                              isActive ? 'bg-white' : 'bg-[#3F8F91] group-hover/hs:bg-white'
+                              isActive ? 'bg-[#2B1D17]' : 'bg-[#B08A57] group-hover/hs:bg-white'
                             }`} />
                           </span>
                         </button>
@@ -1698,23 +1698,23 @@ export default function HomeView({
                               exit={{ opacity: 0, y: spot.y < 35 ? -6 : 6, scale: 0.95 }}
                               transition={{ duration: 0.2 }}
                               onClick={(e) => e.stopPropagation()}
-                              className={`absolute ${verticalClass} ${horizontalClass} w-60 sm:w-64 bg-white rounded-xl p-3 shadow-2xl border border-[#E2E2E2] text-[#222222] z-40 pointer-events-auto`}
+                              className={`absolute ${verticalClass} ${horizontalClass} w-60 sm:w-64 bg-white rounded-xl p-3 shadow-2xl border border-[#DED6CC] text-[#211A16] z-40 pointer-events-auto`}
                             >
                               <div className="flex items-start gap-2.5">
                                 <img
                                   src={spot.product.img}
                                   alt={spot.product.name}
-                                  className="w-13 h-13 rounded-lg object-cover bg-[#F5F5F5] border border-[#E2E2E2] shrink-0"
+                                  className="w-13 h-13 rounded-lg object-cover bg-[#F7F4EE] border border-[#DED6CC] shrink-0"
                                   referrerPolicy="no-referrer"
                                 />
                                 <div className="flex-1 min-w-0">
-                                  <span className="text-[9px] font-bold text-[#3F8F91] uppercase tracking-wider block truncate">
+                                  <span className="text-[9px] font-bold text-[#B08A57] uppercase tracking-wider block truncate">
                                     {(spot.product?.category || '').replace(/-/g, ' ')}
                                   </span>
-                                  <h4 className="font-serif font-bold text-xs text-[#222222] line-clamp-2 leading-tight mt-0.5">
+                                  <h4 className="font-serif font-bold text-xs text-[#211A16] line-clamp-2 leading-tight mt-0.5">
                                     {spot.product.name}
                                   </h4>
-                                  <div className="text-xs font-bold text-[#222222] font-mono mt-1">
+                                  <div className="text-xs font-bold text-[#211A16] font-mono mt-1">
                                     ₹{spot.product.price.toLocaleString('en-IN')}
                                   </div>
                                 </div>
@@ -1731,13 +1731,13 @@ export default function HomeView({
                                 </button>
                               </div>
 
-                              <div className="mt-2.5 pt-2 border-t border-[#EEEEEE]">
+                              <div className="mt-2.5 pt-2 border-t border-[#F7F4EE]">
                                 <button
                                   type="button"
                                   onClick={() => {
                                     if (spot.product) onSelectProduct(spot.product.id);
                                   }}
-                                  className="w-full min-h-[34px] bg-[#3F8F91] hover:bg-[#347F81] text-white text-[11px] font-bold py-1.5 px-3 rounded-lg transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                                  className="w-full min-h-[34px] bg-[#2B1D17] hover:bg-[#3A2922] text-white text-[11px] font-bold py-1.5 px-3 rounded-lg transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
                                 >
                                   <span>View Product</span>
                                   <ArrowRight size={13} />
@@ -1759,7 +1759,7 @@ export default function HomeView({
             {shopTheLookScenes.slice(2, 5).map((scene) => (
               <div 
                 key={scene.id}
-                className="col-span-4 relative rounded-2xl overflow-hidden border border-[#E2E2E2] group bg-stone-900"
+                className="col-span-4 relative rounded-2xl overflow-hidden border border-[#DED6CC] group bg-[#2B1D17]"
               >
                 <img
                   src={scene.img}
@@ -1768,10 +1768,10 @@ export default function HomeView({
                   referrerPolicy="no-referrer"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#222222]/85 via-transparent to-black/20 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2B1D17]/85 via-transparent to-black/20 pointer-events-none" />
                 
                 <div className="absolute bottom-3.5 left-4 right-4 pointer-events-none">
-                  <span className="text-[9.5px] font-bold uppercase tracking-widest text-[#3F8F91] block mb-0.5">
+                  <span className="text-[9.5px] font-bold uppercase tracking-widest text-[#B08A57] block mb-0.5">
                     {scene.roomTag}
                   </span>
                   <h3 className="font-serif text-sm font-bold text-white drop-shadow-xs truncate">
@@ -1809,11 +1809,11 @@ export default function HomeView({
                         <span className="absolute w-8 h-8 rounded-full bg-white/40 opacity-0 group-hover/hs:opacity-100 group-hover/hs:scale-125 transition-all duration-300 pointer-events-none" />
                         <span className={`w-7 h-7 rounded-full flex items-center justify-center border shadow-md transition-all duration-200 ${
                           isActive 
-                            ? 'bg-[#3F8F91] border-white text-white scale-110' 
-                            : 'bg-[#222222]/85 backdrop-blur-xs border-white/80 text-white hover:bg-[#222222] hover:border-[#3F8F91] group-hover/hs:scale-105'
+                            ? 'bg-[#B08A57] border-white text-[#2B1D17] scale-110' 
+                            : 'bg-[#2B1D17]/85 backdrop-blur-xs border-white/80 text-white hover:bg-[#2B1D17] hover:border-[#B08A57] group-hover/hs:scale-105'
                         }`}>
                           <span className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                            isActive ? 'bg-white' : 'bg-[#3F8F91] group-hover/hs:bg-white'
+                            isActive ? 'bg-[#2B1D17]' : 'bg-[#B08A57] group-hover/hs:bg-white'
                           }`} />
                         </span>
                       </button>
@@ -1826,23 +1826,23 @@ export default function HomeView({
                             exit={{ opacity: 0, y: spot.y < 35 ? -6 : 6, scale: 0.95 }}
                             transition={{ duration: 0.2 }}
                             onClick={(e) => e.stopPropagation()}
-                            className={`absolute ${verticalClass} ${horizontalClass} w-60 bg-white rounded-xl p-3 shadow-2xl border border-[#E2E2E2] text-[#222222] z-40 pointer-events-auto`}
+                            className={`absolute ${verticalClass} ${horizontalClass} w-60 bg-white rounded-xl p-3 shadow-2xl border border-[#DED6CC] text-[#211A16] z-40 pointer-events-auto`}
                           >
                             <div className="flex items-start gap-2.5">
                               <img
                                 src={spot.product.img}
                                 alt={spot.product.name}
-                                className="w-13 h-13 rounded-lg object-cover bg-[#F5F5F5] border border-[#E2E2E2] shrink-0"
+                                className="w-13 h-13 rounded-lg object-cover bg-[#F7F4EE] border border-[#DED6CC] shrink-0"
                                 referrerPolicy="no-referrer"
                               />
                               <div className="flex-1 min-w-0">
-                                <span className="text-[9px] font-bold text-[#3F8F91] uppercase tracking-wider block truncate">
+                                <span className="text-[9px] font-bold text-[#B08A57] uppercase tracking-wider block truncate">
                                   {(spot.product?.category || '').replace(/-/g, ' ')}
                                 </span>
-                                <h4 className="font-serif font-bold text-xs text-[#222222] line-clamp-2 leading-tight mt-0.5">
+                                <h4 className="font-serif font-bold text-xs text-[#211A16] line-clamp-2 leading-tight mt-0.5">
                                   {spot.product.name}
                                 </h4>
-                                <div className="text-xs font-bold text-[#222222] font-mono mt-1">
+                                <div className="text-xs font-bold text-[#211A16] font-mono mt-1">
                                   ₹{spot.product.price.toLocaleString('en-IN')}
                                 </div>
                               </div>
@@ -1859,168 +1859,168 @@ export default function HomeView({
                               </button>
                             </div>
 
-                              <div className="mt-2.5 pt-2 border-t border-[#EEEEEE]">
-                                <button
-                                  type="button"
-                                  onClick={() => {
-                                    if (spot.product) onSelectProduct(spot.product.id);
-                                  }}
-                                  className="w-full min-h-[34px] bg-[#3F8F91] hover:bg-[#347F81] text-white text-[11px] font-bold py-1.5 px-3 rounded-lg transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
-                                >
-                                  <span>View Product</span>
-                                  <ArrowRight size={13} />
-                                </button>
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    );
-                  })}
-                </div>
-              ))}
-            </div>
+                            <div className="mt-2.5 pt-2 border-t border-[#F7F4EE]">
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  if (spot.product) onSelectProduct(spot.product.id);
+                                }}
+                                className="w-full min-h-[34px] bg-[#2B1D17] hover:bg-[#3A2922] text-white text-[11px] font-bold py-1.5 px-3 rounded-lg transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                              >
+                                <span>View Product</span>
+                                <ArrowRight size={13} />
+                              </button>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
+              </div>
+            ))}
           </div>
+        </div>
 
-          {/* Mobile: Horizontal Swipeable Image Carousel (md:hidden) */}
-          <div className="md:hidden">
-            <div className="flex overflow-x-auto no-scrollbar snap-x snap-mandatory gap-3.5 pb-2 -mx-4 px-4">
-              {shopTheLookScenes.map((scene) => (
-                <div
-                  key={scene.id}
-                  className="w-[86vw] max-w-[360px] aspect-[4/3] relative rounded-xl overflow-hidden shrink-0 snap-center border border-[#E2E2E2] bg-stone-900"
-                >
-                  <img
-                    src={scene.img}
-                    alt={scene.title}
-                    className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#222222]/85 via-transparent to-black/20 pointer-events-none" />
+        {/* Mobile: Horizontal Swipeable Image Carousel (md:hidden) */}
+        <div className="md:hidden">
+          <div className="flex overflow-x-auto no-scrollbar snap-x snap-mandatory gap-3.5 pb-2 -mx-4 px-4">
+            {shopTheLookScenes.map((scene) => (
+              <div
+                key={scene.id}
+                className="w-[86vw] max-w-[360px] aspect-[4/3] relative rounded-xl overflow-hidden shrink-0 snap-center border border-[#DED6CC] bg-[#2B1D17]"
+              >
+                <img
+                  src={scene.img}
+                  alt={scene.title}
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2B1D17]/85 via-transparent to-black/20 pointer-events-none" />
 
-                  {/* Room tag & title at bottom */}
-                  <div className="absolute bottom-3 left-3 right-3 pointer-events-none">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#3F8F91] block">
-                      {scene.roomTag}
-                    </span>
-                    <h3 className="font-serif text-sm font-bold text-white drop-shadow-xs truncate">
-                      {scene.title}
-                    </h3>
-                  </div>
+                {/* Room tag & title at bottom */}
+                <div className="absolute bottom-3 left-3 right-3 pointer-events-none">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#B08A57] block">
+                    {scene.roomTag}
+                  </span>
+                  <h3 className="font-serif text-sm font-bold text-white drop-shadow-xs truncate">
+                    {scene.title}
+                  </h3>
+                </div>
 
-                  {/* Hotspots */}
-                  {scene.hotspots.map((spot) => {
-                    const isActive = activeHotspotId === spot.id;
-                    const horizontalClass = spot.x > 60 
-                      ? 'right-0 translate-x-2' 
-                      : spot.x < 40 
-                      ? 'left-0 -translate-x-2' 
-                      : 'left-1/2 -translate-x-1/2';
-                    const verticalClass = spot.y < 45 
-                      ? 'top-full mt-2' 
-                      : 'bottom-full mb-2';
+                {/* Hotspots */}
+                {scene.hotspots.map((spot) => {
+                  const isActive = activeHotspotId === spot.id;
+                  const horizontalClass = spot.x > 60 
+                    ? 'right-0 translate-x-2' 
+                    : spot.x < 40 
+                    ? 'left-0 -translate-x-2' 
+                    : 'left-1/2 -translate-x-1/2';
+                  const verticalClass = spot.y < 45 
+                    ? 'top-full mt-2' 
+                    : 'bottom-full mb-2';
 
-                    return (
-                      <div
-                        key={spot.id}
-                        style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
-                        className="absolute -translate-x-1/2 -translate-y-1/2 z-30"
+                  return (
+                    <div
+                      key={spot.id}
+                      style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
+                      className="absolute -translate-x-1/2 -translate-y-1/2 z-30"
+                    >
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveHotspotId(isActive ? null : spot.id);
+                        }}
+                        className="group/hs relative min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer focus:outline-none"
+                        aria-label={`View ${spot.label}`}
                       >
-                        <button
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setActiveHotspotId(isActive ? null : spot.id);
-                          }}
-                          className="group/hs relative min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer focus:outline-none"
-                          aria-label={`View ${spot.label}`}
-                        >
-                          <span className={`w-7 h-7 rounded-full flex items-center justify-center border shadow-md transition-all duration-200 ${
-                            isActive 
-                              ? 'bg-[#3F8F91] border-white text-white scale-110' 
-                              : 'bg-[#222222]/85 backdrop-blur-xs border-white/80 text-white'
-                          }`}>
-                            <span className={`w-2 h-2 rounded-full ${
-                              isActive ? 'bg-white' : 'bg-[#3F8F91]'
-                            }`} />
-                          </span>
-                        </button>
+                        <span className={`w-7 h-7 rounded-full flex items-center justify-center border shadow-md transition-all duration-200 ${
+                          isActive 
+                            ? 'bg-[#B08A57] border-white text-[#2B1D17] scale-110' 
+                            : 'bg-[#2B1D17]/85 backdrop-blur-xs border-white/80 text-white'
+                        }`}>
+                          <span className={`w-2 h-2 rounded-full ${
+                            isActive ? 'bg-[#2B1D17]' : 'bg-[#B08A57]'
+                          }`} />
+                        </span>
+                      </button>
 
-                        <AnimatePresence>
-                          {isActive && spot.product && (
-                            <motion.div
-                              initial={{ opacity: 0, y: spot.y < 45 ? -6 : 6, scale: 0.95 }}
-                              animate={{ opacity: 1, y: 0, scale: 1 }}
-                              exit={{ opacity: 0, y: spot.y < 45 ? -6 : 6, scale: 0.95 }}
-                              transition={{ duration: 0.2 }}
-                              onClick={(e) => e.stopPropagation()}
-                              className={`absolute ${verticalClass} ${horizontalClass} w-56 bg-white rounded-xl p-2.5 shadow-2xl border border-[#E2E2E2] text-[#222222] z-40 pointer-events-auto`}
-                            >
-                              <div className="flex items-start gap-2">
-                                <img
-                                  src={spot.product.img}
-                                  alt={spot.product.name}
-                                  className="w-12 h-12 rounded-lg object-cover bg-[#F5F5F5] border border-[#E2E2E2] shrink-0"
-                                  referrerPolicy="no-referrer"
-                                />
-                                <div className="flex-1 min-w-0">
-                                  <span className="text-[8.5px] font-bold text-[#3F8F91] uppercase tracking-wider block truncate">
-                                    {(spot.product?.category || '').replace(/-/g, ' ')}
-                                  </span>
-                                  <h4 className="font-serif font-bold text-[11px] text-[#222222] line-clamp-2 leading-tight mt-0.5">
-                                    {spot.product.name}
-                                  </h4>
-                                  <div className="text-[11px] font-bold text-[#222222] font-mono mt-0.5">
-                                    ₹{spot.product.price.toLocaleString('en-IN')}
-                                  </div>
+                      <AnimatePresence>
+                        {isActive && spot.product && (
+                          <motion.div
+                            initial={{ opacity: 0, y: spot.y < 45 ? -6 : 6, scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: spot.y < 45 ? -6 : 6, scale: 0.95 }}
+                            transition={{ duration: 0.2 }}
+                            onClick={(e) => e.stopPropagation()}
+                            className={`absolute ${verticalClass} ${horizontalClass} w-56 bg-white rounded-xl p-2.5 shadow-2xl border border-[#DED6CC] text-[#211A16] z-40 pointer-events-auto`}
+                          >
+                            <div className="flex items-start gap-2">
+                              <img
+                                src={spot.product.img}
+                                alt={spot.product.name}
+                                className="w-12 h-12 rounded-lg object-cover bg-[#F7F4EE] border border-[#DED6CC] shrink-0"
+                                referrerPolicy="no-referrer"
+                              />
+                              <div className="flex-1 min-w-0">
+                                <span className="text-[8.5px] font-bold text-[#B08A57] uppercase tracking-wider block truncate">
+                                  {(spot.product?.category || '').replace(/-/g, ' ')}
+                                </span>
+                                <h4 className="font-serif font-bold text-[11px] text-[#211A16] line-clamp-2 leading-tight mt-0.5">
+                                  {spot.product.name}
+                                </h4>
+                                <div className="text-[11px] font-bold text-[#211A16] font-mono mt-0.5">
+                                  ₹{spot.product.price.toLocaleString('en-IN')}
                                 </div>
-                                <button
-                                  type="button"
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    setActiveHotspotId(null);
-                                  }}
-                                  className="text-stone-400 hover:text-stone-700 p-0.5 transition-colors cursor-pointer"
-                                  aria-label="Close preview"
-                                >
-                                  <X size={13} />
-                                </button>
                               </div>
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setActiveHotspotId(null);
+                                }}
+                                className="text-stone-400 hover:text-stone-700 p-0.5 transition-colors cursor-pointer"
+                                aria-label="Close preview"
+                              >
+                                <X size={13} />
+                              </button>
+                            </div>
 
-                              <div className="mt-2 pt-1.5 border-t border-[#EEEEEE]">
-                                <button
-                                  type="button"
-                                  onClick={() => {
-                                    if (spot.product) onSelectProduct(spot.product.id);
-                                  }}
-                                  className="w-full min-h-[32px] bg-[#3F8F91] hover:bg-[#347F81] text-white text-[10.5px] font-bold py-1 px-2.5 rounded transition-colors flex items-center justify-center gap-1 cursor-pointer"
-                                >
-                                  <span>View Product</span>
-                                  <ArrowRight size={12} />
-                                </button>
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    );
-                  })}
-                </div>
-              ))}
-            </div>
-
-            <div className="flex items-center justify-between mt-3 text-xs text-[#555555]">
-              <span className="text-[11px]">
-                ← Swipe to explore 5 styled environments →
-              </span>
-              <span className="text-[11px] font-bold text-[#3F8F91]">
-                Tap markers for product specs
-              </span>
-            </div>
+                            <div className="mt-2 pt-1.5 border-t border-[#F7F4EE]">
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  if (spot.product) onSelectProduct(spot.product.id);
+                                }}
+                                className="w-full min-h-[32px] bg-[#2B1D17] text-white text-[10.5px] font-bold py-1 px-2.5 rounded transition-colors flex items-center justify-center gap-1 cursor-pointer"
+                              >
+                                <span>View Product</span>
+                                <ArrowRight size={12} />
+                              </button>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
+              </div>
+            ))}
           </div>
 
-        </section>
+          <div className="flex items-center justify-between mt-3 text-xs text-[#756B62]">
+            <span className="text-[11px]">
+              ← Swipe to explore 5 styled environments →
+            </span>
+            <span className="text-[11px] font-bold text-[#B08A57]">
+              Tap markers for product specs
+            </span>
+          </div>
+        </div>
+
+      </section>
 
 
       {/* ── SECTION H2: EXPLORE HYDRAULIC BEDS (Shared Image 1) ── */}
@@ -2203,7 +2203,7 @@ export default function HomeView({
 
       {/* ── SECTION H4: HOME DECOR (Shared Image 3) ── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-14 sm:my-20">
-        <div className="bg-[#FAF7F2] rounded-2xl sm:rounded-3xl border border-[#E8E1D7] p-6 sm:p-10 shadow-2xs">
+        <div className="bg-[#FAF5F2] rounded-2xl sm:rounded-3xl border border-[#EADBD2] p-6 sm:p-10 shadow-2xs">
           
           {/* Section Header */}
           <div className="flex items-center justify-between gap-4 mb-6 sm:mb-8">
